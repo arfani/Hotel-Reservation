@@ -1,0 +1,29 @@
+  /* Make the image of carousel fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+
+  .footer {
+    background: #ccc;
+    padding: 2em;
+  }
+
+  .content {
+    padding: 2em;
+    /* background: rgba(50, 50, 50, 0.2); */
+  }
+
+  .welcome-msg {
+    text-align: justify;
+    margin-bottom: 50px;
+  }
+
+  .welcome-msg-right {
+    text-align: right;
+    margin-bottom: 50px;
+  }
+
+  .title-right {
+    text-align: right;
+  }
