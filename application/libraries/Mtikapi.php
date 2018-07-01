@@ -14,7 +14,7 @@
  *
  ******************************/
 
-class routeros_api
+class Mtikapi
 {
     var $debug = false;      // Show debug information
     var $error_no;           // Variable for storing connection error number, if any

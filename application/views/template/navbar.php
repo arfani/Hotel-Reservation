@@ -1,8 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 <!-- Brand -->
-<a class="navbar-brand" href="#">
-<img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Jazz Logo" style="width:90px;">
+<a class="navbar-brand" href="<?php echo site_url(); ?>">
+<img src="<?php echo site_url(); ?>assets/img/logo.png" alt="Jazz Logo" style="width:90px;">
 </a>
 
 <!-- Toggler/collapsibe Button -->
@@ -14,10 +14,10 @@
 <!-- Links -->
 <ul class="navbar-nav">
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
+    <a class="nav-link" href="<?php echo site_url(); ?>">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url(); ?>reserve">Reservation</a>
+    <a class="nav-link" href="<?php echo site_url(); ?>reserve">Reservation</a>
   </li>
 
   <!-- Dropdown -->
@@ -42,6 +42,10 @@
   <input class="form-control mr-sm-2" type="text" placeholder="Search">
 </form>
 </div>
+<ul class="navbar-nav">
+    <li class="nav-item"><a href="<?php echo site_url('home/setting'); ?>" class="nav-link">Setting</a></li>
+  </ul>
+
 </div>
 </nav>
 <!-- End of Navbar -->

@@ -1,5 +1,4 @@
 <?php
-  $this->load->view('mtik/routeros_api.class.php');
 
   $API = new routeros_api();
 
@@ -11,6 +10,12 @@
     ?>
     <script>
       alert('konek mtik')
+    </script>
+    <?php
+  }else{
+    ?>
+    <script>
+      alert('gagal konek mtik')
     </script>
     <?php
   }
