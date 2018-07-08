@@ -1,3 +1,7 @@
+  body{
+    background-image: url('https://source.unsplash.com/1600x900/?hotel,white');
+  }
+
   /* Make the image of carousel fully responsive */
   .carousel-inner img {
       width: 100%;
@@ -26,4 +30,23 @@
 
   .title-right {
     text-align: right;
+  }
+
+  .data-tamu {
+    background-color: rgba(255,255,255,0.7);
+    padding: 20px;
+    margin-top:20px;
+    /* margin: 0 5px 5px 0; */
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  label[for="room-type"]{
+    margin-right: 15px;
+  }
+
+  #form-res > h2 {
+    padding: 5px;
   }

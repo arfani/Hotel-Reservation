@@ -17,19 +17,30 @@
     <a class="nav-link" href="<?php echo site_url(); ?>">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo site_url(); ?>reserve">Reservation</a>
+    <a class="nav-link" href="<?php echo site_url('hotel/form'); ?>">Reservation</a>
   </li>
 
   <!-- Dropdown -->
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="service" data-toggle="dropdown">
       Services
     </a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Restaurant & Cafe</a>
+      <a class="dropdown-item" href="#">Restaurant</a>
       <a class="dropdown-item" href="#">Rooms</a>
       <a class="dropdown-item" href="#">Salon & Spa</a>
       <a class="dropdown-item" href="#">Barber Shop</a>
+      <a class="dropdown-item" href="#">Others</a>
+    </div>
+  </li>
+
+  <!-- Dropdown -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="master" data-toggle="dropdown">
+      Master Data
+    </a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Rooms</a>
     </div>
   </li>
 
@@ -43,7 +54,7 @@
 </form>
 </div>
 <ul class="navbar-nav">
-    <li class="nav-item"><a href="<?php echo site_url('home/setting'); ?>" class="nav-link">Setting</a></li>
+    <li class="nav-item"><a href="<?php echo site_url('hotel/setting'); ?>" class="nav-link">Setting</a></li>
   </ul>
 
 </div>

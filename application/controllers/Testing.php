@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Testing extends CI_Controller {
   public function index(){
     $this->load->view('template/header');
-      echo anchor('home');
+      echo anchor('home', 'home');
       echo '<br />';
       echo base_url('reserve');
       echo site_url();
@@ -36,8 +36,11 @@ class Testing extends CI_Controller {
   }
 
   public function test_connection(){
-    // $this->connect();
-    // $backLink = site_url();
+    $rooms = $this->db->get('rooms');
+    foreach ($rooms->result() as $key => $value) {
+      // code...
+      $key->name;
+    }
   }
 
 }
