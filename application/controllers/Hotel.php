@@ -12,7 +12,7 @@ class Hotel extends CI_Controller {
 	}
 
 	public function setting(){
-		echo 'Setting';
+		$this->load->view('setting');
 	}
 
 	function form(){

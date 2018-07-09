@@ -36,10 +36,10 @@ class Testing extends CI_Controller {
   }
 
   public function test_connection(){
-    $rooms = $this->db->get('rooms');
-    foreach ($rooms->result() as $key => $value) {
-      // code...
-      $key->name;
+    // $rooms = $this->db->get('rooms');
+    // foreach ($rooms->result() as $key => $value) {
+    //   // code...
+    //   $key->name;
     }
   }
 

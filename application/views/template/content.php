@@ -1,3 +1,4 @@
+<div class="bg-light">
   <!-- Carousel -->
 <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -53,4 +54,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
