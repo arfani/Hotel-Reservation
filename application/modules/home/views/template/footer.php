@@ -7,8 +7,13 @@
 </div>
 <!-- load main.js -->
 <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
+<!-- load js based on page loaded -->
 <?php if ($this->uri->segment(1) == 'rooms') { ?>
   <script src="<?php echo base_url('assets/js/rooms.js'); ?>"></script>
+<?php } ?>
+
+<?php if ($this->uri->segment(1) == 'reservation') { ?>
+  <script src="<?php echo base_url('assets/js/reservation.js'); ?>"></script>
 <?php } ?>
 </body>
 </html>

@@ -7,8 +7,9 @@
         <form action="<?php site_url('hotel/connect') ?>">
           <div class="row">
             <?php
-            $this->load->view('form/data_tamu');
-            $this->load->view('form/data_hotel');
+            $this->load->view('forms/data_tamu');
+            $this->load->view('forms/data_hotel');
+            $this->load->view('forms/reservation_modal');
              ?>
            </div>
         </form>
