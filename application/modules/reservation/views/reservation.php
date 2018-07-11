@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-sm-12" id="form-res">
         <h2 class="text-center font-weight-bold bg-light rounded-circle">Reservation Form</h2>
-        <form action="#">
+        <form action="<?php site_url('hotel/connect') ?>">
           <div class="row">
             <?php
             $this->load->view('form/data_tamu');

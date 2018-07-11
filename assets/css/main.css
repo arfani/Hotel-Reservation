@@ -1,5 +1,6 @@
   body{
-    background-image: url('https://source.unsplash.com/1600x900/?hotel,white');
+    background-image: url('https://source.unsplash.com/1600x900/?hotel,green');
+    background-color: rgba(255,255,255,0.8);
   }
 
   /* Make the image of carousel fully responsive */
@@ -49,4 +50,24 @@
 
   #form-res > h2 {
     padding: 5px;
+  }
+
+  .finger {
+    cursor: pointer;
+  }
+
+  /* .form-inline {
+    align-self: center;
+  } */
+
+  .form-inline > input {
+    margin-left: 20px;
+  }
+
+  #rooms-tbl {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .action-col {
+    text-align: center;
   }

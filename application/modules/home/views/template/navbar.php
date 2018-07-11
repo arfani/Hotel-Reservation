@@ -1,8 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 <!-- Brand -->
-<a class="navbar-brand" href="<?php echo site_url(); ?>">
-<img src="<?php echo site_url(); ?>assets/img/logo.png" alt="Jazz Logo" style="width:90px;">
+<a class="navbar-brand" href="#" id="logo-menu">
+<img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="Jazz Logo" style="width:90px;">
 </a>
 
 <!-- Toggler/collapsibe Button -->
@@ -14,10 +14,10 @@
 <!-- Links -->
 <ul class="navbar-nav">
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo site_url(); ?>">Home</a>
+    <a class="nav-link" href="#" id="home-menu">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo site_url('hotel/form'); ?>">Reservation</a>
+    <a class="nav-link" href="#" id="reservation-menu">Reservation</a>
   </li>
 
   <!-- Dropdown -->
@@ -36,11 +36,11 @@
 
   <!-- Dropdown -->
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="master" data-toggle="dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="master-data-menu" data-toggle="dropdown">
       Master Data
     </a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Rooms</a>
+      <a class="dropdown-item" id="rooms-submenu">Rooms</a>
     </div>
   </li>
 
@@ -50,11 +50,11 @@
 
 <div class="ml-auto">
 <form class="form-inline" action="#">
-  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+  <input class="form-control mr-sm-2" type="text" placeholder="Search" id="search">
 </form>
 </div>
 <ul class="navbar-nav">
-    <li class="nav-item"><a href="<?php echo site_url('hotel/setting'); ?>" class="nav-link">Setting</a></li>
+    <li class="nav-item"><a class="nav-link finger" role="button" id="setting-menu">Setting</a></li>
   </ul>
 
 </div>
