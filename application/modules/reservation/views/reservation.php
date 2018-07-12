@@ -7,8 +7,8 @@
         <form action="#" name="reservation-form">
           <div class="row">
             <?php
-            $this->load->view('forms/data_tamu');
-            $this->load->view('forms/data_hotel');
+            $this->load->view('forms/guest_data');
+            $this->load->view('forms/hotel_data');
             $this->load->view('forms/reservation_modal');
              ?>
            </div>

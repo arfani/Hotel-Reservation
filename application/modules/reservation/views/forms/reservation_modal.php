@@ -10,17 +10,16 @@
         </div>
 
         <!-- Modal body -->
-        <!-- <form method="post" action="#" id="reservation-modal-form"> -->
           <input type="hidden" name="id" value="">
         <div class="modal-body">
           <div class="container">
           <div class="row">
-                <div class="col-xs-6">
+                <div class="col-sm-6 bg-light">
                   <h4>Data of Guest</h4>
                 <div id="guest-data">
                   Name  : <span id="guest-name"></span><br />
-                  Id-numb  : <span id="guest-id"></span><br /><br />
-                  dll... <br />
+                  Id-numb  : <span id="guest-id"></span><br />
+                  dll... <br /><br />
                   Date from  : <span id="guest-date-from"></span><br />
                   Count of day  : <span id="guest-cod"></span>
                 </div>
@@ -30,19 +29,20 @@
                   Active  : <span id="voucher-active"></span>
                 </div>
                 </div>
-                <div class="col-xs-6">
-                  <div id="frame-qrcode">
+                <div class="col-sm-6 bg-light">
+                  <div id="frame-qrcode" class="d-none">
                   <h4>Scan your voucher</h4>
                   <div id="voucher-qrcode"></div>
+                  <div>DNS Name : <span id="dns-name">arfani.hotspot.net</span></div>
+                </div>
+
+                </div>
+                <div class="col-sm-12">
                   <div class="alert alert-success alert-dismissable d-none" id="reservation-alert">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Status : <span id="reservation-status"></span>
                   </div>
                 </div>
-
-                </div>
-
-
           </div>
           </div>
       </div> <!-- End of Modal Body -->
@@ -51,7 +51,6 @@
         <div class="modal-footer">
           <input type="button" class="btn btn-primary" value="Save" id="reservation-save"/>
         </div>
-      <!-- </form> -->
 
       </div>
     </div>

@@ -1,11 +1,11 @@
 #frame-qrcode {
-  margin-left: 130px;
+  /* margin-left: 130px; */
 }
 
 #voucher-username, #voucher-password {
   color: #007BFF;
 }
 
-#frame-qrcode > h4 {
+#frame-qrcode {
   text-align: center;
 }

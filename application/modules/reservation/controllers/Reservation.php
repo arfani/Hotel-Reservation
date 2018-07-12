@@ -3,10 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Reservation extends CI_Controller {
 
-  private $name;
   function __construct(){
         parent::__construct(); // needed when adding a constructor to a controller
-        $this->name = $this->input->post('name');
+        $this->load->model('reservation_m', 'rm');
       }
   function index(){
     $data = array(
@@ -15,14 +14,22 @@ class Reservation extends CI_Controller {
 		$this->load->view('home/home', $data);
   }
 
-  function generated(){
-    echo $this->input->post('guestName');
-  }
+  function save(){
+    $msg = "no message";
+    $data = array(
+      'guest_name' => $this->input->post('gName'),
+      'guest_id' => $this->input->post('gId'),
+      'date_from' => $this->input->post('dateFrom'),
+      'cod' => $this->input->post('cod')
+    );
+      $save = $this->rm->insert($data);
+      if($save){
+        $msg = "Saving data successfully";
+      }else{
+        $msg = "Saving data failed";
+      }
 
-  function test(){
-
-    $this->name = $this->input->post('guest_name');
-    echo $this->input->post('name').' tes';
+      echo $msg;
   }
 
 

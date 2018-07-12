@@ -1,12 +1,66 @@
 $(document).ready(function(){
+
+    // Get current date
+      Date.prototype.toDateInputValue = (function() {
+          var local = new Date(this)
+          local.setMinutes(this.getMinutes() - this.getTimezoneOffset())
+          return local.toJSON().slice(0,10)
+      })
+
+    // Every time a modal is shown, if it has an autofocus element, focus on it.
+    $('.modal').on('shown.bs.modal', function() {
+      $(this).find('[autofocus]').focus();
+    });
+
+  // =======================
+  // Connect to mtik server
+  // =======================
+
+  $('#mtik-connect').on('click', function(){
+    $(this).val('Connecting...')
+    $(this).attr('disabled', true)
+    const hName = $('#hostname').val()
+    const uName = $('#username').val()
+    const pwd = $('#password').val()
+
+      $.ajax({
+              type:"post",
+              url: site_url+"setting/connect",
+              data:{hostname: hName, username: uName, password: pwd},
+              success:function(res){
+                $('#server-status').text(res)
+                $('#server-alert').removeClass('d-none')
+                $('#server-alert').addClass('d-block')
+                $('#mtik-connect').val('Connect')
+                $('#mtik-connect').attr('disabled', false)
+              },
+              error: function()
+              {
+                  alert("Invalid! Ajax error.")
+                  $(this).val('Connect')
+                  $(this).attr('disabled', false)
+              }
+          })
+  })
+
+  // =====================
+  // Reset button mtik-Server
+
+  $('#mtik-reset').click(function(){
+    $('#hostname').val('')
+    $('#username').val('')
+    $('#password').val('')
+    $('#server-alert').removeClass('d-block')
+    $('#server-alert').addClass('d-none')
+  })
+
+
   // ==============
   //  Navbar links
   // ==============
 
   $('#setting-menu').on('click', function(){
-    setTimeout(function(){
       $('#mtik-setting-modal').modal('show')
-    },2000)
   })
 
   $('#logo-menu').on('click', function(){
@@ -32,19 +86,6 @@ $(document).ready(function(){
   // End of navbar links
   // ====================
 
-  // get current date
-    Date.prototype.toDateInputValue = (function() {
-        var local = new Date(this)
-        local.setMinutes(this.getMinutes() - this.getTimezoneOffset())
-        return local.toJSON().slice(0,10)
-    })
-  //put current date to date from of reservation form
-  $('#date-from').val(new Date().toDateInputValue())
-
-  // Every time a modal is shown, if it has an autofocus element, focus on it.
-  $('.modal').on('shown.bs.modal', function() {
-    $(this).find('[autofocus]').focus();
-  });
 
 
 
