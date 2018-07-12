@@ -31,23 +31,25 @@
                 </div>
                 </div>
                 <div class="col-xs-6">
-                  <div class="float-right" id="frame-qrcode">
+                  <div id="frame-qrcode">
                   <h4>Scan your voucher</h4>
                   <div id="voucher-qrcode"></div>
-                </div>
+                  <div class="alert alert-success alert-dismissable d-none" id="reservation-alert">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    Status : <span id="reservation-status"></span>
+                  </div>
                 </div>
 
-                <div class="alert alert-success alert-dismissable d-none" id="reservation-alert">
-                  <button type="button" class="close" data-dismiss="alert">&times;</button>
-                  Status : <span id="reservation-status"></span>
                 </div>
+
+
           </div>
           </div>
       </div> <!-- End of Modal Body -->
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" value="Save" id="reservation-save"/>
+          <input type="button" class="btn btn-primary" value="Save" id="reservation-save"/>
         </div>
       <!-- </form> -->
 

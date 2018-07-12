@@ -4,7 +4,9 @@ $(document).ready(function(){
   // ==============
 
   $('#setting-menu').on('click', function(){
-    $('#mtik-setting-modal').modal('show')
+    setTimeout(function(){
+      $('#mtik-setting-modal').modal('show')
+    },2000)
   })
 
   $('#logo-menu').on('click', function(){

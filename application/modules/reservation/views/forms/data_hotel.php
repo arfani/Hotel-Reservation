@@ -36,7 +36,7 @@
 
 		<!-- buttons -->
 		<div class="form-group text-right">
-			<button class="btn btn-primary" type="submit" id="reservation-submit">Submit</button>
+			<button class="btn btn-primary" type="button" id="reservation-submit">Submit</button>
 			<button class="btn btn-danger" type="reset">Reset</button>
 		</div>
 	</div>

@@ -16,7 +16,7 @@ class Reservation extends CI_Controller {
   }
 
   function generated(){
-    echo $this->name;
+    echo $this->input->post('guestName');
   }
 
   function test(){
