@@ -43,6 +43,8 @@
                     Status : <span id="reservation-status"></span>
                   </div>
                 </div>
+
+
           </div>
           </div>
       </div> <!-- End of Modal Body -->
