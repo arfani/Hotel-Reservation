@@ -1,5 +1,6 @@
-$(function(){
+'use strict'
 
+$(function(){
   const name = $('#name')
   const id = $('#id-numb')
 
@@ -10,7 +11,7 @@ $(function(){
   $('#reservation-submit').on('click', function(){
     $('#reservation-save').val('Confirm')
 
-    if ( name.val() === ''){
+    if (name.val() === ''){
       alert('Name cannot be empty')
       name.focus()
     // }else if (isNaN(id.val()) || id.val().length < 1 ){
@@ -19,7 +20,7 @@ $(function(){
     }else{
       const username = name.val().slice(0, name.val().indexOf(' '))
 
-      $('#guest-name').val(name.val())
+      $('#guest-name').text(name.val())
       $('#guest-id').text(id.val())
       $('#guest-date-from').text(dateFrom.val())
       $('#guest-cod').text(cod.val())
@@ -36,19 +37,18 @@ $(function(){
 
       $('#reservation-modal .modal-title').text('Confirm your data!')
       $('#reservation-modal').modal('show')
-
     } //end if else
   }) //end onclick
 
   // when save
   $('#reservation-save').on('click', function(){
             // event.preventDefault()
-            const name = $('#name').val()
+            const name = 'cobaaaaaaaaa'
 
             $.ajax({
                     type:"post",
                     url: site_url+"reservation/generated",
-                    data:{ guest_name: name},
+                    data:{guestName: name},
                     success:function(response)
                     {
                         console.log(response)
