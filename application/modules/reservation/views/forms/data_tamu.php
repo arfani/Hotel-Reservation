@@ -7,7 +7,7 @@
   <input type="text" class="form-control" id="name" name="name" placeholder="e.g: Umar Abdullah" required autofocus/>
 </div>
 <div class="form-group">
-  <label for="id-numb">Number Id :</label>
+  <label for="id-numb">Id Number :</label>
   <input type="text" class="form-control" id="id-numb" placeholder="e.g: 1234567890"/>
 </div>
 

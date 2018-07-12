@@ -25,8 +25,8 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="">Number of day :</label>
-			<input type="number" class="form-control" name="days" value="1"/>
+			<label for="">Count of day :</label>
+			<input type="number" class="form-control" name="days" value="1" id="cod"/>
 		</div>
 
 		<div class="form-group">
@@ -36,7 +36,7 @@
 
 		<!-- buttons -->
 		<div class="form-group text-right">
-			<button class="btn btn-primary" type="button" id="reservation-submit">Submit</button>
+			<button class="btn btn-primary" type="submit" id="reservation-submit">Submit</button>
 			<button class="btn btn-danger" type="reset">Reset</button>
 		</div>
 	</div>
