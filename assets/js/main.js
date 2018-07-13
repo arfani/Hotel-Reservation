@@ -29,8 +29,6 @@ $(document).ready(function(){
               data:{hostname: hName, username: uName, password: pwd},
               success:function(res){
                 $('#server-status').text(res)
-                $('#server-alert').removeClass('d-none')
-                $('#server-alert').addClass('d-block')
                 processBtnEnd()
               },
               error: function(){
@@ -46,6 +44,8 @@ $(document).ready(function(){
     $('#loader-img').removeClass('d-none')
     $('#loader-img').addClass('d-block')
     $('#mtik-reset').attr('disabled', true)
+    $('#server-alert').removeClass('d-block')
+    $('#server-alert').addClass('d-none')
   }
 
   function processBtnEnd(){
@@ -54,6 +54,8 @@ $(document).ready(function(){
     $('#loader-img').removeClass('d-block')
     $('#loader-img').addClass('d-none')
     $('#mtik-reset').attr('disabled', false)
+    $('#server-alert').removeClass('d-none')
+    $('#server-alert').addClass('d-block')
   }
 
   // =====================

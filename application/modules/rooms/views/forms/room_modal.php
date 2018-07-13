@@ -10,7 +10,7 @@
         </div>
 
         <!-- Modal body -->
-        <form method="post" action="#" id="room-modal-form">
+        <!-- <form method="post" action="#" id="room-modal-form"> -->
           <input type="hidden" name="id" value="">
         <div class="modal-body">
           <div class="d-flex justify-content-left">
@@ -37,9 +37,9 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <input type="button" class="btn btn-primary" value="Save" id="room-submit"/>
-          <input type="reset" class="btn btn-danger" value="Reset" />
+          <input type="reset" class="btn btn-danger" value="Reset" id="room-reset" />
         </div>
-      </form>
+      <!-- </form> -->
 
       </div>
     </div>

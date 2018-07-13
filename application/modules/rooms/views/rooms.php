@@ -15,7 +15,8 @@
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody><?php
+        <tbody>
+        <!-- <?php
         $no = 1;
         foreach ($rooms as $room) {
          ?>
@@ -28,7 +29,7 @@
               <button id="room_edit" value="<?php echo $room->id; ?>" class="room_edit btn btn-primary"><span class="octicon octicon-pencil"></span></button>
               <a href="<?php echo site_url('hotel/remove_room/').$room->id; ?>" class="btn btn-danger"><span class="octicon octicon-trashcan"></span></a>
             </td>
-          </tr> <?php } ?>
+          </tr> <?php } ?> -->
         </tbody>
       </table>
       </div>

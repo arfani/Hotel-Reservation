@@ -15,12 +15,5 @@
       }
     }
 
-    function get_latest(){
-      $this->db->order_by($this->id, 'DESC');
-      $this->db->limit(1);
-      $this->db->where('status', 'success');
-      return $this->db->get($this->table)->result();
-    }
-
 
   }

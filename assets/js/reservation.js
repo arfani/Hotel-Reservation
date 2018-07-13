@@ -42,37 +42,52 @@ $(function(){
 
   // when save
   $('#reservation-save').on('click', function(){
-            // event.preventDefault()
-            const gName = name.val()
-            const gId = id.val()
-            const dateFrom1 = dateFrom.val()
-            const cod1 = cod.val()
+    processBtn()
 
-            $.ajax({
-                    type:"post",
-                    url: site_url+"reservation/save",
-                    data:{gName: gName, gId: gId, dateFrom: dateFrom1, cod: cod1},
-                    success:function(response)
-                    {
-                      const dnsName = $('#dns-name').text()
-                      const uName = $('#voucher-username').text()
-                      const pwd = $('#voucher-password').text()
-                        $('#reservation-status').html(response)
-                        $('#reservation-alert').removeClass('d-none')
-                        $('#reservation-alert').addClass('d-block')
-                        $('#frame-qrcode').removeClass('d-none')
-                        $('#frame-qrcode').addClass('d-block')
-                        $('#voucher-qrcode').qrcode({
-                          width: 256,
-                          height: 256,
-                          text: dnsName+'/login?username='+uName+'&password='+pwd
-                        })},
-                    error: function()
-                    {
-                        alert("Invalid!")
-                    }
+    const gName = name.val()
+    const gId = id.val()
+    const dateFrom1 = dateFrom.val()
+    const cod1 = cod.val()
+
+    const dnsName = $('#dns-name').text()
+    const uName = $('#voucher-username').text()
+    const pwd = $('#voucher-password').text()
+
+    $.ajax({
+            type:"post",
+            url: site_url+"reservation/save",
+            data:{gName: gName, gId: gId, dateFrom: dateFrom1, cod: cod1, uName: uName, pwd: pwd},
+            success:function(response){
+                $('#reservation-status').html(response)
+                $('#voucher-qrcode').qrcode({
+                  width: 256,
+                  height: 256,
+                  text: dnsName+'/login?username='+uName+'&password='+pwd
                 })
+                processBtnEnd()
+              },
+            error: function()
+            {
+                alert("Invalid! Error Ajax Process in reservation-save")
+            }
+        })
   }) // And when save
+
+  function processBtn(){
+    $('#reservation-save').val('Saving...')
+    $('#reservation-save').attr('disabled', true)
+  }
+
+  function processBtnEnd(){
+    $('#reservation-save').val('Confirm')
+    $('#reservation-save').attr('disabled', false)
+    $('#reservation-alert').removeClass('d-none')
+    $('#reservation-alert').addClass('d-block')
+    $('#frame-qrcode').removeClass('d-none')
+    $('#frame-qrcode').addClass('d-block')
+  }
+
+
 
   // ==============
   //  Connect to the latest successed mtik server
