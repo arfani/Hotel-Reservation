@@ -17,8 +17,8 @@ $(document).ready(function(){
   // =======================
 
   $('#mtik-connect').on('click', function(){
-    $(this).val('Connecting...')
-    $(this).attr('disabled', true)
+    processBtn()
+
     const hName = $('#hostname').val()
     const uName = $('#username').val()
     const pwd = $('#password').val()
@@ -31,16 +31,30 @@ $(document).ready(function(){
                 $('#server-status').text(res)
                 $('#server-alert').removeClass('d-none')
                 $('#server-alert').addClass('d-block')
-                $('#mtik-connect').val('Connect')
-                $('#mtik-connect').attr('disabled', false)
+                processBtnEnd()
               },
               error: function(){
                   alert("Invalid! Ajax error.")
-                  $('#mtik-connect').val('Connect')
-                  $('#mtik-connect').attr('disabled', false)
+                  processBtnEnd()
               }
           })
   })
+
+  function processBtn(){
+    $('#mtik-connect').val('Connecting...')
+    $('#mtik-connect').attr('disabled', true)
+    $('#loader-img').removeClass('d-none')
+    $('#loader-img').addClass('d-block')
+    $('#mtik-reset').attr('disabled', true)
+  }
+
+  function processBtnEnd(){
+    $('#mtik-connect').val('Connect')
+    $('#mtik-connect').attr('disabled', false)
+    $('#loader-img').removeClass('d-block')
+    $('#loader-img').addClass('d-none')
+    $('#mtik-reset').attr('disabled', false)
+  }
 
   // =====================
   // Reset button mtik-Server

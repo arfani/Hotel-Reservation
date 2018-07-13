@@ -5,7 +5,7 @@
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Mikrotik Server Setting</h4>
+          <h4 class="modal-title">Mikrotik Server Setting <span class="la-timer dark text-danger float-right ml-4 d-none" id="loader-img"><div></div></span></h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
