@@ -7,6 +7,7 @@ class Reservation extends CI_Controller {
         parent::__construct(); // needed when adding a constructor to a controller
         $this->load->model('reservation_m', 'rm');
       }
+
   function index(){
     $data = array(
       'content' => 'reservation'
@@ -31,6 +32,5 @@ class Reservation extends CI_Controller {
 
       echo $msg;
   }
-
 
 } //END OF FILE

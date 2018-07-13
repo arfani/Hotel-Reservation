@@ -24,8 +24,6 @@ class Setting extends CI_Controller {
   } // End connect_latest
 
   function connect(){
-    $API = new mtikapi();
-
     $data = array(
       'hostname' => $this->input->post('hostname'),
   		'username' => $this->input->post('username'),
@@ -34,15 +32,62 @@ class Setting extends CI_Controller {
     );
 		$msg = "Status unknown";
 
-    if($API->connect($data['hostname'], $data['username'], $data['password'])){
+    if($this->mtikapi->connect($data['hostname'], $data['username'], $data['password'])){
       $msg = "Success connect to ".$data['hostname'];
       $data['status'] = 'Success';
+      $this->session->set_userdata($data);
     }else{
       $msg = "Failed connect to ".$data['hostname'];
       $data['status'] = 'Failed';
+      $this->session->set_userdata($data);
     }
     echo $msg;
     $this->sm->insert($data);
+
   } // End connect
+
+  function testing(){
+    echo $this->session->hostname;
+    echo '<br />';
+      echo $this->session->username;
+      echo '<br />';
+        echo $this->session->password;
+        echo '<br />';
+        print_r($this->session->all_userdata());
+  }
+
+  function test(){
+    $this->mtikapi->debug = true;
+      if($this->mtikapi->connect($this->session->hostname, $this->session->username, $this->session->password)){
+        $this->mtikapi->write('/ip/hotspot/user/getall');
+        $users = $this->mtikapi->read(); // or $this->mtikapi->comm('/ip/hotspot/user/getall') then remove this line and 1 above
+
+        foreach ($users as $user) {
+          echo $user['name'];
+        }
+
+        $msg = "Success connect to ".$this->session->hostname;
+        }else{
+          $msg = "Failed connect to ".$this->session->hostname ;
+      }
+      echo $msg;
+      echo '<br />';
+      echo $this->session->hostname;
+      echo '<br />';
+      echo $this->session->status;
+      $this->mtikapi->disconnect();
+    }
+
+    function test_add(){
+      $this->mtikapi->debug = true;
+        if($this->mtikapi->connect($this->session->hostname, $this->session->username, $this->session->password)){
+          // $this->mtikapi->comm('/ip/hotspot/user/add', array(...))
+
+          }else{
+            $msg = "Failed connect to ".$this->session->hostname ;
+        }
+        echo $msg;
+        $this->mtikapi->disconnect();
+      }
 
 } // END OF FILE

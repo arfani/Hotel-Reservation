@@ -17,7 +17,7 @@
   <?php if($this->uri->segment(1) == 'reservation'){ ?>
   <link rel="stylesheet" href="<?php echo base_url('assets/css/reservation.css'); ?>">
   <?php } ?>
-  
+
   <!-- jQuery datatable -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -29,6 +29,8 @@
   <!-- jQuery QRcode -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous"></script>
 
+  <!-- load load_awesome css -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/timer.min.css'); ?>">
   <script>
     const site_url = '<?php echo site_url(); ?>'
   </script>

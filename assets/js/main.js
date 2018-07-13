@@ -34,11 +34,10 @@ $(document).ready(function(){
                 $('#mtik-connect').val('Connect')
                 $('#mtik-connect').attr('disabled', false)
               },
-              error: function()
-              {
+              error: function(){
                   alert("Invalid! Ajax error.")
-                  $(this).val('Connect')
-                  $(this).attr('disabled', false)
+                  $('#mtik-connect').val('Connect')
+                  $('#mtik-connect').attr('disabled', false)
               }
           })
   })

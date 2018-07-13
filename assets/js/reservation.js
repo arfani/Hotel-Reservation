@@ -16,13 +16,12 @@ $(function(){
 
   // when want to confirm
   $('#reservation-submit').on('click', function(){
-    $('#reservation-save').val('Confirm')
 
     if (name.val() === ''){
-      alert('Name cannot be empty')
+      alert('Name cannot be empty!')
       name.focus()
     }else if (isNaN(id.val()) || id.val().length < 1 ){
-      alert('Invalid data id')
+      alert('Id data invalid!')
       id.focus()
     }else{
       const uName = name.val().slice(0, name.val().indexOf(' '))

@@ -1,12 +1,12 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Rooms extends CI_Controller {
-  function __construct()
-    {
+  function __construct(){
       parent::__construct();
       // Your own constructor code
 			$this->load->model('Rooms_m', 'model');
     }
+
   function index(){
     $data = array(
     'content' => 'rooms',
@@ -14,4 +14,8 @@ class Rooms extends CI_Controller {
     );
     $this->load->view('home/home', $data);
   }
+
+  
+
+
 }

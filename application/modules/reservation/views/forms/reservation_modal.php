@@ -51,7 +51,7 @@
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <input type="button" class="btn btn-primary" value="Save" id="reservation-save"/>
+          <input type="button" class="btn btn-primary" value="Confirm" id="reservation-save"/>
         </div>
 
       </div>
