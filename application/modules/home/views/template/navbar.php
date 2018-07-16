@@ -41,6 +41,7 @@
         Master Data
       </a>
       <div class="dropdown-menu">
+        <a class="dropdown-item" id="emp-submenu">Employees</a>
         <a class="dropdown-item" id="rooms-submenu">Rooms</a>
       </div>
     </li>
@@ -55,7 +56,7 @@
     <form class="form-inline" action="#">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" id="search">
     </form>
-    <li class="nav-item"><a class="nav-link finger" role="button" id="setting-menu"><span class="octicon octicon-gear"></span></a></li>
+    <li class="nav-item"><a class="nav-link finger" role="button" id="setting-menu"><span class="octicon octicon-tools"></span></a></li>
     <li class="nav-item"><a class="nav-link finger" role="button" id="log-in-out"><span class="octicon octicon-sign-in"></span></a></li>
   </ul>
 </div>

@@ -13,16 +13,40 @@ $(document).ready(function(){
     });
 
   // =======================
-  // Login Employee
+  // Login User
   // =======================
+
+    function loginProcess(){
+      $('#login-submit').val('Processing...')
+      $('#login-submit').attr('disabled', true)
+      $('#loader-img-login').removeClass('d-none')
+      $('#login-reset').attr('disabled', true)
+      // $('#login-alert').removeClass('d-block')
+      $('#login-alert').addClass('d-none')
+    }
+
+    function loginProcessEnd(){
+      $('#login-submit').val('Login')
+      $('#login-submit').attr('disabled', false)
+      $('#loader-img-login').addClass('d-none')
+      $('#login-reset').attr('disabled', false)
+      $('#login-alert').removeClass('d-none')
+      // $('#login-alert').addClass('d-block')
+    }
+
     $('#login-reset').click(function(){
-      $('#username-emp').val('')
+      $('#username-emp').val('').focus()
       $('#password-emp').val('')
+      // $('#login-alert').removeClass('d-block')
+      $('#login-alert').addClass('d-none')
     })
 
+    // add below what you gonna hide when no login
     const masterData = $('#master-data-container').children().detach()
 
-    $('#login-submit').click(function(){
+    // ===========================================
+
+    $('#login-submit').click(function(){ //submit user login
       loginProcess()
       const uname = $('#username-emp').val()
       const pwd = $('#password-emp').val()
@@ -32,8 +56,16 @@ $(document).ready(function(){
         url: site_url+'login/auth',
         data: {uname: uname, pwd: pwd},
         success: function(res){
-          $('#login-status').text(res)
-          $('.mr-auto #master-data-container').prepend(masterData)
+          if (res == 'administrator') {
+            $('#login-status').html('Success<br /> You\'re loged in as '+res+'!')
+            $('.mr-auto #master-data-container').prepend(masterData)
+          } else if (res == 'operator') {
+            $('#login-status').html('Success<br /> You\'re loged in as '+res+'!')
+            $('.mr-auto #master-data-container').children().detach()
+          } else {
+             $('.mr-auto #master-data-container').children().detach()
+             $('#login-status').html(res)
+           }
           loginProcessEnd()
         },
         error: function (jqXHR, exception) {
@@ -55,31 +87,201 @@ $(document).ready(function(){
         }
         $('#login-status').html(msg)
         loginProcessEnd()
-
         }
       })
-    })
+    }) // end function
 
-    function loginProcess(){
-      $('#login-submit').val('Processing...')
-      $('#login-submit').attr('disabled', true)
-      $('#loader-img-login').toggleClass('d-none')
-      $('#login-reset').attr('disabled', true)
-      $('#login-alert').removeClass('d-block')
-      $('#login-alert').addClass('d-none')
-    }
+    // ==================
+    // End login function
+    // ==================
 
-    function loginProcessEnd(){
-      $('#login-submit').val('Login')
-      $('#login-submit').attr('disabled', false)
-      $('#loader-img-login').toggleClass('d-none')
-      $('#login-reset').attr('disabled', false)
-      $('#login-alert').removeClass('d-none')
-      $('#login-alert').addClass('d-block')
-    }
+
   // =======================
-  // END OF Login Employee
+  // Sign up user
   // =======================
+
+      // auth admin first...
+      // =====================
+      $('#create-new-user').click(function(){
+        $('#signin-modal').modal('hide')
+        $('#pass-root-modal').modal({
+          backdrop: 'static',
+          keyboard: false
+        })
+        $('#pass-root-alert').addClass('d-none')
+      })
+
+      // cancel create new user and back to sign in auth...
+      // ==================================================
+      $('#pass-root-cancel').click(function(){
+        $('#pass-root-modal').modal('hide')
+        $('#signin-modal').modal({
+          backdrop: 'static',
+          keyboard: false
+        })
+      })
+
+      // functions properties in auth admin modal
+      // =======================================
+      function adminAuthProcEnd(){
+        $('#pass-root-alert').removeClass('d-none')
+        $('#loader-img-pass-root').addClass('d-none')
+        $('#password-admin').val('')
+      }
+
+      function adminAuthProc(){
+        $('#pass-root-alert').addClass('d-none')
+        $('#loader-img-pass-root').removeClass('d-none')
+      }
+
+      // submit auth admin
+      // =================
+      $('#pass-root-submit').click(function(){
+        const pwd = $('#password-admin').val()
+        adminAuthProc()
+
+        $.ajax({
+          type: 'post',
+          url: site_url+'login/auth_admin',
+          data: {pwd: pwd},
+          success: function(res){
+            if (res == 'authenticated') {
+              $('#pass-root-status').text(res)
+
+              //notif on create new user modal
+              $('#signup-modal .modal-title').html("<h6 class='alert alert-danger w-100'>Authenticated successfuly!</h6>")
+              setTimeout(function(){
+                $('#signup-modal .modal-title').html("Create a new user!")
+              },5000)
+
+              // setTimeout(function(){
+                $('#pass-root-modal').modal('hide')
+                $('#signup-modal').modal({
+                  backdrop: 'static',
+                  keyboard: false
+                })
+              // },1500)
+              adminAuthProcEnd()
+            } else {
+              $('#pass-root-status').text(res)
+              adminAuthProcEnd()
+            }
+          },
+          error: function (jqXHR, exception) {
+          let msg = '';
+          if (jqXHR.status === 0) {
+              msg = 'Not connect.<br />Verify Network.';
+          } else if (jqXHR.status == 404) {
+              msg = 'Requested page not found. [404]';
+          } else if (jqXHR.status == 500) {
+              msg = 'Internal Server Error [500].';
+          } else if (exception === 'parsererror') {
+              msg = 'Requested JSON parse failed.';
+          } else if (exception === 'timeout') {
+              msg = 'Time out error.';
+          } else if (exception === 'abort') {
+              msg = 'Ajax request aborted.';
+          } else {
+              msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+          }
+          $('#pass-root-status').html(msg)
+          adminAuthProcEnd()
+          }
+        })
+
+      }) // end function auth admin
+
+      // functions properties in create a new user modal
+      // ===============================================
+      function createUserProcEnd(){
+        $('#signup-alert').removeClass('d-none')
+        $('#loader-img-signup').addClass('d-none')
+      }
+
+      function createUserProc(){
+        $('#signup-alert').addClass('d-none')
+        $('#loader-img-signup').removeClass('d-none')
+      }
+
+      function whenEmpty(){
+        $('#loader-img-signup').addClass('d-none')
+        $('#signup-alert').addClass('d-none')
+      }
+
+      function reset(){
+        $('#new-name').val('').focus()
+        $('#new-username').val('')
+        $('#new-password').val('')
+        $('#new-level').val('')
+        whenEmpty()
+      }
+
+      // when signup-reset click
+      $('#signup-reset').click(function(){
+        reset()
+      })
+
+      // submit create user
+      // ==================
+      $('#signup-submit').click(function(){
+        createUserProc()
+
+        const name = $('#new-name').val()
+        const uname = $('#new-username').val()
+        const pwd = $('#new-password').val()
+        const lvl = $('#new-level').val()
+
+        if(name === ''){
+          $('#new-name').focus()
+          whenEmpty()
+        }else if (uname === '') {
+          $('#new-username').focus()
+          whenEmpty()
+        }else if (pwd === '') {
+          $('#new-password').focus()
+          whenEmpty()
+        }else {
+          $.ajax({
+            type: 'post',
+            url: site_url+'login/create_user',
+            data: {name: name, uname: uname, pwd:pwd, lvl:lvl},
+            success: function(res){
+              if(res == 'success'){
+                $('#signup-status').text('Data saved successfuly.')
+              } else {
+                $('#signup-status').html('<p class="text-danger">Data saved successfuly.</p>')
+              }
+              createUserProcEnd()
+            },
+            error: function (jqXHR, exception) {
+            let msg = '';
+            if (jqXHR.status === 0) {
+                msg = 'Not connect.<br />Verify Network.';
+            } else if (jqXHR.status == 404) {
+                msg = 'Requested page not found. [404]';
+            } else if (jqXHR.status == 500) {
+                msg = 'Internal Server Error [500].';
+            } else if (exception === 'parsererror') {
+                msg = 'Requested JSON parse failed.';
+            } else if (exception === 'timeout') {
+                msg = 'Time out error.';
+            } else if (exception === 'abort') {
+                msg = 'Ajax request aborted.';
+            } else {
+                msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+            }
+            $('#signup-status').html(msg)
+            createUserProcEnd()
+            }
+          })
+        }
+
+      }) // end of submit
+
+
+      // =======================
+      // End of sign up user
+      // =======================
 
   // =======================
   // Connect to mtik server
@@ -168,7 +370,7 @@ $(document).ready(function(){
   })
 
   $('#log-in-out').on('click', function(){
-    $('#login-modal').modal({
+    $('#signin-modal').modal({
       backdrop: 'static',
       keyboard: false
     })

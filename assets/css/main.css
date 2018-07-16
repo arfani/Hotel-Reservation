@@ -57,10 +57,6 @@
     cursor: pointer;
   }
 
-  /* .form-inline {
-    align-self: center;
-  } */
-
   .form-inline > input {
     margin-left: 20px;
   }

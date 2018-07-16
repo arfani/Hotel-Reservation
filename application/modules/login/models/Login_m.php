@@ -6,12 +6,22 @@
 
     function get_user($u){
       $this->db->where('username', $u);
-      $result = $this->db->get($this->table);
-      return $result->result();
+      $user = $this->db->get($this->table);
+      return $user->result();
     }
 
-    function create_user($data){
-      $this->db->insert($this->table, $data);
+    function create_emp($data){
+      if($this->db->insert($this->table, $data)){
+        return true;
+      }
     }
+
+    function get_pwd_admin(){
+      $this->db->where('level', 'administrator');
+      $this->db->order_by('id', 'DESC');
+      $pwd = $this->db->get($this->table);
+      return $pwd->result();
+    }
+
 
   }
