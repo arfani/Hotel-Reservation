@@ -13,11 +13,79 @@ $(document).ready(function(){
     });
 
   // =======================
-  // Connect to mtik server
+  // Login Employee
+  // =======================
+    $('#login-reset').click(function(){
+      $('#username-emp').val('')
+      $('#password-emp').val('')
+    })
+
+    const masterData = $('#master-data-container').children().detach()
+
+    $('#login-submit').click(function(){
+      loginProcess()
+      const uname = $('#username-emp').val()
+      const pwd = $('#password-emp').val()
+
+      $.ajax({
+        type: 'post',
+        url: site_url+'login/auth',
+        data: {uname: uname, pwd: pwd},
+        success: function(res){
+          $('#login-status').text(res)
+          $('.mr-auto #master-data-container').prepend(masterData)
+          loginProcessEnd()
+        },
+        error: function (jqXHR, exception) {
+        let msg = '';
+        if (jqXHR.status === 0) {
+            msg = 'Not connect.<br />Verify Network.';
+        } else if (jqXHR.status == 404) {
+            msg = 'Requested page not found. [404]';
+        } else if (jqXHR.status == 500) {
+            msg = 'Internal Server Error [500].';
+        } else if (exception === 'parsererror') {
+            msg = 'Requested JSON parse failed.';
+        } else if (exception === 'timeout') {
+            msg = 'Time out error.';
+        } else if (exception === 'abort') {
+            msg = 'Ajax request aborted.';
+        } else {
+            msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+        }
+        $('#login-status').html(msg)
+        loginProcessEnd()
+
+        }
+      })
+    })
+
+    function loginProcess(){
+      $('#login-submit').val('Processing...')
+      $('#login-submit').attr('disabled', true)
+      $('#loader-img-login').toggleClass('d-none')
+      $('#login-reset').attr('disabled', true)
+      $('#login-alert').removeClass('d-block')
+      $('#login-alert').addClass('d-none')
+    }
+
+    function loginProcessEnd(){
+      $('#login-submit').val('Login')
+      $('#login-submit').attr('disabled', false)
+      $('#loader-img-login').toggleClass('d-none')
+      $('#login-reset').attr('disabled', false)
+      $('#login-alert').removeClass('d-none')
+      $('#login-alert').addClass('d-block')
+    }
+  // =======================
+  // END OF Login Employee
   // =======================
 
+  // =======================
+  // Connect to mtik server
+  // =======================
   $('#mtik-connect').on('click', function(){
-    processBtn()
+    connectProcess()
 
     const hName = $('#hostname').val()
     const uName = $('#username').val()
@@ -29,16 +97,16 @@ $(document).ready(function(){
               data:{hostname: hName, username: uName, password: pwd},
               success:function(res){
                 $('#server-status').text(res)
-                processBtnEnd()
+                connectProcessEnd()
               },
               error: function(){
                   alert("Invalid! Ajax error.")
-                  processBtnEnd()
+                  connectProcessEnd()
               }
           })
   })
 
-  function processBtn(){
+  function connectProcess(){
     $('#mtik-connect').val('Connecting...')
     $('#mtik-connect').attr('disabled', true)
     $('#loader-img').removeClass('d-none')
@@ -48,7 +116,7 @@ $(document).ready(function(){
     $('#server-alert').addClass('d-none')
   }
 
-  function processBtnEnd(){
+  function connectProcessEnd(){
     $('#mtik-connect').val('Connect')
     $('#mtik-connect').attr('disabled', false)
     $('#loader-img').removeClass('d-block')
@@ -98,6 +166,14 @@ $(document).ready(function(){
       $(this).css('cursor', 'pointer')
     }
   })
+
+  $('#log-in-out').on('click', function(){
+    $('#login-modal').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+  })
+
   // End of navbar links
   // ====================
 

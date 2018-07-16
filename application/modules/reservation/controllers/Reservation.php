@@ -16,7 +16,7 @@ class Reservation extends CI_Controller {
   }
 
   function save(){
-    $msg = "no message";
+    $msg = "<br />";
 
     if($this->mtikapi->connect($this->session->hostname, $this->session->username, $this->session->password)){
 
@@ -31,29 +31,30 @@ class Reservation extends CI_Controller {
             'disabled' => 'no'
           );
 
-          $test['comment'] = 'comment testing';
-
             //save voucher to mtik
             $this->mtikapi->write('/ip/hotspot/user/add',false);
             $this->mtikapi->write('=name='.$data['username'], false);
             $this->mtikapi->write('=password='.$data['password'], false);
             $this->mtikapi->write('=limit-uptime='.$data['uptime'], false);
-            $this->mtikapi->write('=disabled='.$data['disabled']);
             $this->mtikapi->write('=comment='.'given to '.$data['guest_name'], false);
-            $this->mtikapi->read();
+            $this->mtikapi->write('=disabled='.$data['disabled']); // dont use false param
+            $vou_sev = $this->mtikapi->read();
             $this->mtikapi->disconnect();
-
+            if ($vou_sev) {
+              $msg .= "Voucher is ready to use. <br />";
+            }else{
+              $msg .= "Voucher is failed to generated. <br />";
+            }
             $save = $this->rm->insert($data); // save to db
             if($save){
-              $msg = "Saving data successfully";
+              $msg .= "Saving data successfully. <br />";
             }else{
-              $msg = "Saving data to db failed";
+              $msg .= "Saving data to db failed. <br />";
             }
       }//if not connect
       else {
-        $msg = "There is no connection to MikroTik Server. " ;
+        $msg .= "There is no connection to MikroTik Server." ;
       }
-
       echo $msg;
     }//end of function save
 

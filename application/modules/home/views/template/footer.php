@@ -1,3 +1,4 @@
+<?php $this->load->view('login/forms/login_modal'); ?>
 <?php $this->load->view('setting/forms/mtik_server_modal'); ?>
 <!-- start of footer -->
   <div class="footer">

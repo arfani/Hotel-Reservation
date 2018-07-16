@@ -72,3 +72,11 @@
   .action-col {
     text-align: center;
   }
+
+  #log-in-out > span {
+    font-size: 24px;
+  }
+
+  #setting-menu > span {
+    font-size: 24px;
+  }
