@@ -124,10 +124,6 @@ $(function(){
     $('#loader-img-reservation').addClass('d-none')
   }
 
-
-
-
-
   // ==============
   //  Connect to the latest successed mtik server
   // ==============

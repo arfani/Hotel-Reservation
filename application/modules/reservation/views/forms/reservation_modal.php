@@ -40,7 +40,6 @@
                   <div id="voucher-qrcode"></div>
                   <div>DNS Name : <span id="dns-name">arfani.hotspot.net</span></div>
                 </div>
-
                 </div>
                 <div class="col-sm-12">
                   <div class="alert alert-success alert-dismissable mt-2 d-none" id="reservation-alert">

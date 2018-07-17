@@ -16,8 +16,9 @@
           </tr>
         </thead>
         <tbody>
-        <!-- <?php
+        <?php
         $no = 1;
+        $ind = 1;
         foreach ($rooms as $room) {
          ?>
           <tr>
@@ -26,10 +27,14 @@
             <td><?php echo $room->type; ?></td>
             <td><?php echo $room->annotation; ?></td>
             <td class="action-col">
-              <button id="room_edit" value="<?php echo $room->id; ?>" class="room_edit btn btn-primary"><span class="octicon octicon-pencil"></span></button>
-              <a href="<?php echo site_url('hotel/remove_room/').$room->id; ?>" class="btn btn-danger"><span class="octicon octicon-trashcan"></span></a>
+              <button class="btn btn-primary room-edit" value="<?php echo $room->id; ?>" >
+                <span class="octicon octicon-pencil"></span>
+              </button>
+              <button class="btn btn-danger room-remove" value="<?php echo $room->id; ?>" >
+                <span class="octicon octicon-trashcan"></span>
+              </button>
             </td>
-          </tr> <?php } ?> -->
+          </tr> <?php } ?>
         </tbody>
       </table>
       </div>

@@ -4,33 +4,64 @@ class Rooms extends CI_Controller {
   function __construct(){
       parent::__construct();
       // Your own constructor code
-			$this->load->model('Rooms_m', 'model');
+			$this->load->model('Rooms_m', 'rm');
     }
 
   function index(){
     $data = array(
-    'content' => 'rooms'
-    );
-    $this->load->view('home/home', $data);
-  }
+      'content' => 'rooms',
+      'rooms'   => $this->rm->get_all()
+      );
+      $this->load->view('home/home', $data);
+    }
 
-  function room_list(){
-    $rooms = $this->model->get_all();
+    function add(){
+      $numb = $this->input->post('numb');
+      $exist = $this->rm->get_by_numb($numb);
 
-    $no = 1;
-    foreach ($rooms as $room){
-      echo "<tr>";
-      echo        "<td>". $no++ ."</td>";
-      echo        "<td>". $room->numb ."</td>";
-      echo        "<td>". $room->type ."</td>";
-      echo        "<td>". $room->annotation ."</td>";
-      echo        "<td class='action-col'>";
-      echo          "<button id='room_edit' value='". $room->id ."' class='room_edit btn btn-primary'><span class='octicon octicon-pencil'></span></button>";
-      echo          "<a href='#' class='btn btn-danger'><span class='octicon octicon-trashcan'></span></a>";
-      echo        "</td>";
-      echo      "</tr>";
-           }
-  }
+      if(!$exist){
+        $data = array(
+          'numb' => $numb,
+          'type' => $this->input->post('type'),
+          'annotation' => $this->input->post('annotation')
+        );
+        $add = $this->rm->add($data);
+        echo ($add) ? 'success' : 'failed' ;
+      }else{
+        echo 'duplicate';
+      }
+    }
+
+    function remove($id){
+      $remove = $this->rm->remove($id);
+      echo ($remove) ? 'success' : 'failed' ;
+    }
+
+    function update(){
+      $id = $this->input->post('id');
+      $numb = $this->input->post('numb');
+      // $crn = $this->input->post('crn');
+
+      // $exist = $this->rm->get_by_numb($numb);
+
+      $data = array(
+        'numb' => $numb,
+        'type' => $this->input->post('type'),
+        'annotation' => $this->input->post('annotation')
+      );
+      // if(!$crn){
+        // if($exist){
+          // echo 'duplicate';
+        // }else{
+          $update = $this->rm->update($id, $data);
+          echo ($update) ? 'success' : 'failed' ;
+        // }
+      // }else{
+        // $update = $this->rm->update($id, $data);
+        // echo ($update) ? 'success' : 'failed' ;
+      // }
+
+    }
 
 
 }
