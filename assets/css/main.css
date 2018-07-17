@@ -57,10 +57,6 @@
     cursor: pointer;
   }
 
-  .form-inline > input {
-    margin-left: 20px;
-  }
-
   #rooms-tbl {
     background-color: rgba(255, 255, 255, 0.8);
   }

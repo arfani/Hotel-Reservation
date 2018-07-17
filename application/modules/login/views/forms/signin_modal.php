@@ -15,7 +15,7 @@
             <div class="form-group">
               <div class="form-inline">
                 <label for="username-emp">Username </label>
-                <input type="text" class="form-control" placeholder="Username user" name="username" id="username-emp" required autofocus/>
+                <input type="text" class="form-control ml-3" placeholder="Username user" name="username" id="username-emp" required autofocus/>
               </div>
             </div>
           </div>
@@ -23,7 +23,7 @@
             <div class="form-group">
               <div class="form-inline">
                 <label for="password-emp">Password </label>
-                <input type="password" class="form-control" maxlength="16" placeholder="Password user" id="password-emp" required />
+                <input type="password" class="form-control ml-3" maxlength="16" placeholder="Password user" id="password-emp" required />
               </div>
             </div>
           </div>

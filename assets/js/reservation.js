@@ -11,7 +11,7 @@ $(function(){
   const cod = $('#cod')
 
   // voucher data
-  const username = name.val().slice(0, name.val().indexOf(' ')) //get first word from name
+  const username = name.val().slice(0, name.val().indexOf(' ')) //get first name
 
 
   // when want to confirm
@@ -35,7 +35,6 @@ $(function(){
       $('#voucher-password').text(id.val().slice(0, 6))
       $('#voucher-active').text(cod.val()+' day(s)')
 
-      $('#reservation-modal .modal-title').text('Confirm your data!')
       $('#reservation-modal').modal('show')
     } //end if else
   }) //end when want to confirm
@@ -53,39 +52,79 @@ $(function(){
     const uName = $('#voucher-username').text()
     const pwd = $('#voucher-password').text()
 
+    let reqAjax =
     $.ajax({
             type:"post",
             url: site_url+"reservation/save",
             data:{gName: gName, gId: gId, dateFrom: dateFrom1, cod: cod1, uName: uName, pwd: pwd},
             success:function(response){
                 $('#reservation-status').html(response)
-                $('#voucher-qrcode').qrcode({
+
+                let qrVoucher = $('#voucher-qrcode').qrcode({
                   width: 256,
                   height: 256,
                   text: dnsName+'/login?username='+uName+'&password='+pwd
                 })
                 processBtnEnd()
               },
-            error: function()
-            {
-                alert("Invalid! Error Ajax Process in reservation-save")
-            }
+              error: function (jqXHR, exception) {
+              let msg = '';
+              if (jqXHR.status === 0) {
+                  msg = 'Not connect.<br />Verify Network.';
+              } else if (jqXHR.status == 404) {
+                  msg = 'Requested page not found. [404]';
+              } else if (jqXHR.status == 500) {
+                  msg = 'Internal Server Error [500].';
+              } else if (exception === 'parsererror') {
+                  msg = 'Requested JSON parse failed.';
+              } else if (exception === 'timeout') {
+                  msg = 'Time out error.';
+              } else if (exception === 'abort') {
+                  msg = 'Ajax request aborted.';
+              } else {
+                  msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+              }
+              $('#reservation-status').html(msg)
+              processBtnEnd()
+              $('#frame-qrcode').addClass('d-none')
+              }
         })
   }) // And when save
+
+  $('#reservation-new').click(function(){
+    $('#guest-name').text('')
+    $('#guest-id').text('')
+    $('#guest-date-from').text('')
+    $('#guest-cod').text('')
+
+    $('#voucher-username').text('')
+    $('#voucher-password').text('')
+    $('#voucher-active').text('')
+    $('#voucher-qrcode').text('')
+    $('#frame-qrcode').addClass('d-none')
+    $('#reservation-alert').addClass('d-none')
+    $('#reservation-save').attr('disabled', false)
+    $('#reservation-modal').modal('hide')
+    $('#reservation-reset').trigger('click')
+  })
+
 
   function processBtn(){
     $('#reservation-save').val('Saving...')
     $('#reservation-save').attr('disabled', true)
+    $('#loader-img-reservation').removeClass('d-none')
+    $('#reservation-alert').addClass('d-none')
+    $('#frame-qrcode').addClass('d-none')
   }
 
   function processBtnEnd(){
     $('#reservation-save').val('Confirm')
-    $('#reservation-save').attr('disabled', false)
     $('#reservation-alert').removeClass('d-none')
-    $('#reservation-alert').addClass('d-block')
     $('#frame-qrcode').removeClass('d-none')
-    $('#frame-qrcode').addClass('d-block')
+    $('#loader-img-reservation').addClass('d-none')
   }
+
+
 
 
 

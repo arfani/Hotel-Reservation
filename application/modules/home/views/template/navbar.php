@@ -57,9 +57,6 @@
 
 <div class="ml-auto">
   <ul class="navbar-nav">
-    <form class="form-inline" action="#">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" id="search">
-    </form>
 
     <?php if($this->session->userdata('l') == 'operator' || $this->session->userdata('l') == 'administrator'):  ?>
     <li class="nav-item">
@@ -69,9 +66,14 @@
     </li>
   <?php endif; ?>
 
+
+    <form class="form-inline" action="#">
+      <input class="form-control ml-1" type="text" placeholder="Search" id="search">
+    </form>
+
     <li class="nav-item">
       <span class="nav-link finger" role="button" id="user-welcome">
-        <span class="small" id="user-profile" style="">Welcome,<br /> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?></span>
+        <span class="small" id="user-profile" >Welcome,<br /> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?></span>
       </span>
     </li>
 

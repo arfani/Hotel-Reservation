@@ -21,7 +21,7 @@
             <div class="form-group">
               <div class="form-inline">
                 <label for="password-admin">Password admin </label>
-                <input type="password" class="form-control" maxlength="16" id="password-admin" required autofocus/>
+                <input type="password" class="form-control ml-3" maxlength="16" id="password-admin" required autofocus/>
               </div>
             </div>
           </div>

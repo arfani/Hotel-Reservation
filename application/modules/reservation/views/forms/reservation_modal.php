@@ -5,7 +5,12 @@
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h2 class="modal-title">Title</h2>
+          <h2 class="modal-title">
+            Confirmation data
+          </h2>
+          <span class="la-timer dark text-danger float-right ml-4 d-none" id="loader-img-reservation">
+            <div></div>
+          </span>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
@@ -38,20 +43,21 @@
 
                 </div>
                 <div class="col-sm-12">
-                  <div class="alert alert-success alert-dismissable d-none" id="reservation-alert">
+                  <div class="alert alert-success alert-dismissable mt-2 d-none" id="reservation-alert">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Status : <span id="reservation-status"></span>
                   </div>
                 </div>
-
-
           </div>
           </div>
       </div> <!-- End of Modal Body -->
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <input type="button" class="btn btn-primary" value="Confirm" id="reservation-save"/>
+          <div class="form-group">
+            <input class="form-inline btn btn-primary" value="Confirm" id="reservation-save" readonly/>
+            <input class="form-inline btn btn-danger" value="Create New" id="reservation-new" readonly/>
+          </div>
         </div>
 
       </div>

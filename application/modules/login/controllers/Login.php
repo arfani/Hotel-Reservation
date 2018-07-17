@@ -79,10 +79,11 @@
       echo $res;
     }
 
+    //log out
     function end(){
       $user = array('n','u','p','l');
       $this->session->unset_userdata($user);
-      print_r($this->session->userdata());
+      echo $this->uri->segment(1);
     }
 
 

@@ -5,3 +5,7 @@
 #frame-qrcode {
   text-align: center;
 }
+
+.modal-footer {
+  justify-content: space-around!important;
+}

@@ -191,11 +191,14 @@ $(document).ready(function(){
       // functions properties in create a new user modal
       // ===============================================
       function createUserProcEnd(){
+        $('#signup-submit').text('Register')
         $('#signup-alert').removeClass('d-none')
         $('#loader-img-signup').addClass('d-none')
       }
 
       function createUserProc(){
+        $('#signup-submit').text('Registering...')
+        $('#signup-submit').attr('disabled', true)
         $('#signup-alert').addClass('d-none')
         $('#loader-img-signup').removeClass('d-none')
       }
@@ -210,6 +213,7 @@ $(document).ready(function(){
         $('#new-username').val('')
         $('#new-password').val('')
         $('#new-level').val('')
+        $('#signup-submit').attr('disabled', false)
         whenEmpty()
       }
 
@@ -390,7 +394,7 @@ $(document).ready(function(){
     $.ajax({
       url: site_url+'login/end',
       success: function(res){
-        location.reload()
+        location.href = site_url
       },
       error: function (jqXHR, exception) {
       let msg = '';
