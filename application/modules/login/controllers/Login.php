@@ -79,9 +79,11 @@
       echo $res;
     }
 
-    function process(){
-      $uname = $this->input->post('uname');
-      $pwd = $this->input->post('pwd');
-
+    function end(){
+      $user = array('n','u','p','l');
+      $this->session->unset_userdata($user);
+      print_r($this->session->userdata());
     }
+
+
   }

@@ -42,7 +42,7 @@ $(document).ready(function(){
     })
 
     // add below what you gonna hide when no login
-    const masterData = $('#master-data-container').children().detach()
+    // const masterData = $('#master-data-container').children().detach()
 
     // ===========================================
 
@@ -58,12 +58,11 @@ $(document).ready(function(){
         success: function(res){
           if (res == 'administrator') {
             $('#login-status').html('Success<br /> You\'re loged in as '+res+'!')
-            $('.mr-auto #master-data-container').prepend(masterData)
+            location.reload()
           } else if (res == 'operator') {
             $('#login-status').html('Success<br /> You\'re loged in as '+res+'!')
-            $('.mr-auto #master-data-container').children().detach()
+            location.reload()
           } else {
-             $('.mr-auto #master-data-container').children().detach()
              $('#login-status').html(res)
            }
           loginProcessEnd()
@@ -154,13 +153,11 @@ $(document).ready(function(){
                 $('#signup-modal .modal-title').html("Create a new user!")
               },5000)
 
-              // setTimeout(function(){
                 $('#pass-root-modal').modal('hide')
                 $('#signup-modal').modal({
                   backdrop: 'static',
                   keyboard: false
                 })
-              // },1500)
               adminAuthProcEnd()
             } else {
               $('#pass-root-status').text(res)
@@ -301,9 +298,25 @@ $(document).ready(function(){
                 $('#server-status').text(res)
                 connectProcessEnd()
               },
-              error: function(){
-                  alert("Invalid! Ajax error.")
-                  connectProcessEnd()
+              error: function (jqXHR, exception) {
+              let msg = '';
+              if (jqXHR.status === 0) {
+                  msg = 'Not connect.<br />Verify Network.';
+              } else if (jqXHR.status == 404) {
+                  msg = 'Requested page not found. [404]';
+              } else if (jqXHR.status == 500) {
+                  msg = 'Internal Server Error [500].';
+              } else if (exception === 'parsererror') {
+                  msg = 'Requested JSON parse failed.';
+              } else if (exception === 'timeout') {
+                  msg = 'Time out error.';
+              } else if (exception === 'abort') {
+                  msg = 'Ajax request aborted.';
+              } else {
+                  msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+              }
+              $('#server-status').html(msg)
+              connectProcessEnd()
               }
           })
   })
@@ -369,12 +382,41 @@ $(document).ready(function(){
     }
   })
 
-  $('#log-in-out').on('click', function(){
+  $('#log-in').on('click', function(){
     $('#signin-modal').modal({
       backdrop: 'static',
       keyboard: false
     })
   })
+
+  $('#log-out').click(function(){
+    $.ajax({
+      url: site_url+'login/end',
+      success: function(res){
+        location.reload()
+      },
+      error: function (jqXHR, exception) {
+      let msg = '';
+      if (jqXHR.status === 0) {
+          msg = 'Not connect.<br />Verify Network.';
+      } else if (jqXHR.status == 404) {
+          msg = 'Requested page not found. [404]';
+      } else if (jqXHR.status == 500) {
+          msg = 'Internal Server Error [500].';
+      } else if (exception === 'parsererror') {
+          msg = 'Requested JSON parse failed.';
+      } else if (exception === 'timeout') {
+          msg = 'Time out error.';
+      } else if (exception === 'abort') {
+          msg = 'Ajax request aborted.';
+      } else {
+          msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+      }
+      console.log(msg);
+      }
+    })//end ajax
+
+  })//end function
 
   // End of navbar links
   // ====================

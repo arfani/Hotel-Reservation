@@ -18,7 +18,7 @@
 
     function get_pwd_admin(){
       $this->db->where('level', 'administrator');
-      $this->db->order_by('id', 'DESC');
+      $this->db->order_by('id', 'ASC');
       $pwd = $this->db->get($this->table);
       return $pwd->result();
     }

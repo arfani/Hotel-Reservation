@@ -31,14 +31,10 @@ class Setting extends CI_Controller {
 
   } // End connect
 
-  function disconnect(){
-    echo 'from dis fung';
-    //
-    // if($this->session->sess_destroy()){
-    //   echo 'success';
-    // }else {
-    //   echo 'failed';
-    // }
+  function tes(){
+    echo 'from tes fung<br />';
+    print_r($this->session->userdata());
   }
+
 
 } // END OF FILE

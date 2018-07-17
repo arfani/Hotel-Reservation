@@ -69,10 +69,14 @@
     text-align: center;
   }
 
-  #log-in-out > span {
+  #log-in > .octicon, #log-out > .octicon {
     font-size: 24px;
   }
 
   #setting-menu > span {
     font-size: 24px;
+  }
+
+  #user-welcome {
+    line-height: 1;
   }
