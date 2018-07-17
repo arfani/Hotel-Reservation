@@ -1,9 +1,9 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 <!-- Brand -->
-<a class="navbar-brand" href="#" id="logo-menu">
+<span class="navbar-brand finger" id="logo-menu">
 <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="Jazz Logo" style="width:90px;">
-</a>
+</span>
 
 <!-- Toggler/collapsibe Button -->
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
@@ -15,43 +15,43 @@
 <div class="mr-auto">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#" id="home-menu">Home</a>
+      <span class="nav-link finger" id="home-menu">Home</span>
     </li>
     <?php if($this->session->userdata('l') == 'administrator' || $this->session->userdata('l') == 'operator'): ?>
     <li class="nav-item" id="reservation-container">
-      <a class="nav-link" href="#" id="reservation-menu">Reservation</a>
+      <span class="nav-link finger" id="reservation-menu">Reservation</span>
     </li>
   <?php endif; ?>
 
     <!-- Dropdown -->
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="service" data-toggle="dropdown">
+      <span class="nav-link dropdown-toggle finger" id="service" data-toggle="dropdown">
         Services
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Restaurant</a>
-        <a class="dropdown-item" href="#">Rooms</a>
-        <a class="dropdown-item" href="#">Salon & Spa</a>
-        <a class="dropdown-item" href="#">Barber Shop</a>
-        <a class="dropdown-item" href="#">Others</a>
+      </span>
+      <div class="dropdown-menu finger">
+        <span class="dropdown-item finger">Restaurant</span>
+        <span class="dropdown-item finger">Rooms</span>
+        <span class="dropdown-item finger">Salon & Spa</span>
+        <span class="dropdown-item finger">Barber Shop</span>
+        <span class="dropdown-item finger">Others</span>
       </div>
     </li>
 
     <!-- Dropdown -->
     <?php if($this->session->userdata('l') == 'administrator'):  ?>
     <li class="nav-item dropdown" id="master-data-container">
-      <a class="nav-link dropdown-toggle" href="#" id="master-data-menu" data-toggle="dropdown">
+      <span class="nav-link dropdown-toggle finger" id="master-data-menu" data-toggle="dropdown">
         Master Data
-      </a>
+      </span>
       <div class="dropdown-menu">
-        <a class="dropdown-item" id="emp-submenu">Employees</a>
-        <a class="dropdown-item" id="rooms-submenu">Rooms</a>
+        <span class="dropdown-item finger" id="emp-submenu">Employees</span>
+        <span class="dropdown-item finger" id="rooms-submenu">Rooms</span>
       </div>
     </li>
   <?php endif; ?>
 
-    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    <li class="nav-item"><span class="nav-link finger">About</span></li>
+    <li class="nav-item"><span class="nav-link finger">Contact</span></li>
   </ul>
 </div>
 
@@ -63,22 +63,22 @@
 
     <?php if($this->session->userdata('l') == 'operator' || $this->session->userdata('l') == 'administrator'):  ?>
     <li class="nav-item">
-      <a class="nav-link finger" role="button" id="setting-menu"  title="Setting">
+      <span class="nav-link finger" role="button" id="setting-menu"  title="Setting">
         <span class="octicon octicon-tools"></span>
-      </a>
+      </span>
     </li>
   <?php endif; ?>
 
     <li class="nav-item">
-      <a class="nav-link finger" role="button" id="user-welcome">
+      <span class="nav-link finger" role="button" id="user-welcome">
         <span class="small" id="user-profile" style="">Welcome,<br /> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?></span>
-      </a>
+      </span>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link finger" role="button" id="<?php echo ($this->session->userdata('n')) ? 'log-out' : 'log-in' ?>" title="Sign <?php echo ($this->session->userdata('n')) ? 'out' : 'in'; ?>">
+      <span class="nav-link finger" role="button" id="<?php echo ($this->session->userdata('n')) ? 'log-out' : 'log-in' ?>" title="Sign <?php echo ($this->session->userdata('n')) ? 'out' : 'in'; ?>">
         <span class="octicon <?php echo ($this->session->userdata('n')) ? 'octicon-sign-out' : 'octicon-sign-in'; ?>"></span>
-      </a>
+      </span>
     </li>
   </ul>
 </div>

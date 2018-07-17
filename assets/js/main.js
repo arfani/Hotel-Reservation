@@ -376,9 +376,6 @@ $(document).ready(function(){
   $('#rooms-submenu').on({
     'click': function(){
       location.href = site_url+'rooms'
-    },
-    'mouseenter': function(){
-      $(this).css('cursor', 'pointer')
     }
   })
 
