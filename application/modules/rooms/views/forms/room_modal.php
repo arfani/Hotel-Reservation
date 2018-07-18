@@ -13,7 +13,6 @@
         </div>
 
         <!-- Modal body -->
-          <input type="hidden" name="id" value="">
         <div class="modal-body">
           <!-- <div class="d-flex justify-content-left"> -->
             <div class="form-group">

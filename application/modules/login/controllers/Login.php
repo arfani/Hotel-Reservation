@@ -8,8 +8,8 @@
     }
 
     function auth(){ //auth user
-
       $data = array(
+        'i' => "",
         'n' => "",
         'u' => "",
         'p' => "",
@@ -20,6 +20,7 @@
 
       $user_data = $this->lm->get_user($uname);
       foreach ($user_data as $value) {
+        $data['i'] = $value->id;
         $data['n'] = $value->name;
         $data['u'] = $value->username;
         $data['p'] = $value->password;
@@ -61,7 +62,7 @@
     } // end auth admin
 
 
-    //register user/ create employee
+    //register user
     function create_user(){
       $res = '';
       $data = array(
@@ -81,10 +82,27 @@
 
     //log out
     function end(){
-      $user = array('n','u','p','l');
+      $user = array('i','n','u','p','l');
       $this->session->unset_userdata($user);
-      echo $this->uri->segment(1);
+      // echo $this->uri->segment(1);
+    }
+
+    function buatadmintanpalogin(){
+      $res = '';
+      $data = array(
+        'name' => 'Admin', //$this->input->post('name'),
+        'username' => 'admin', //$this->input->post('uname'),
+        'password' => password_hash('', PASSWORD_BCRYPT), //$this->input->post('pwd'), PASSWORD_BCRYPT),
+        'level' => 'administrator' //$this->input->post('lvl')
+      );
+      $success = $this->lm->create_emp($data);
+      if($success){
+        $res = 'success';
+      }else {
+        $res = 'error';
+      }
+      echo $res;
     }
 
 
-  }
+  }//end file

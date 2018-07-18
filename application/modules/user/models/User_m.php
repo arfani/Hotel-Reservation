@@ -2,13 +2,13 @@
 
 defined('BASEPATH') or EXIT('No Direct script access allowed');
 
-class Rooms_m extends CI_Model {
-  private $table = 'rooms';
+class User_m extends CI_Model {
+  private $table = 'user';
   private $id = 'id';
 
   function get_all(){
-    $this->db->order_by('numb', 'asc');
-    $this->db->order_by('type', 'desc');
+    $this->db->order_by('name');
+    $this->db->order_by('username');
     return $this->db->get($this->table)->result();
   }
 
@@ -30,7 +30,7 @@ class Rooms_m extends CI_Model {
   }
 
   function get_by_numb($numb){ //this for checking duplicate room number
-    $this->db->where('numb', $numb);
+    $this->db->where('username', $numb);
     $number = $this->db->get($this->table);
     return ($number->num_rows() > 0) ? true : false;
   }

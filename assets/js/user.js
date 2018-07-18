@@ -1,9 +1,8 @@
 $(function() {
 	// create datatable to table rooms
-	$('#rooms-tbl').DataTable()
+	$('#user-tbl').DataTable()
 
 	let numb, type, annotation;
-  // const idRoom ;
 	// ======================
 	// Adding
 	// ======================

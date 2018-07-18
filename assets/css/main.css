@@ -11,7 +11,8 @@
   }
 
   .footer {
-    background: #ccc;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
     padding: 2em;
   }
 
@@ -45,24 +46,8 @@
     font-weight: bold;
   }
 
-  label[for="room-type"]{
-    margin-right: 15px;
-  }
-
-  #form-res > h2 {
-    padding: 5px;
-  }
-
   .finger {
     cursor: pointer;
-  }
-
-  #rooms-tbl {
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-
-  .action-col {
-    text-align: center;
   }
 
   #log-in > .octicon, #log-out > .octicon {

@@ -44,7 +44,7 @@
         Master Data
       </span>
       <div class="dropdown-menu">
-        <span class="dropdown-item finger" id="emp-submenu">Employees</span>
+        <span class="dropdown-item finger" id="user-submenu">User</span>
         <span class="dropdown-item finger" id="rooms-submenu">Rooms</span>
       </div>
     </li>
@@ -73,12 +73,14 @@
 
     <li class="nav-item">
       <span class="nav-link finger" role="button" id="user-welcome">
-        <span class="small" id="user-profile" >Welcome,<br /> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?></span>
+        <span class="small" id="user-profile" >
+          Welcome,<br /> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?>
+        </span>
       </span>
     </li>
 
     <li class="nav-item">
-      <span class="nav-link finger" role="button" id="<?php echo ($this->session->userdata('n')) ? 'log-out' : 'log-in' ?>" title="Sign <?php echo ($this->session->userdata('n')) ? 'out' : 'in'; ?>">
+      <span class="nav-link finger" role="button" data-toggle="tooltip" data-placement="bottom" id="<?php echo ($this->session->userdata('n')) ? 'log-out' : 'log-in' ?>" title="Sign <?php echo ($this->session->userdata('n')) ? 'out' : 'in'; ?>">
         <span class="octicon <?php echo ($this->session->userdata('n')) ? 'octicon-sign-out' : 'octicon-sign-in'; ?>"></span>
       </span>
     </li>

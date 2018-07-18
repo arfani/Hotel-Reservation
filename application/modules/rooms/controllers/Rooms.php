@@ -40,27 +40,14 @@ class Rooms extends CI_Controller {
     function update(){
       $id = $this->input->post('id');
       $numb = $this->input->post('numb');
-      // $crn = $this->input->post('crn');
-
-      // $exist = $this->rm->get_by_numb($numb);
-
       $data = array(
         'numb' => $numb,
         'type' => $this->input->post('type'),
         'annotation' => $this->input->post('annotation')
       );
-      // if(!$crn){
-        // if($exist){
-          // echo 'duplicate';
-        // }else{
-          $update = $this->rm->update($id, $data);
-          echo ($update) ? 'success' : 'failed' ;
-        // }
-      // }else{
-        // $update = $this->rm->update($id, $data);
-        // echo ($update) ? 'success' : 'failed' ;
-      // }
 
+      $update = $this->rm->update($id, $data);
+      echo ($update) ? 'success' : 'failed' ;
     }
 
 

@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    //tooltip
+    $('[data-toggle="tooltip"]').tooltip()
+
     // Get current date
       Date.prototype.toDateInputValue = (function() {
           var local = new Date(this)
@@ -9,8 +12,8 @@ $(document).ready(function(){
 
     // Every time a modal is shown, if it has an autofocus element, focus on it.
     $('.modal').on('shown.bs.modal', function() {
-      $(this).find('[autofocus]').focus();
-    });
+      $(this).find('[autofocus]').focus()
+    })
 
   // =======================
   // Login User
@@ -70,17 +73,17 @@ $(document).ready(function(){
         error: function (jqXHR, exception) {
         let msg = '';
         if (jqXHR.status === 0) {
-            msg = 'Not connect.<br />Verify Network.';
+            msg = 'Not connect.<br />Verify Network.'
         } else if (jqXHR.status == 404) {
-            msg = 'Requested page not found. [404]';
+            msg = 'Requested page not found. [404]'
         } else if (jqXHR.status == 500) {
-            msg = 'Internal Server Error [500].';
+            msg = 'Internal Server Error [500].'
         } else if (exception === 'parsererror') {
-            msg = 'Requested JSON parse failed.';
+            msg = 'Requested JSON parse failed.'
         } else if (exception === 'timeout') {
-            msg = 'Time out error.';
+            msg = 'Time out error.'
         } else if (exception === 'abort') {
-            msg = 'Ajax request aborted.';
+            msg = 'Ajax request aborted.'
         } else {
             msg = 'Uncaught Error.<br />' + jqXHR.responseText;
         }
@@ -145,10 +148,10 @@ $(document).ready(function(){
           data: {pwd: pwd},
           success: function(res){
             if (res == 'authenticated') {
-              $('#pass-root-status').text(res)
+              $('#pass-root-status').html(res)
 
               //notif on create new user modal
-              $('#signup-modal .modal-title').html("<h6 class='alert alert-danger w-100'>Authenticated successfuly!</h6>")
+              $('#signup-modal .modal-title').html("<h6 class='alert alert-success w-100'>Authenticated successfuly!</h6>")
               setTimeout(function(){
                 $('#signup-modal .modal-title').html("Create a new user!")
               },5000)
@@ -158,28 +161,32 @@ $(document).ready(function(){
                   backdrop: 'static',
                   keyboard: false
                 })
+
+                $('#signup-modal').on('hidden.bs.modal', function(){
+                  location.reload()
+                })
               adminAuthProcEnd()
             } else {
-              $('#pass-root-status').text(res)
+              $('#pass-root-status').html(res)
               adminAuthProcEnd()
             }
           },
           error: function (jqXHR, exception) {
-          let msg = '';
+          let msg = ''
           if (jqXHR.status === 0) {
-              msg = 'Not connect.<br />Verify Network.';
+              msg = 'Not connect.<br />Verify Network.'
           } else if (jqXHR.status == 404) {
-              msg = 'Requested page not found. [404]';
+              msg = 'Requested page not found. [404]'
           } else if (jqXHR.status == 500) {
-              msg = 'Internal Server Error [500].';
+              msg = 'Internal Server Error [500].'
           } else if (exception === 'parsererror') {
-              msg = 'Requested JSON parse failed.';
+              msg = 'Requested JSON parse failed.'
           } else if (exception === 'timeout') {
-              msg = 'Time out error.';
+              msg = 'Time out error.'
           } else if (exception === 'abort') {
-              msg = 'Ajax request aborted.';
+              msg = 'Ajax request aborted.'
           } else {
-              msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+              msg = 'Uncaught Error.<br />' + jqXHR.responseText
           }
           $('#pass-root-status').html(msg)
           adminAuthProcEnd()
@@ -212,7 +219,7 @@ $(document).ready(function(){
         $('#new-name').val('').focus()
         $('#new-username').val('')
         $('#new-password').val('')
-        $('#new-level').val('')
+        $('#new-level').val('administrator')
         $('#signup-submit').attr('disabled', false)
         whenEmpty()
       }
@@ -220,6 +227,10 @@ $(document).ready(function(){
       // when signup-reset click
       $('#signup-reset').click(function(){
         reset()
+      })
+
+      $('#new-name').keyup(function(){
+        $(this).val($(this).val().toUpperCase())
       })
 
       // submit create user
@@ -248,28 +259,32 @@ $(document).ready(function(){
             data: {name: name, uname: uname, pwd:pwd, lvl:lvl},
             success: function(res){
               if(res == 'success'){
-                $('#signup-status').text('Data saved successfuly.')
+                $('#signup-status').html('Data saved successfuly.')
               } else {
                 $('#signup-status').html('<p class="text-danger">Data saved successfuly.</p>')
               }
               createUserProcEnd()
             },
             error: function (jqXHR, exception) {
-            let msg = '';
+            let msg = ''
             if (jqXHR.status === 0) {
-                msg = 'Not connect.<br />Verify Network.';
+                msg = 'Not connect.<br />Verify Network.'
             } else if (jqXHR.status == 404) {
-                msg = 'Requested page not found. [404]';
+                msg = 'Requested page not found. [404]'
             } else if (jqXHR.status == 500) {
-                msg = 'Internal Server Error [500].';
+                msg = 'Internal Server Error [500].<br />Duplicate username!'
+                $('#new-username').select()
+                setTimeout(function(){
+                  $('#signup-submit').attr('disabled', false)
+                },500)
             } else if (exception === 'parsererror') {
-                msg = 'Requested JSON parse failed.';
+                msg = 'Requested JSON parse failed.'
             } else if (exception === 'timeout') {
-                msg = 'Time out error.';
+                msg = 'Time out error.'
             } else if (exception === 'abort') {
-                msg = 'Ajax request aborted.';
+                msg = 'Ajax request aborted.'
             } else {
-                msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+                msg = 'Uncaught Error.<br />' + jqXHR.responseText
             }
             $('#signup-status').html(msg)
             createUserProcEnd()
@@ -383,6 +398,10 @@ $(document).ready(function(){
     }
   })
 
+  $('#user-submenu').click(function(){
+    location.href = site_url+'user'
+  })
+
   $('#log-in').on('click', function(){
     $('#signin-modal').modal({
       backdrop: 'static',
@@ -421,5 +440,167 @@ $(document).ready(function(){
 
   // End of navbar links
   // ====================
+
+  // =================================================
+  // user js
+  // =================================================
+  $('#user-tbl').DataTable()
+
+    // ======================
+    // Adding
+    // ======================
+  $('#user-add').click(function(){
+    $('#pass-root-modal').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+    $('#pass-root-alert').addClass('d-none')
+  })
+
+  // ======================
+  // Removing
+  // ======================
+  $('.user-remove').click(function() {
+    const id = $(this).val()
+
+    $.ajax({
+      url: site_url + 'user/remove/' + id,
+      // data: {id: id}, //not required to send id from here bcoz url's ci handle it
+      success: function(res) {
+        if (res == 'success') {
+          location.reload()
+        } else {
+          alert('Removing user failed')
+        }
+      },
+      error: function(jqXHR, exception) {
+        let msg = ''
+        if (jqXHR.status === 0) {
+          msg = 'Not connect.<br />Verify Network.'
+        } else if (jqXHR.status == 404) {
+          msg = 'Requested page not found. [404]'
+        } else if (jqXHR.status == 500) {
+          msg = 'Internal Server Error [500].'
+        } else if (exception === 'parsererror') {
+          msg = 'Requested JSON parse failed.'
+        } else if (exception === 'timeout') {
+          msg = 'Time out error.'
+        } else if (exception === 'abort') {
+          msg = 'Ajax request aborted.'
+        } else {
+          msg = 'Uncaught Error.<br />' + jqXHR.responseText
+        }
+        alert(msg)
+      } //end error
+    }) //end ajax
+  }) //end function
+
+
+    // ======================
+  	// Updating
+  	// ======================
+  	// btn update clicked
+  	// ===============
+  	$('#user-pwd-update').on('click', function() {
+  		$('#user-pwd-update-modal').modal('show')
+
+      $('#user-pwd-update-modal').on('hidden.bs.modal', function(){
+        $('#pwd-update-reset').trigger('click')
+      })
+  	})
+
+    $('#pwd-update-reset').click(function(){
+      $('#cur-pwd').val('')
+      $('#new-pwd').val('')
+      $('#reenter-new-pwd').val('')
+      $('#cur-pwd').focus()
+      $('#loader-img-pwd-update').addClass('d-none')
+      $('#pwd-update-alert').addClass('d-none')
+      $('#pwd-update-submit').html('Save')
+      $('#pwd-update-submit').attr('disabled', false)
+    })
+
+    function processUpdateEnd(){
+      $('#pwd-update-alert').removeClass('d-none')
+      $('#loader-img-pwd-update').addClass('d-none')
+      $('#pwd-update-submit').text('Save')
+      $('#pwd-update-submit').attr('disabled', false)
+    }
+
+    function processUpdate(){
+      $('#pwd-update-submit').text('Saving...')
+      $('#pwd-update-submit').attr('disabled', true)
+      $('#loader-img-pwd-update').addClass('d-none')
+      $('#pwd-update-alert').addClass('d-none')
+    }
+
+    function fieldEmpty(){
+      $('#pwd-update-alert').html('<div class="text-danger text-uppercase">Field cannot be empty !!!</div>')
+      $('#pwd-update-alert').removeClass('d-none')
+      $('#pwd-update-submit').attr('disabled', false)
+    }
+
+    $('#pwd-update-submit').click(function(){
+      processUpdate()
+
+      const curPwd = $('#cur-pwd').val()
+      const newPwd = $('#new-pwd').val()
+      const reNewPwd = $('#reenter-new-pwd').val()
+
+      if(curPwd == ''){
+        $('#cur-pwd').focus()
+        fieldEmpty()
+      }else if(newPwd == ''){
+        $('#new-pwd').focus()
+        fieldEmpty()
+      }else if(reNewPwd == ''){
+        $('#reenter-new-pwd').focus()
+        fieldEmpty()
+      }else if(newPwd !== reNewPwd){
+        $('#reenter-new-pwd').focus()
+        $('#pwd-update-alert').html('<div class="text-danger text-uppercase">The new password not match !!!</div>')
+        $('#pwd-update-alert').removeClass('d-none')
+        $('#pwd-update-submit').attr('disabled', false)
+      }else{
+        $.ajax({
+          type: 'post',
+          url: site_url+'user/update',
+          data: {curPwd: curPwd, newPwd: newPwd},
+          success: function(res){
+            if(res=='success'){
+              $('#pwd-update-alert').html(res+'<br />Your password updated')
+              processUpdateEnd()
+            }else if(res=='unauthenticated'){
+              $('#pwd-update-alert').html('<div class="text-danger">'+res+'<br />Your password not updated</div>')
+              processUpdateEnd()
+            }else{
+              $('#pwd-update-alert').html('<div class="text-danger">'+res+' unknown error.<br />Your password not updated</div>')
+              processUpdateEnd()
+            }
+          },
+          error: function(jqXHR, exception) {
+            let msg = ''
+            if (jqXHR.status === 0) {
+              msg = 'Not connect.<br />Verify Network.'
+            } else if (jqXHR.status == 404) {
+              msg = 'Requested page not found. [404]'
+            } else if (jqXHR.status == 500) {
+              msg = 'Internal Server Error [500].'
+            } else if (exception === 'parsererror') {
+              msg = 'Requested JSON parse failed.'
+            } else if (exception === 'timeout') {
+              msg = 'Time out error.'
+            } else if (exception === 'abort') {
+              msg = 'Ajax request aborted.'
+            } else {
+              msg = 'Uncaught Error.<br />' + jqXHR.responseText
+            }
+            $('#pwd-update-alert').html(msg)
+          } //end error
+        })//end ajax
+      }//end if else
+      console.log(curPwd+' ---- '+newPwd)
+    })//end function
+
 
 }) //END OF FILE
