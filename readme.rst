@@ -19,6 +19,11 @@ Libraries Used
 MikroTik API
 jQuery
 jquery.qrcode
+Bootstrap
+dataTables.bootstrap
+popper
+octicon
+load-awesome
 
 **************************
 Programmer
