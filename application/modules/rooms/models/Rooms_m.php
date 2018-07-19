@@ -37,11 +37,6 @@ class Rooms_m extends CI_Model {
 
   // ============
 
-  function get_type(){
-    $this->db->group_by('type');
-    $this->db->order_by('type', 'desc');
-    return $this->db->get($this->table)->result();
-  }
 
   function get_by_id($id){
     $this->db->where($this->id, $id);

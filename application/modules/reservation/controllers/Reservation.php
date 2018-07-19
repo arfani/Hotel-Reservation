@@ -5,14 +5,23 @@ class Reservation extends CI_Controller {
 
   function __construct(){
         parent::__construct(); // needed when adding a constructor to a controller
-        $this->load->model('reservation_m', 'rm');
+        $this->load->model('reservation_m', 'rem');
       }
 
   function index(){
     $data = array(
-      'content' => 'reservation'
+      'content' => 'reservation',
+      'types'    => $this->rem->get_room_type()
     );
 		$this->load->view('home/home', $data);
+  }
+
+  function numb_by_type(){
+    $type = $this->input->post('type');
+    $numbs = $this->rem->get_by_type($type);
+
+    echo json_encode($numbs);
+
   }
 
   function save(){
@@ -45,7 +54,7 @@ class Reservation extends CI_Controller {
             }else{
               $msg .= "Voucher is failed to generated. <br />";
             }
-            $save = $this->rm->insert($data); // save to db
+            $save = $this->rem->insert($data); // save to db
             if($save){
               $msg .= "Saving data successfully. <br />";
             }else{

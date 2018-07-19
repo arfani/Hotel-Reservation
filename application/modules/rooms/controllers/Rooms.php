@@ -50,5 +50,4 @@ class Rooms extends CI_Controller {
       echo ($update) ? 'success' : 'failed' ;
     }
 
-
 }

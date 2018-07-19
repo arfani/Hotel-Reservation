@@ -3,19 +3,15 @@
 	<div class="col-sm-12 data-tamu rounded">
 		<div class="form-group">
 				<label for="room-type">Room type : </label>
-				<select class="form-control" name="room-type" id="room-type">
-					<option value="Premium">Premium</option>
-					<option value="Budget">Budget</option>
+				<select class="form-control text-capitalize" name="room-type" id="room-type">
+				<?php foreach ($types as $type) { ?>
+					<option value="<?php echo $type->type ?>"><?php echo $type->type ?></option>
+				<?php } ?>
 				</select>
 			</div>
 		<div class="form-group">
 				<label for="room-numb">Room Number : </label>
 				<select class="form-control" name="room-numb" id="room-numb">
-					<option value="101">101</option>
-					<option value="102">102</option>
-					<option value="103">103</option>
-					<option value="104">104</option>
-					<option value="105">105</option>
 				</select>
 		</div>
 		<div class="form-group">

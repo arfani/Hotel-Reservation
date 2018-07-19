@@ -68,21 +68,21 @@ $(function(){
                 processBtnEnd()
               },
               error: function (jqXHR, exception) {
-              let msg = '';
+              let msg = ''
               if (jqXHR.status === 0) {
-                  msg = 'Not connect.<br />Verify Network.';
+                  msg = 'Not connect.<br />Verify Network.'
               } else if (jqXHR.status == 404) {
-                  msg = 'Requested page not found. [404]';
+                  msg = 'Requested page not found. [404]'
               } else if (jqXHR.status == 500) {
-                  msg = 'Internal Server Error [500].';
+                  msg = 'Internal Server Error [500].'
               } else if (exception === 'parsererror') {
-                  msg = 'Requested JSON parse failed.';
+                  msg = 'Requested JSON parse failed.'
               } else if (exception === 'timeout') {
-                  msg = 'Time out error.';
+                  msg = 'Time out error.'
               } else if (exception === 'abort') {
-                  msg = 'Ajax request aborted.';
+                  msg = 'Ajax request aborted.'
               } else {
-                  msg = 'Uncaught Error.<br />' + jqXHR.responseText;
+                  msg = 'Uncaught Error.<br />' + jqXHR.responseText
               }
               $('#reservation-status').html(msg)
               processBtnEnd()
@@ -125,19 +125,64 @@ $(function(){
   }
 
   // ==============
-  //  Connect to the latest successed mtik server
+  //  fill numb room by type room
   // ==============
-  function connectTheLatest(){
-    $.ajax({
-      url: site_url+'setting/connect_latest',
-      success: function(res){
-        console.log(res)
-      },
-      error: function(){
-        console.error('Cannot connect!')
+
+      function buildDropdown(result, dropdown, emptyMessage){
+        // Remove current options
+        dropdown.html('');
+        // Add the empty option with the empty message
+        // dropdown.append('<option value="">' + emptyMessage + '</option>');
+        // Check result isnt empty
+        if(result != '')
+        {
+            // Loop through each of the results and append the option to the dropdown
+            $.each(result, function(k, v) {
+                dropdown.append('<option value="' + v.numb + '">' + v.numb + '</option>');
+            });
+        }
       }
-    })
+
+  function fillNumb(){
+    const type = $('#room-type').val()
+
+    $.ajax({
+      type: 'post',
+      url: site_url+'reservation/numb_by_type',
+      data: {type: type},
+      success: function(data){
+        buildDropdown(
+          jQuery.parseJSON(data),
+          $('#room-numb')
+        )
+      },
+      error: function (jqXHR, exception) {
+        let msg = ''
+        if (jqXHR.status === 0) {
+            msg = 'Not connect.<br />Verify Network.'
+        } else if (jqXHR.status == 404) {
+            msg = 'Requested page not found. [404]'
+        } else if (jqXHR.status == 500) {
+            msg = 'Internal Server Error [500].'
+        } else if (exception === 'parsererror') {
+            msg = 'Requested JSON parse failed.'
+        } else if (exception === 'timeout') {
+            msg = 'Time out error.'
+        } else if (exception === 'abort') {
+            msg = 'Ajax request aborted.'
+        } else {
+            msg = 'Uncaught Error.<br />' + jqXHR.responseText
+        }
+        alert('error getting data numb by type')
+      }//end error
+    })//end ajax
   }
+
+  fillNumb()
+
+  $('#room-type').change(function(){
+    fillNumb()
+  })//end func
 
 
 }) //END OF FILE
