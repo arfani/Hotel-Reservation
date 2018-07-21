@@ -15,7 +15,10 @@
 <div class="mr-auto">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <span class="nav-link finger" id="home-menu">Home</span>
+      <span class="nav-link finger" id="home-menu">
+        <span class="ti-home"></span>
+        Home
+      </span>
     </li>
     <?php if($this->session->userdata('l') == 'administrator' || $this->session->userdata('l') == 'operator'): ?>
     <li class="nav-item" id="reservation-container">
@@ -61,7 +64,7 @@
     <?php if($this->session->userdata('l') == 'operator' || $this->session->userdata('l') == 'administrator'):  ?>
     <li class="nav-item">
       <span class="nav-link finger" role="button" id="setting-menu"  title="Setting">
-        <span class="octicon octicon-tools"></span>
+        <span class="ti-settings font-weight-bold"></span>
       </span>
     </li>
   <?php endif; ?>
@@ -73,15 +76,23 @@
 
     <li class="nav-item">
       <span class="nav-link finger" role="button" id="user-welcome">
-        <span class="small" id="user-profile" >
-          Welcome,<br /> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?>
+        <span class="" id="user-profile" >
+          Welcome,<br />
+          <span class="ti-user">
+          </span> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?>
         </span>
       </span>
     </li>
 
     <li class="nav-item">
-      <span class="nav-link finger" role="button" data-toggle="tooltip" data-placement="bottom" id="<?php echo ($this->session->userdata('n')) ? 'log-out' : 'log-in' ?>" title="Sign <?php echo ($this->session->userdata('n')) ? 'out' : 'in'; ?>">
-        <span class="octicon <?php echo ($this->session->userdata('n')) ? 'octicon-sign-out' : 'octicon-sign-in'; ?>"></span>
+      <span
+      class="nav-link finger"
+      role="button"
+      data-toggle="tooltip"
+      data-placement="bottom"
+      id="<?php echo ($this->session->userdata('n')) ? 'log-out' : 'log-in' ?>"
+      title="Sign <?php echo ($this->session->userdata('n')) ? 'out' : 'in'; ?>">
+      <?php echo ($this->session->userdata('n')) ? 'Log-out' : 'Log-in'; ?>
       </span>
     </li>
   </ul>

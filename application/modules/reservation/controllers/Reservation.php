@@ -9,6 +9,7 @@ class Reservation extends CI_Controller {
       }
 
   function index(){
+    isOp();
     $data = array(
       'content' => 'reservation',
       'types'    => $this->rem->get_room_type()
@@ -21,11 +22,10 @@ class Reservation extends CI_Controller {
     $numbs = $this->rem->get_by_type($type);
 
     echo json_encode($numbs);
-
   }
 
   function save(){
-    $msg = "<br />";
+    $msg = "";
 
     if($this->mtikapi->connect($this->session->hostname, $this->session->username, $this->session->password)){
 
@@ -60,9 +60,8 @@ class Reservation extends CI_Controller {
             }else{
               $msg .= "Saving data to db failed. <br />";
             }
-      }//if not connect
-      else {
-        $msg .= "There is no connection to MikroTik Server." ;
+      }else { //if not connect
+        $msg .= "disconnect" ;
       }
       echo $msg;
     }//end of function save

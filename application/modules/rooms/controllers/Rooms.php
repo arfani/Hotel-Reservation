@@ -8,6 +8,8 @@ class Rooms extends CI_Controller {
     }
 
   function index(){
+    isAd();
+
     $data = array(
       'content' => 'rooms',
       'rooms'   => $this->rm->get_all()

@@ -1,14 +1,13 @@
 $(document).ready(function(){
-
     //tooltip
     $('[data-toggle="tooltip"]').tooltip()
 
     // Get current date
-      Date.prototype.toDateInputValue = (function() {
-          var local = new Date(this)
-          local.setMinutes(this.getMinutes() - this.getTimezoneOffset())
-          return local.toJSON().slice(0,10)
-      })
+    Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this)
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset())
+        return local.toJSON().slice(0,10)
+    })
 
     // Every time a modal is shown, if it has an autofocus element, focus on it.
     $('.modal').on('shown.bs.modal', function() {
@@ -18,7 +17,6 @@ $(document).ready(function(){
   // =======================
   // Login User
   // =======================
-
     function loginProcess(){
       $('#login-submit').val('Processing...')
       $('#login-submit').attr('disabled', true)
@@ -156,15 +154,15 @@ $(document).ready(function(){
                 $('#signup-modal .modal-title').html("Create a new user!")
               },5000)
 
-                $('#pass-root-modal').modal('hide')
-                $('#signup-modal').modal({
-                  backdrop: 'static',
-                  keyboard: false
-                })
+              $('#pass-root-modal').modal('hide')
+              $('#signup-modal').modal({
+                backdrop: 'static',
+                keyboard: false
+              })
 
-                $('#signup-modal').on('hidden.bs.modal', function(){
-                  location.reload()
-                })
+              $('#signup-modal').on('hidden.bs.modal', function(){
+                location.reload()
+              })
               adminAuthProcEnd()
             } else {
               $('#pass-root-status').html(res)
@@ -288,10 +286,9 @@ $(document).ready(function(){
             }
             $('#signup-status').html(msg)
             createUserProcEnd()
-            }
-          })
-        }
-
+          }//end error
+          }) //end ajax
+        } //end else
       }) // end of submit
 
 
@@ -300,8 +297,29 @@ $(document).ready(function(){
       // =======================
 
   // =======================
-  // Connect to mtik server
+  // Connecting to mtik server
   // =======================
+
+  function connectProcess(){
+    $('#mtik-connect').val('Connecting...')
+    $('#mtik-connect').attr('disabled', true)
+    $('#loader-img').removeClass('d-none')
+    $('#loader-img').addClass('d-block')
+    $('#mtik-reset').attr('disabled', true)
+    $('#server-alert').removeClass('d-block')
+    $('#server-alert').addClass('d-none')
+  }
+
+  function connectProcessEnd(){
+    $('#mtik-connect').val('Connect')
+    $('#mtik-connect').attr('disabled', false)
+    $('#loader-img').removeClass('d-block')
+    $('#loader-img').addClass('d-none')
+    $('#mtik-reset').attr('disabled', false)
+    $('#server-alert').removeClass('d-none')
+    $('#server-alert').addClass('d-block')
+  }
+
   $('#mtik-connect').on('click', function(){
     connectProcess()
 
@@ -314,7 +332,7 @@ $(document).ready(function(){
               url: site_url+"setting/connect",
               data:{hostname: hName, username: uName, password: pwd},
               success:function(res){
-                $('#server-status').text(res)
+                $('#server-status').html(res)
                 connectProcessEnd()
               },
               error: function (jqXHR, exception) {
@@ -340,29 +358,51 @@ $(document).ready(function(){
           })
   })
 
-  function connectProcess(){
-    $('#mtik-connect').val('Connecting...')
-    $('#mtik-connect').attr('disabled', true)
-    $('#loader-img').removeClass('d-none')
-    $('#loader-img').addClass('d-block')
-    $('#mtik-reset').attr('disabled', true)
-    $('#server-alert').removeClass('d-block')
-    $('#server-alert').addClass('d-none')
-  }
+    // ========================
+    // disconnect button mtik-Server
+    // =========================
+  $('#mtik-disconnect').click(function(){
+    connectProcess()
+    $.ajax({
+      url: site_url+'setting/disconnect',
+      success: function(res, stt){
+        if(stt == 'success'){
+          $('#server-status').html('Disconnected!')
+        }else {
+          $('#server-status').html(res)
+        }
+        connectProcessEnd()
+      },
+      error: function (jqXHR, exception) {
+      let msg = ''
+      if (jqXHR.status === 0) {
+          msg = 'Not connect.<br />Verify Network.'
+      } else if (jqXHR.status == 404) {
+          msg = 'Requested page not found. [404]'
+      } else if (jqXHR.status == 500) {
+          msg = 'Internal Server Error [500].'
+      } else if (exception === 'parsererror') {
+          msg = 'Requested JSON parse failed.'
+      } else if (exception === 'timeout') {
+          msg = 'Time out error.'
+      } else if (exception === 'abort') {
+          msg = 'Ajax request aborted.'
+      } else {
+          msg = 'Uncaught Error.<br />' + jqXHR.responseText
+      }
+      console.log(msg);
+      connectProcessEnd()
+      }
+    })//end ajax
+  })//end function
 
-  function connectProcessEnd(){
-    $('#mtik-connect').val('Connect')
-    $('#mtik-connect').attr('disabled', false)
-    $('#loader-img').removeClass('d-block')
-    $('#loader-img').addClass('d-none')
-    $('#mtik-reset').attr('disabled', false)
-    $('#server-alert').removeClass('d-none')
-    $('#server-alert').addClass('d-block')
-  }
+    // =================================
+    // end disconnect button mtik-Server
+    // =================================
 
-  // =====================
+  // ========================
   // Reset button mtik-Server
-
+  // =========================
   $('#mtik-reset').click(function(){
     $('#hostname').val('')
     $('#username').val('')
@@ -371,13 +411,19 @@ $(document).ready(function(){
     $('#server-alert').addClass('d-none')
   })
 
+  // ====================
+  // end connection mtik
+  // ====================
 
   // ==============
   //  Navbar links
   // ==============
 
   $('#setting-menu').on('click', function(){
-      $('#mtik-setting-modal').modal('show')
+      $('#mtik-setting-modal').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
   })
 
   $('#logo-menu').on('click', function(){
@@ -411,7 +457,7 @@ $(document).ready(function(){
 
   $('#log-out').click(function(){
     $.ajax({
-      url: site_url+'login/end',
+      url: site_url+'login/out',
       success: function(res){
         location.href = site_url
       },
@@ -599,8 +645,12 @@ $(document).ready(function(){
           } //end error
         })//end ajax
       }//end if else
-      console.log(curPwd+' ---- '+newPwd)
     })//end function
+
+    // ===============================
+    // END of user js
+    // ===============================
+
 
 
 }) //END OF FILE

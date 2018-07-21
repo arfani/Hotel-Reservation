@@ -6,6 +6,16 @@
   text-align: center;
 }
 
-.modal-footer {
-  justify-content: space-around!important;
+#confirm-data {
+  /* background-color: rgba(210,210,210,0.3); */
+  padding: 10px;
+  font-weight: bold;
+}
+
+#confirm-data > h4 {
+  color: white;
+  font-weight: bold;
+  background-color: gray;
+  text-align: center;
+  padding: 10px;
 }

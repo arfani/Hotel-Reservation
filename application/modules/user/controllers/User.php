@@ -8,29 +8,14 @@ class User extends CI_Controller {
     }
 
   function index(){
+    isAd();
+    
     $data = array(
       'content' => 'user',
       'users'   => $this->um->get_all()
       );
       $this->load->view('home/home', $data);
     }
-
-    // function add(){
-    //   $numb = $this->input->post('numb');
-    //   $exist = $this->um->get_by_numb($numb);
-    //
-    //   if(!$exist){
-    //     $data = array(
-    //       'numb' => $numb,
-    //       'type' => $this->input->post('type'),
-    //       'annotation' => $this->input->post('annotation')
-    //     );
-    //     $add = $this->um->add($data);
-    //     echo ($add) ? 'success' : 'failed' ;
-    //   }else{
-    //     echo 'duplicate';
-    //   }
-    // }
 
     function remove($id){
       $remove = $this->um->remove($id);

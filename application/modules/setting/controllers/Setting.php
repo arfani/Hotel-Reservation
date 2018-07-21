@@ -31,10 +31,48 @@ class Setting extends CI_Controller {
 
   } // End connect
 
-  function tes(){
-    echo 'from tes fung<br />';
-    print_r($this->session->userdata());
+function disconnect(){
+  $data_server = array('hostname', 'username', 'password', 'status');
+  $disconnect = $this->session->unset_userdata($data_server);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// private
+  function buatadmintanpalogin(){
+    $res = '';
+    $data = array(
+      'name' => 'Admin', //$this->input->post('name'),
+      'username' => 'admin', //$this->input->post('uname'),
+      'password' => password_hash('', PASSWORD_BCRYPT), //$this->input->post('pwd'), PASSWORD_BCRYPT),
+      'level' => 'administrator' //$this->input->post('lvl')
+    );
+    $success = $this->lm->create_emp($data);
+    if($success){
+      $res = 'success';
+    }else {
+      $res = 'error';
+    }
+    echo $res;
   }
 
+  function ceklogin(){
+    print_r($this->session->userdata());
+  }
 
 } // END OF FILE

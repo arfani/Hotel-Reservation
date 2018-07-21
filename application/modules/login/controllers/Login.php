@@ -81,28 +81,9 @@
     }
 
     //log out
-    function end(){
+    function out(){
       $user = array('i','n','u','p','l');
       $this->session->unset_userdata($user);
-      // echo $this->uri->segment(1);
     }
-
-    function buatadmintanpalogin(){
-      $res = '';
-      $data = array(
-        'name' => 'Admin', //$this->input->post('name'),
-        'username' => 'admin', //$this->input->post('uname'),
-        'password' => password_hash('', PASSWORD_BCRYPT), //$this->input->post('pwd'), PASSWORD_BCRYPT),
-        'level' => 'administrator' //$this->input->post('lvl')
-      );
-      $success = $this->lm->create_emp($data);
-      if($success){
-        $res = 'success';
-      }else {
-        $res = 'error';
-      }
-      echo $res;
-    }
-
 
   }//end file

@@ -50,14 +50,21 @@
     cursor: pointer;
   }
 
-  #log-in > .octicon, #log-out > .octicon {
-    font-size: 24px;
+  #log-in, #log-out{
+    border-left: 2px solid white;
+    font-size: 16px;
   }
 
-  #setting-menu > span {
-    font-size: 24px;
+  #setting-menu > span  {
+    font-size: 18px;
+    vertical-align: bottom;
   }
 
   #user-welcome {
     line-height: 1;
+    font-size: 12px;
+  }
+
+  .modal-footer {
+    justify-content: space-around;
   }

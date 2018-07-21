@@ -41,7 +41,7 @@
             <td><?php echo $user->level; ?></td>
             <td class="text-center">
               <button class="btn btn-danger user-remove" value="<?php echo $user->id; ?>" >
-                <span class="octicon octicon-trashcan"></span>
+                <span class="ti-trash"></span>
               </button>
             </td>
           </tr> <?php } ?>

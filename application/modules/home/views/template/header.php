@@ -20,9 +20,6 @@
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> -->
 
-  <!-- octicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.css" />
-
   <!-- jQuery QRcode -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous"></script> -->
 
@@ -42,11 +39,14 @@
   <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/dataTables.bootstrap4.min.js'); ?>"></script>
 
-  <!-- octicons -->
-  <!-- belum ada local -->
+  <!-- themify-icons -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/themify-icons.css'); ?>">
 
   <!-- jQuery QRcode -->
   <script src="<?php echo base_url('assets/js/jquery.qrcode.min.js'); ?>"></script>
+
+  <!-- moment.js -->
+  <script src="<?php echo base_url('assets/js/moment.min.js'); ?>"></script>
 
   <!-- ================ -->
   <!-- ONLY LOCAL -->
