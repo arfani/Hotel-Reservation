@@ -23,8 +23,23 @@
       return $query->result();
     }
 
-    function insert($data){
+    // insert to reservation table
+    function insert_reservation($data){
       $this->db->insert($this->table, $data);
+      $inserted = $this->db->affected_rows();
+      return ($inserted) ? true : false ;
+    }
+
+    // insert into guest table
+    function insert_guest($data){
+      $this->db->insert('guest', $data);
+      $inserted = $this->db->affected_rows();
+      return ($inserted) ? true : false ;
+    }
+
+    // insert into voucher table
+    function insert_voucher($data){
+      $this->db->insert('voucher', $data);
       $inserted = $this->db->affected_rows();
       return ($inserted) ? true : false ;
     }

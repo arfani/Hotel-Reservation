@@ -29,38 +29,74 @@ class Reservation extends CI_Controller {
 
     if($this->mtikapi->connect($this->session->hostname, $this->session->username, $this->session->password)){
 
-      $data = array(
-            'guest_name' => $this->input->post('gName'),
-            'guest_id' => $this->input->post('gId'),
-            'date_from' => $this->input->post('dateFrom'),
-            'cod' => $this->input->post('cod'),
+        $dataReservation = array(
+              'id' => $this->input->post('noBooking'),
+              'guest_id' => $this->input->post('id'),
+              'night' => $this->input->post('night'),
+              'arrival_date' => $this->input->post('arrivalDate'),
+              'departure_date' => $this->input->post('departureDate'),
+              'room_type' => $this->input->post('roomType'),
+              'room_numb' => $this->input->post('roomNumb'),
+              'adult' => $this->input->post('adult'),
+              'child' => $this->input->post('child'),
+              'uname_voucher' => $this->input->post('uName')
+            );
+
+          $dataGuest = array(
+            'id' => $this->input->post('id'),
+            'name' => $this->input->post('name'),
+            'gender' => $this->input->post('gender'),
+            'birth' => $this->input->post('birth'),
+            'phone' => $this->input->post('phone'),
+            'email' => $this->input->post('email'),
+            'address' => $this->input->post('address')
+          );
+
+          $dataVoucher = array(
             'username' => $this->input->post('uName'),
             'password' => $this->input->post('pwd'),
-            'uptime' => $this->input->post('cod').'d',
+            'uptime' => $this->input->post('night'),
             'disabled' => 'no'
           );
 
-            //save voucher to mtik
-            $this->mtikapi->write('/ip/hotspot/user/add',false);
-            $this->mtikapi->write('=name='.$data['username'], false);
-            $this->mtikapi->write('=password='.$data['password'], false);
-            $this->mtikapi->write('=limit-uptime='.$data['uptime'], false);
-            $this->mtikapi->write('=comment='.'given to '.$data['guest_name'], false);
-            $this->mtikapi->write('=disabled='.$data['disabled']); // dont use false param
-            $vou_sev = $this->mtikapi->read();
-            $this->mtikapi->disconnect();
-            if ($vou_sev) {
-              $msg .= "Voucher is ready to use. <br />";
-            }else{
-              $msg .= "Voucher is failed to generated. <br />";
-            }
-            $save = $this->rem->insert($data); // save to db
-            if($save){
-              $msg .= "Saving data successfully. <br />";
-            }else{
-              $msg .= "Saving data to db failed. <br />";
-            }
-      }else { //if not connect
+              // save guest data to db
+              $saveGuest = $this->rem->insert_guest($dataGuest);
+              if($saveGuest){
+                $msg .= "<strong>Guest</strong> : Saving data successfully. <br />";
+                // save voucher data to db
+                $saveVou = $this->rem->insert_voucher($dataVoucher);
+                if($saveVou){
+                  $msg .= "<strong>Voucher</strong> : Saving data successfully. <br />";
+                  // save reservation data to db
+                  $saveRes = $this->rem->insert_reservation($dataReservation);
+                  if($saveRes){
+                    $msg .= "<strong>Reservation</strong> : Saving data successfully. <br />";
+                    //save voucher to mtik
+                    $this->mtikapi->write('/ip/hotspot/user/add',false);
+                    $this->mtikapi->write('=name='.$dataVoucher['username'], false);
+                    $this->mtikapi->write('=password='.$dataVoucher['password'], false);
+                    $this->mtikapi->write('=limit-uptime='.$dataVoucher['uptime'].'d', false);
+                    $this->mtikapi->write('=comment=created by jazz web application', false);
+                    $this->mtikapi->write('=disabled='.$dataVoucher['disabled']); // dont use false param
+                    $vou_sev = $this->mtikapi->read();
+                    $this->mtikapi->disconnect();
+                    if ($vou_sev) {
+                      $msg .= "Voucher is ready to use. <br />";
+                    }else{
+                      $msg .= "Voucher is failed to generated. <br />";
+                    }
+                  }else{
+                    $msg .= "<strong>Reservation</strong> : Saving data to db failed. <br />";
+                  }
+                }else{
+                  $msg .= "<strong>Voucher</strong> : Saving data to db failed. <br />";
+                }
+              }else{
+                $msg .= "<strong>Guest</strong> : Saving data to db failed. <br />";
+              }
+
+      //if not connect
+      }else {
         $msg .= "disconnect" ;
       }
       echo $msg;

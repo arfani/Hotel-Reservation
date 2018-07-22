@@ -47,6 +47,10 @@
                   <h4>Scan your voucher</h4>
                   <div id="voucher-qrcode"></div>
                   <div id="guest-voucher">
+                  <span class="btn btn-info ml-2" id="change-uname-pwd">
+                    <span class="ti-pencil"></span>
+                    Change Username & Password
+                  </span><br />
                     Username  : <span id="voucher-username"></span><br />
                     Password  : <span id="voucher-password"></span><br />
                     Uptime  : <span id="voucher-uptime"></span>
@@ -55,7 +59,7 @@
                 </div>
                 </div>
                 <div class="col-sm-12">
-                  <div class="alert alert-warning alert-dismissable mt-2" id="reservation-alert">
+                  <div class="alert alert-warning alert-dismissable mt-2 d-none" id="reservation-alert">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     <span id="reservation-status"></span>
                   </div>

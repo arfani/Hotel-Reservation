@@ -4,11 +4,11 @@
     <div class="col-sm-12 data-tamu rounded">
 <div class="form-group">
   <label for="id-numb">KTP/Passport Number</label>
-  <input type="text" class="form-control" id="id-numb" placeholder="1234567890"/>
+  <input type="text" class="form-control" id="id-numb" placeholder="1234567890" autofocus/>
 </div>
 <div class="form-group">
   <label for="name">Name</label>
-  <input type="text" class="form-control" id="name" name="name" placeholder="Umar Abdullah" required autofocus/>
+  <input type="text" class="form-control" id="name" name="name" placeholder="Umar Abdullah"/>
 </div>
 <div class="form-inline">
   <label for="gender" class="w-50" style="justify-content:left;">Gender</label>
