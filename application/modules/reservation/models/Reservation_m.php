@@ -44,4 +44,12 @@
       return ($inserted) ? true : false ;
     }
 
+    // get guest for check duplicate
+    function get_guest($id){
+      $this->db->where('id', $id);
+      $this->db->get('guest');
+      $exist = $this->db->affected_rows();
+      return ($exist) ? true : false ;
+    }
+
   }

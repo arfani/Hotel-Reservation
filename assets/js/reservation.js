@@ -280,26 +280,28 @@ $(function(){
                 }
               },
               error: function (jqXHR, exception) {
-              let msg = ''
-              if (jqXHR.status === 0) {
-                  msg = 'Not connect.<br />Verify Network.'
-              } else if (jqXHR.status == 404) {
-                  msg = 'Requested page not found. [404]'
-              } else if (jqXHR.status == 500) {
-                  msg = 'Internal Server Error [500].<br />Duplicate data!'
-              } else if (exception === 'parsererror') {
-                  msg = 'Requested JSON parse failed.'
-              } else if (exception === 'timeout') {
-                  msg = 'Time out error.'
-              } else if (exception === 'abort') {
-                  msg = 'Ajax request aborted.'
-              } else {
-                  msg = 'Uncaught Error.<br />' + jqXHR.responseText
-              }
-              $('#reservation-status').html(msg)
-              processBtnEnd()
-              $('#frame-qrcode').addClass('d-none')
-              console.log(jqXHR.responseText)
+                let msg = ''
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.<br />Verify Network.'
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]'
+                } else if (jqXHR.status == 500) {
+                    msg = 'Username is used!<br />Internal Server Error [500].'
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.'
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.'
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.'
+                } else {
+                    msg = 'Uncaught Error.<br />' + jqXHR.responseText
+                }
+                  $('#reservation-status').html('<span class="text-danger">'+msg+'</span>')
+                  processBtnEnd()
+                  $('#frame-qrcode').addClass('d-none')
+                  $('#reservation-modal').on('hidden.bs.modal', function(){
+                    location.reload()
+                })
               }
         })
   }) // End when save

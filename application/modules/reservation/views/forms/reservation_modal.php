@@ -32,7 +32,7 @@
                   Phone  : <span id="guest-phone"></span><br />
                   Email  : <span id="guest-email"></span><br />
                   Address  : <span id="guest-address"></span><br />
-                  <hr />
+                  <div class="border-bottom pb-2 mb-2"></div>
                   Night  : <span id="guest-night"></span><br />
                   Arrival date  : <span id="guest-arrival-date"></span><br />
                   Departure date  : <span id="guest-departure-date"></span><br />
@@ -59,7 +59,7 @@
                 </div>
                 </div>
                 <div class="col-sm-12">
-                  <div class="alert alert-warning alert-dismissable mt-2 d-none" id="reservation-alert">
+                  <div class="alert alert-warning alert-dismissable mt-2 d-none fixed-top" id="reservation-alert">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     <span id="reservation-status"></span>
                   </div>
