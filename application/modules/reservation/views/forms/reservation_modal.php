@@ -43,19 +43,19 @@
                 </div>
                 </div>
                 <div id="confirm-qr" class="col-sm-6">
-                  <div id="frame-qrcode" class="bg-light">
+                  <div id="frame-qrcode" class="bg-light p-2">
                   <h4>Scan your voucher</h4>
                   <div id="voucher-qrcode"></div>
                   <div id="guest-voucher">
-                  <span class="btn btn-info ml-2" id="change-uname-pwd">
-                    <span class="ti-pencil"></span>
-                    Change Username & Password
-                  </span><br />
                     Username  : <span id="voucher-username"></span><br />
                     Password  : <span id="voucher-password"></span><br />
                     Uptime  : <span id="voucher-uptime"></span>
                   </div>
                   <div>DNS Name : <span id="dns-name">192.168.100.1</span></div>
+                  <span class="btn btn-info ml-2" id="change-uname-pwd">
+                    <span class="ti-pencil"></span>
+                    Change Username & Password
+                  </span>
                 </div>
                 </div>
                 <div class="col-sm-12">

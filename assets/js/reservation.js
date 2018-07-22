@@ -131,8 +131,8 @@ $(function(){
     $('#voucher-password').text(password)
 
     $('#voucher-qrcode').qrcode({
-      width: 256,
-      height: 256,
+      width: 200,
+      height: 200,
       text: 'http://'+dnsName+'/login?username='+username+'&password='+password
     })
 

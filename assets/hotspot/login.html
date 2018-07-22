@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Internet Hotspot > Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<link rel="stylesheet" href="bootstrap.min.css">
+<style type="text/css">
+body {background-image: url(img/bg.png); color: #737373; font-size: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+
+textarea,input,select {
+background-color: #FDFBFB;
+border: 1px solid #BBBBBB;
+padding: 2px;
+margin: 1px;
+font-size: 14px;
+color: #808080;
+}
+
+a, a:link, a:visited, a:active { color: #AAAAAA; text-decoration: none; font-size: 10px; }
+a:hover { border-bottom: 1px dotted #c1c1c1; color: #AAAAAA; }
+img {border: none;}
+td { font-size: 14px; color: #7A7A7A; }
+
+#judul {
+	padding: 10px;
+	margin-top: 0px;
+	font-size: xx-large;
+	font-weight: bold;
+	letter-spacing: 6px;
+	color: lightgreen;
+    text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px darkgreen;
+	background: rgba(50, 50, 50, 0.5);
+	border-radius: 10px;
+}
+
+#owner{
+	background: rgba(50, 50, 50, 0.5);
+	border-radius: 10px;
+	color: lightgreen;
+	/* height:320px; */
+}
+
+#login{
+	background: rgba(50, 50, 50, 0.5);
+	border-radius: 10px;
+	color: lightgreen;
+	margin-bottom: 10px;
+}
+
+.judul{
+	text-align:center;
+	padding:10px;
+	font-weight: bold;
+}
+
+.login-form{
+	padding: 10px;
+}
+
+input[type='text']:focus,
+input[type='password']:focus
+{
+	border-color: rgba(126, 239, 104, 1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+  outline: 0 none;
+}
+
+.form-group label {
+	font-size: medium;
+}
+
+.profile{
+	text-align: center;
+	padding: 10px;
+}
+
+.profile img{
+	margin-bottom: 10px;
+	border-radius: 80px;
+}
+
+.profile a{
+	color: lightgreen;
+}
+
+.profile a:hover{
+	color: rgb(57, 255, 57);
+}
+
+#footer{
+	font-size: larger;
+	margin-top: 10px;
+	background: rgba(50, 50, 50, 0.5);
+	/* display: inline-block; */
+	color: lightgreen;
+	border-radius: 10px;
+	padding: 5px;
+	text-align: center;
+}
+
+#footer a {
+	color:lightgreen;
+	font-size: larger;
+	font-weight: bold;
+}
+
+.error{
+	text-align: center;
+	font-size: medium;
+	color: lightcoral;
+	font-weight: bold;
+	background: rgba(50, 50, 50, 0.8);
+}
+</style>
+
+</head>
+
+<body>
+	<div class="container">
+			$(if chap-id)
+			<form name="sendin" action="$(link-login-only)" method="post">
+				<input type="hidden" name="username" />
+				<input type="hidden" name="password" />
+				<input type="hidden" name="dst" value="$(link-orig)" />
+				<input type="hidden" name="popup" value="true" />
+			</form>
+
+			<script type="text/javascript" src="/md5.js"></script>
+			<script type="text/javascript">
+			// <!--
+			function doLogin() {
+			document.sendin.username.value = document.login.username.value;
+			document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			document.sendin.submit();
+			return false;
+				}
+			//-->
+			</script>
+		$(endif)
+
+		<div align="center">
+		<h1 id="judul">Arfani-HOTSPOT</h1>
+		</div>
+
+		<div class="row">
+			<!-- Login Form -->
+			<div class="col-sm-12 col-md-7">
+					<div id="login">
+            <h2 class="judul">Login Form</h2>
+							<form class="login-form" name="login" action="$(link-login-only)" method="post"
+							$(if chap-id) onSubmit="return doLogin()" $(endif)>
+							<input type="hidden" name="dst" value="$(link-orig)" />
+							<input type="hidden" name="popup" value="true" />
+
+							<div class="form-group">
+                <a href="scan/app/public/index.html">
+                  <span class="btn btn-danger font-weight-bold w-100 form-control">
+                    Login with QRCode
+                  </span>
+                </a>
+							<label class="" for="uname">Username</label>
+							<input class="form-control" style="" name="username" type="text" value="$(username)" id="uname"/>
+							</div>
+							<div class="form-group">
+							<label for="pwd">Password</label>
+							<input class="form-control" style="" name="password" type="password" id="pwd"/>
+							</div>
+							$(if error)
+							<div class="error">
+							$(error);
+							</div>
+							$(endif)
+							<input class="btn-success form-control" type="submit" value="Login" />
+							</form>
+					</div>
+			</div>
+			<!-- Owner form -->
+			<div class="col-sm-12 col-md-5" style="margin-bottom:10px;">
+					<div id="owner">
+						<h2 class="judul">Owner</h2>
+						<div class="profile">
+							<img src="img/pp.jpg" alt="">
+							<a href="http://fb.com/muhammadarfanihidayat"><h4>Arfani Hidayat</h4></a>
+							<center><button class="form-control btn-success" style="width:30%;" onclick="phone()">Contact</button></center>
+						</div>
+						<div id="footer">
+								&copy; 2018 Arfani-HOTSPOT. Design by <a href="http://fb.com/muhammadarfanihidayat">Arfani Hidayat</a>.
+							</div>
+					</div>
+				</div>
+		</div>
+
+		</div>
+</div>
+<script type="text/javascript">
+function phone(){
+	alert("Arfani Hidayat : 081907456710");
+}
+// <!--
+  document.login.username.focus();
+//   -->
+</script>
+</body>
+</html>
