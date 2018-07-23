@@ -35,14 +35,4 @@ class Rooms_m extends CI_Model {
     return ($number->num_rows() > 0) ? true : false;
   }
 
-  // ============
-
-
-  function get_by_id($id){
-    $this->db->where($this->id, $id);
-    $query = $this->db->get($this->table);
-    return $query->row();
-  }
-
-
 }//THE END

@@ -1,3 +1,8 @@
+
+  function hideResAlert(){
+    $('#reservation-alert').addClass('d-none')
+  }
+
 $(function(){
 
   // =============Arrival and Departure Date ================
@@ -135,6 +140,7 @@ $(function(){
       height: 200,
       text: 'http://'+dnsName+'/login?username='+username+'&password='+password
     })
+
 
     $('#reservation-new').click(function(){
       $('#guest-name').text('')

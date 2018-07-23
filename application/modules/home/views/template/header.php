@@ -59,6 +59,10 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/css/reservation.css'); ?>">
   <?php } ?>
 
+  <?php if($this->uri->segment(1) == 'resdata'){ ?>
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/resdata.css'); ?>">
+  <?php } ?>
+
   <!-- load load_awesome css -->
   <link rel="stylesheet" href="<?php echo base_url('assets/css/timer.min.css'); ?>">
 

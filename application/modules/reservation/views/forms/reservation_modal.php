@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-sm-12">
                   <div class="alert alert-warning alert-dismissable mt-2 d-none fixed-top" id="reservation-alert">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <button class="btn btn-danger float-right" type="button" onclick="hideResAlert()">&times;</button>
                     <span id="reservation-status"></span>
                   </div>
                 </div>

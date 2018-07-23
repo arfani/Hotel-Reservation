@@ -21,8 +21,12 @@
       </span>
     </li>
     <?php if($this->session->userdata('l') == 'administrator' || $this->session->userdata('l') == 'operator'): ?>
-    <li class="nav-item" id="reservation-container">
-      <span class="nav-link finger" id="reservation-menu">Reservation</span>
+    <li class="nav-item dropdown" id="reservation-container">
+      <span class="nav-link dropdown-toggle finger" data-toggle="dropdown">Reservation</span>
+      <div class="dropdown-menu">
+        <div class="dropdown-item finger" id="reservation-menu">Booking</div>
+        <div class="dropdown-item finger" id="resdata-submenu">Reservation Data</div>
+      </div>
     </li>
   <?php endif; ?>
 
