@@ -73,28 +73,27 @@
 <div class="ml-auto">
   <ul class="navbar-nav">
 
+    <!-- <form class="form-inline" action="#">
+    <input class="form-control ml-1" type="text" placeholder="Search" id="search">
+  </form> -->
+
+  <li class="nav-item">
+    <span class="nav-link finger" role="button" id="user-welcome">
+      <span class="" id="user-profile" >
+        Welcome,<br />
+        <span class="ti-user">
+        </span> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?>
+      </span>
+    </span>
+  </li>
+
     <?php if($this->session->userdata('l') == 'operator' || $this->session->userdata('l') == 'administrator'):  ?>
-    <li class="nav-item">
-      <span class="nav-link finger" role="button" id="setting-menu"  title="Setting">
-        <span class="ti-settings font-weight-bold"></span>
-      </span>
-    </li>
-  <?php endif; ?>
-
-
-    <form class="form-inline" action="#">
-      <input class="form-control ml-1" type="text" placeholder="Search" id="search">
-    </form>
-
-    <li class="nav-item">
-      <span class="nav-link finger" role="button" id="user-welcome">
-        <span class="" id="user-profile" >
-          Welcome,<br />
-          <span class="ti-user">
-          </span> <?php echo ($this->session->userdata('n')) ? $this->session->userdata('n') : 'Guest'; ?>
+      <li class="nav-item">
+        <span class="nav-link finger" role="button" id="setting-menu"  title="Setting">
+          <span class="ti-settings font-weight-bold"></span>
         </span>
-      </span>
-    </li>
+      </li>
+    <?php endif; ?>
 
     <li class="nav-item">
       <span

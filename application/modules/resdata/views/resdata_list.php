@@ -7,7 +7,7 @@
       id="resdata-add"
       class="form-control btn btn-primary mb-2 mt-2 font-weight-bold"
       type="button" name="button">
-      ADD A NEW ROOM!
+      BOOK NOW!
     </button>
       <div class="table-responsive">
       <table id="resdata-tbl" class="table table-striped table-bordered">

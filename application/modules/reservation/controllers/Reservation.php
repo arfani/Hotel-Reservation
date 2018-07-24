@@ -55,6 +55,7 @@ class Reservation extends CI_Controller {
         'username' => $this->input->post('uName'),
         'password' => $this->input->post('pwd'),
         'uptime' => $this->input->post('night'),
+        'profile_user' => $this->input->post('profile'),
         'disabled' => 'no'
       );
 
@@ -88,6 +89,7 @@ class Reservation extends CI_Controller {
                 $this->mtikapi->write('=name='.$data_voucher['username'], false);
                 $this->mtikapi->write('=password='.$data_voucher['password'], false);
                 $this->mtikapi->write('=limit-uptime='.$data_voucher['uptime'].'d', false);
+                $this->mtikapi->write('=profile='.$data_voucher['profile_user'], false);
                 $this->mtikapi->write('=comment=Created by jazz web application', false);
                 $this->mtikapi->write('=disabled='.$data_voucher['disabled']); // dont use false param
                 $vou_sev = $this->mtikapi->read();

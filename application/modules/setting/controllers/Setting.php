@@ -60,6 +60,7 @@ function disconnect(){
 
 
       function test(){
+        echo $this->input->post('profile');
         }
 
 } // END OF FILE

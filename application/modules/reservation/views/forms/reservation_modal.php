@@ -49,9 +49,10 @@
                   <div id="guest-voucher">
                     Username  : <span id="voucher-username"></span><br />
                     Password  : <span id="voucher-password"></span><br />
-                    Uptime  : <span id="voucher-uptime"></span>
+                    Uptime  : <span id="voucher-uptime"></span>,
+                    Profile : <span id="voucher-profile"></span><br />
+                    DNS Name : <span id="dns-name">192.168.100.1</span>
                   </div>
-                  <div>DNS Name : <span id="dns-name">192.168.100.1</span></div>
                   <span class="btn btn-info ml-2" id="change-uname-pwd">
                     <span class="ti-pencil"></span>
                     Change Username & Password

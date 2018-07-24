@@ -39,26 +39,23 @@ $(function(){
 
     $('#departure-date').val(depDateEnd)
   }
-
   // ===============End of Arrival and Departure Date =============
   // ==============================================================
 
     // ===================================================
     //  ============fill numb room by type room===========
     // ===================================================
-
       function buildDropdown(result, dropdown, emptyMessage){
         // Remove current options
         dropdown.html('');
         // Add the empty option with the empty message
         // dropdown.append('<option value="">' + emptyMessage + '</option>');
         // Check result isnt empty
-        if(result != '')
-        {
-            // Loop through each of the results and append the option to the dropdown
-            $.each(result, function(k, v) {
-                dropdown.append('<option value="' + v.numb + '">' + v.numb + '</option>');
-            });
+        if(result != ''){
+          // Loop through each of the results and append the option to the dropdown
+          $.each(result, function(k, v) {
+              dropdown.append('<option value="' + v.numb + '">' + v.numb + '</option>');
+          });
         }
       }
 
@@ -98,15 +95,12 @@ $(function(){
     }
 
     fillNumb()
-
     $('#room-type').change(function(){
       fillNumb()
     })//end func
-
     // =====================End fill numbe by type==============
     // =========================================================
 
-  // ===========================================================
   // ====================Reservation Saving=====================
   // ===========================================================
   // get guest data element
@@ -214,6 +208,8 @@ $(function(){
       if(!change){ generateVoucher() }
 
       $('#voucher-uptime').text(night.val()+' day(s)')
+      const sumPerson = (parseInt(adult.val())+parseInt(child.val())) > 4 ?  4 : parseInt(adult.val())+parseInt(child.val())
+      $('#voucher-profile').text(roomType.val()+sumPerson )
 
       $('#reservation-modal').modal({
         backdrop: 'static',
@@ -251,6 +247,7 @@ $(function(){
 
     const uName = $('#voucher-username').text()
     const pwd = $('#voucher-password').text()
+    const sumPerson = (parseInt(adult.val())+parseInt(child.val())) > 4 ?  4 : parseInt(adult.val())+parseInt(child.val())
     $.ajax({
             type:"post",
             url: site_url+"reservation/save",
@@ -271,7 +268,8 @@ $(function(){
               adult:adult.val(),
               child:child.val(),
               uName:uName,
-              pwd:pwd
+              pwd:pwd,
+              profile: roomType.val()+sumPerson
             },
             success:function(response){
               if(response == 'disconnect'){
