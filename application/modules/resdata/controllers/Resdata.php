@@ -7,6 +7,7 @@ class Resdata extends CI_Controller {
   }
 
   function index(){
+    isOp();
     $data = array(
       'content' => 'resdata_list',
       'res' => $this->rdm->get_all()
@@ -103,18 +104,7 @@ class Resdata extends CI_Controller {
            $this->mtikapi->write("=limit-uptime=".$new_uptime.'d',false);
            $this->mtikapi->write("=disabled=no");
            $update = $this->mtikapi->read();
-           echo ($update) ? "Updated on mtik server!" : "failed update on mtik server!\n";
-    //        // $this->mtikapi->write('/ip/hotspot/user/enable', false);
-    //        // $this->mtikapi->write('=.id='.$user['.id']);
-    //        // $this->mtikapi->read();
-    //
-    //        $this->mtikapi->write('/ip/hotspot/user/set', false);
-    //        $this->mtikapi->write('=.id='.$user['.id']);
-    //        $this->mtikapi->write('=limit-uptime='.$new_uptime.'d', false);
-    //        $this->routerosapi->write('=disabled=no');
-    //        $this->mtikapi->read();
-    //        $msg .= "enabled voucher in mtik\n";
-    //        $msg .= "limit uptime updated in mtik\n".$new_uptime;
+           echo ($update) ? "Updated on mtik server!(limit-uptime, enable)\n" : "failed update on mtik server!\n";
          }
       }
     }
@@ -126,63 +116,4 @@ class Resdata extends CI_Controller {
     echo $msg;
   }
 
-
-
-
-
-function test(){
-    $msg = "";
-    if($this->mtikapi->connect($this->session->hostname,$this->session->username,$this->session->password)){
-
-			// $this->mtikapi->write("/ip/hotspot/user/print", false);
-			// $this->mtikapi->write("=.proplist=.id", false);
-      //
-			// $this->mtikapi->write("=.proplist=limit-uptime", false);
-			// $this->mtikapi->write("?.id=1");
-      // // $this->mtikapi->read();
-      //
-      //          $this->mtikapi->write("/ip/hotspot/user/set", false);
-      //          $this->mtikapi->write("=.id=*1");
-      //          $this->mtikapi->write("=limit-uptime=13d", false);
-      // mengeksekusi perintah mikrotik untuk mengupdate address list
-      echo 'CODING : <br />';
-      echo '$this->mtikapi->write("/ip/hotspot/user/set", false)';
-      echo '<br />';
-      echo '$this->mtikapi->write("=.id=1", false)';
-      echo '<br />';
-      echo '$this->mtikapi->write("=limit-uptime=11d",false)';
-      echo '<br />';
-      echo '$this->mtikapi->write("=disabled=no")';
-      echo '<br />';
-      echo '$update = $this->mtikapi->read()';
-      echo '<br />';
-      echo 'echo ($update) ? "Updated!" : "failed!"';
-      echo '<br />';
-      echo '<br />';
-      echo '<br />';
-      echo 'RESULT : <br />';
-
-      $this->mtikapi->write("/ip/hotspot/user/set", false);
-      $this->mtikapi->write("=.id=*1", false);
-      $this->mtikapi->write("=limit-uptime=11d",false);
-      $this->mtikapi->write("=disabled=no");
-      $update = $this->mtikapi->read();
-        echo ($update) ? "Updated!" : "failed!";
-                 // $this->mtikapi->write('/ip/hotspot/user/set', false);
-                 // $this->mtikapi->write('=.id=*1', false);
-                 // $this->mtikapi->write('=limit-uptime=55d', false);
-                 // $this->mtikapi->write("=disabled="."no");
-                 // $this->mtikapi->read();
-                 // $msg .= "enabled voucher in mtik\n";
-                 // $msg .= "limit uptime updated in mtik\n";
-
-        $this->mtikapi->disconnect();
-
-      }else {
-        $msg = 'disconnect';
-      }
-      echo $msg;
-
-  } //end test
-
-} // enf file
+} // end file

@@ -28,6 +28,15 @@
         <div class="dropdown-item finger" id="resdata-submenu">Reservation Data</div>
       </div>
     </li>
+    <li class="nav-item dropdown" id="voucher-menu">
+      <span class="nav-link dropdown-toggle finger" data-toggle="dropdown">Voucher</span>
+      <div class="dropdown-menu">
+        <div class="dropdown-item finger" id="user-voucher-submenu">User</div>
+        <?php if($this->session->userdata('l') == 'administrator'): ?>
+        <div class="dropdown-item finger" id="profile-voucher-submenu">Profile</div>
+        <?php endif; ?>
+      </div>
+    </li>
   <?php endif; ?>
 
     <!-- Dropdown -->
@@ -58,7 +67,6 @@
   <?php endif; ?>
 
     <li class="nav-item"><span class="nav-link finger">About</span></li>
-    <li class="nav-item"><span class="nav-link finger">Contact</span></li>
   </ul>
 </div>
 

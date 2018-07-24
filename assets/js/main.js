@@ -418,11 +418,8 @@ $(document).ready(function(){
   //  Navbar links
   // ==============
 
-  $('#setting-menu').on('click', function(){
-      $('#mtik-setting-modal').modal({
-      backdrop: 'static',
-      keyboard: false
-    })
+  $('#setting-menu').click(function(){
+      $('#mtik-setting-modal').modal('show')
   })
 
   $('#logo-menu').on('click', function(){
@@ -449,6 +446,10 @@ $(document).ready(function(){
 
   $('#user-submenu').click(function(){
     location.href = site_url+'user'
+  })
+
+  $('#profile-voucher-submenu').click(function(){
+    location.href = site_url+'profileuser'
   })
 
   $('#log-in').on('click', function(){

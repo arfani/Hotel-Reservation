@@ -68,9 +68,11 @@ $(function(){
         $('#loader-img-ext').addClass('d-none')
         if(res==='disconnect'){
             alert('There is no connection!')
-        }else{
-        alert(res)
         }
+        // else{
+          // alert(res)
+        //
+        // }
         location.reload()
       },
       error: function (jqXHR, exception) {

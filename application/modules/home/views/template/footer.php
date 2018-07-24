@@ -19,12 +19,17 @@
 <script src="<?php echo base_url('assets/js/user.js'); ?>"></script>
 <?php } ?>
 
+<?php if ($this->uri->segment(1) == 'reservation') { ?>
+  <script src="<?php echo base_url('assets/js/reservation.js'); ?>"></script>
+<?php } ?>
+
 <?php if ($this->uri->segment(1) == 'resdata') { ?>
 <script src="<?php echo base_url('assets/js/resdata.js'); ?>"></script>
 <?php } ?>
 
-<?php if ($this->uri->segment(1) == 'reservation') { ?>
-  <script src="<?php echo base_url('assets/js/reservation.js'); ?>"></script>
+<?php if ($this->uri->segment(1) == 'profileuser') { ?>
+<script src="<?php echo base_url('assets/js/profileUser.js'); ?>"></script>
 <?php } ?>
+
 </body>
 </html>

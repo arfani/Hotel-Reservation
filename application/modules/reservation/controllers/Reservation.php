@@ -88,7 +88,7 @@ class Reservation extends CI_Controller {
                 $this->mtikapi->write('=name='.$data_voucher['username'], false);
                 $this->mtikapi->write('=password='.$data_voucher['password'], false);
                 $this->mtikapi->write('=limit-uptime='.$data_voucher['uptime'].'d', false);
-                $this->mtikapi->write('=comment=created by jazz web application', false);
+                $this->mtikapi->write('=comment=Created by jazz web application', false);
                 $this->mtikapi->write('=disabled='.$data_voucher['disabled']); // dont use false param
                 $vou_sev = $this->mtikapi->read();
                 $this->mtikapi->disconnect();

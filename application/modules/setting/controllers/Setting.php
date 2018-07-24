@@ -36,23 +36,6 @@ function disconnect(){
   $disconnect = $this->session->unset_userdata($data_server);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // private
   function buatadmintanpalogin(){
     $res = '';
@@ -74,5 +57,9 @@ function disconnect(){
   function ceklogin(){
     print_r($this->session->userdata());
   }
+
+
+      function test(){
+        }
 
 } // END OF FILE

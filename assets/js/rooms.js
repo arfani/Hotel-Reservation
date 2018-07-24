@@ -170,7 +170,12 @@ $(function() {
     $('#room-type').val(type)
     $('#annotation').val(annotation)
     $('#room-modal').on('hidden.bs.modal', function(){
-      $('#room-reset').trigger('click')
+			$('#room-numb').val('').focus()
+			$('#room-type').val('premium')
+			$('#annotation').val('')
+			$('#room-submit').attr('disabled', false)
+			$('#room-add-alert').addClass('d-none')
+			$('#loader-img-room').addClass('d-none')
     })
 	})
 
