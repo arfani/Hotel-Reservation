@@ -21,10 +21,23 @@ class Resdata_m extends CI_Model {
     return ($this->db->affected_rows()) ? true : false ;
   }
 
+  function enable($uname){
+    $this->db->set('disabled', 'no');
+    $this->db->where('username', $uname);
+    $this->db->update('voucher');
+    return ($this->db->affected_rows()) ? true : false ;
+  }
+
   function get_by_id($id){
     $this->db->where('id', $id);
     $data = $this->db->get('reservation');
     return $data->row();
+  }
+
+  function extend($id, $data){
+    $this->db->where('id', $id);
+    $this->db->update('reservation', $data);
+    return ($this->db->affected_rows()) ? true : false ;
   }
 
 }

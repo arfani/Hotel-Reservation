@@ -61,6 +61,7 @@
       </div>
     </div>
 
+    <?php $this->load->view('forms/extend_modal'); ?>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@
 	<div class="col-sm-12 data-tamu rounded">
 		<div class="form-group">
 			<label for="night">Night</label>
-			<input type="number" class="form-control" name="night" value="1" id="night" />
+			<input type="number" class="form-control" name="night" value="1" min=1 id="night" />
 		</div>
 		<div class="form-inline mb-2">
 			<label for="arrival-date" class="w-50" style="justify-content: left;">Arrival Date </label>
