@@ -22,8 +22,9 @@
 
   <!-- jQuery QRcode -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous"></script> -->
+
   <!-- Animate css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" /> -->
 
   <!-- ================ -->
   <!-- VIA LOCAL -->
@@ -48,6 +49,9 @@
 
   <!-- moment.js -->
   <script src="<?php echo base_url('assets/js/moment.min.js'); ?>"></script>
+
+  <!-- animate css -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css'); ?>">
 
   <!-- ================ -->
   <!-- ONLY LOCAL -->

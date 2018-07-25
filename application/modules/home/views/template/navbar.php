@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <!-- Brand -->
 <span class="navbar-brand finger" id="logo-menu">
 <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="Jazz Logo" style="width:90px;">
@@ -31,9 +31,9 @@
     <li class="nav-item dropdown" id="voucher-menu">
       <span class="nav-link dropdown-toggle finger" data-toggle="dropdown">Voucher</span>
       <div class="dropdown-menu">
-        <div class="dropdown-item finger" id="user-voucher-submenu">User</div>
+        <div class="dropdown-item finger" id="user-voucher-submenu">User Hotspot</div>
         <?php if($this->session->userdata('l') == 'administrator'): ?>
-        <div class="dropdown-item finger" id="profile-voucher-submenu">Profile</div>
+        <div class="dropdown-item finger" id="profile-voucher-submenu">Profile User</div>
         <?php endif; ?>
       </div>
     </li>

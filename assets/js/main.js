@@ -102,14 +102,21 @@ $(document).ready(function(){
 
       // auth admin first...
       // =====================
-      let main = false
+      let main = true
+
+      // ======================
+      // Adding user
+      // ======================
+      $('#user-add').click(function(){
+        main = true
+        $('#pass-root-modal').modal('show')
+        $('#pass-root-alert').addClass('d-none')
+      })
+
       $('#create-new-user').click(function(){
         main = true
         $('#signin-modal').modal('hide')
-        $('#pass-root-modal').modal({
-          backdrop: 'static',
-          keyboard: false
-        })
+        $('#pass-root-modal').modal('show')
         $('#pass-root-alert').addClass('d-none')
       })
 
@@ -117,10 +124,7 @@ $(document).ready(function(){
       // ==================================================
       $('#pass-root-cancel').click(function(){
         $('#pass-root-modal').modal('hide')
-        $('#signin-modal').modal({
-          backdrop: 'static',
-          keyboard: false
-        })
+        $('#signin-modal').modal('show')
       })
 
       // functions properties in auth admin modal
@@ -449,6 +453,10 @@ $(document).ready(function(){
 
   $('#user-submenu').click(function(){
     location.href = site_url+'user'
+  })
+
+  $('#user-voucher-submenu').click(function(){
+    location.href = site_url+'userhotspot'
   })
 
   $('#profile-voucher-submenu').click(function(){

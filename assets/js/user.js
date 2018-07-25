@@ -5,17 +5,6 @@
   // =================================================
   $('#user-tbl').DataTable()
 
-    // ======================
-    // Adding
-    // ======================
-  $('#user-add').click(function(){
-    $('#pass-root-modal').modal({
-      backdrop: 'static',
-      keyboard: false
-    })
-    $('#pass-root-alert').addClass('d-none')
-  })
-
   // ======================
   // Removing
   // ======================
@@ -58,8 +47,6 @@
     // ======================
   	// Updating
   	// ======================
-  	// btn update clicked
-  	// ===============
   	$('#user-pwd-update').on('click', function() {
   		$('#user-pwd-update-modal').modal('show')
 

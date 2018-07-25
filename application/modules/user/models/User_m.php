@@ -35,19 +35,4 @@ class User_m extends CI_Model {
     return ($number->num_rows() > 0) ? true : false;
   }
 
-  // ============
-
-  function get_type(){
-    $this->db->group_by('type');
-    $this->db->order_by('type', 'desc');
-    return $this->db->get($this->table)->result();
-  }
-
-  function get_by_id($id){
-    $this->db->where($this->id, $id);
-    $query = $this->db->get($this->table);
-    return $query->row();
-  }
-
-
 }//THE END

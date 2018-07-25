@@ -28,7 +28,11 @@
 <?php } ?>
 
 <?php if ($this->uri->segment(1) == 'profileuser') { ?>
-<script src="<?php echo base_url('assets/js/profileUser.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/profileuser.js'); ?>"></script>
+<?php } ?>
+
+<?php if ($this->uri->segment(1) == 'userhotspot') { ?>
+<script src="<?php echo base_url('assets/js/userhotspot.js'); ?>"></script>
 <?php } ?>
 
 </body>
