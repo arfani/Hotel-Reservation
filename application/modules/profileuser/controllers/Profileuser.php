@@ -13,10 +13,12 @@ class Profileuser extends CI_Controller {
       $this->mtikapi->write('/ip/hotspot/user/profile/getall');
       $profiles = $this->mtikapi->read();
       $this->mtikapi->disconnect();
-    } else {
-      $msg = 'disconnect';
+    } else { ?>
+        <script>
+          alert('Please connect to MikroTik Server!')
+        </script>
+      <?php
     }
-
     $data = array(
       'content' => 'profileuser',
       'profiles'   => $profiles

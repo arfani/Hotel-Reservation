@@ -37,7 +37,7 @@
             <td><?php if(isset($user['comment'])){ echo $user['comment']; }else{ echo ''; }  ?></td>
             <td><?php echo $user['disabled']; ?></td>
             <td class="text-center">
-              <button class="user-edit btn btn-primary font-weight-bold text-white" value="<?php echo $user['.id']; ?>" >
+              <button class="qrcode-show btn btn-primary font-weight-bold text-white" value="<?php echo $user['.id']; ?>" >
                 <span class="ti-pencil">
                 </span>
               </button>
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <?php $this->load->view('forms/userhotspot_modal'); ?>
+    <?php $this->load->view('forms/qrcode_modal'); ?>
     </div>
   </div>
 </div>

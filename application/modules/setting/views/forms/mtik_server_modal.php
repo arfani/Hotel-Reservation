@@ -1,5 +1,5 @@
 <!-- pop up with The Modal -->
-  <div class="modal animated  tada" id="mtik-setting-modal">
+  <div class="modal animated jackInTheBox" id="mtik-setting-modal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
 
@@ -22,6 +22,9 @@
             <div class="form-group">
                 <label for="password">Password </label>
                 <input type="password" class="form-control" placeholder="Mikrotik pwd" id="password" />
+            </div>
+            <div class="form-group">
+              DNS Name : <span id="dns-name">192.168.100.1</span>
             </div>
 
           <div class="alert alert-success alert-dismissable d-none" id="server-alert">
