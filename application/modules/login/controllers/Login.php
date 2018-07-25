@@ -42,18 +42,15 @@
 
     function auth_admin(){
       $data = array(
-        'p' => "",
+        // 'p' => "",
         'msg' => ""
       );
 
       $pwd = $this->input->post('pwd');
 
-      $user_data = $this->lm->get_pwd_admin();
-      foreach ($user_data as $value) {
-        $data['p'] = $value->password;
-      }
+      $user_admin = $this->lm->get_pwd_admin();
 
-      if(password_verify($pwd, $data['p'])){
+      if(password_verify($pwd, $user_admin->password)){
         $data['msg'] = 'authenticated';
       }else{
         $data['msg'] = 'Your password is incorrect!';

@@ -269,7 +269,7 @@ $(function(){
               child:child.val(),
               uName:uName,
               pwd:pwd,
-              profile: roomType.val()+sumPerson
+              profile: $('#voucher-profile').text()
             },
             success:function(response){
               if(response == 'disconnect'){
@@ -344,6 +344,94 @@ $(function(){
       change = false
     }
   })
+
+  $('#profile-change').click(function(){
+    $('#pass-root-modal').modal('show')
+  })
+
+  // cancel create new user and back to sign in auth...
+  // ==================================================
+  $('#pass-root-cancel').click(function(){
+    $('#pass-root-modal').modal('hide')
+    $('#signin-modal').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+  })
+
+
+  // auth admin first...
+  // =====================
+  let special = false
+  $('#profile-change').click(function(){
+    special = true
+    $('#pass-root-modal').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+    $('#pass-root-alert').addClass('d-none')
+  })
+  // functions properties in auth admin modal
+  // =======================================
+  function adminAuthProcEnd(){
+    $('#pass-root-alert').removeClass('d-none')
+    $('#loader-img-pass-root').addClass('d-none')
+    $('#password-admin').val('')
+  }
+
+  function adminAuthProc(){
+    $('#pass-root-alert').addClass('d-none')
+    $('#loader-img-pass-root').removeClass('d-none')
+  }
+
+  // submit auth admin
+  // =================
+  $('#pass-root-submit').click(function(){
+    const pwd = $('#password-admin').val()
+    adminAuthProc()
+
+    $.ajax({
+      type: 'post',
+      url: site_url+'login/auth_admin',
+      data: {pwd: pwd},
+      success: function(res){
+        if (res == 'authenticated' && special) {
+          $('#pass-root-status').html(res)
+
+          $('#pass-root-modal').modal('hide')
+          $('#signup-modal').modal('hide')
+          $('#voucher-profile').text('special')
+
+          adminAuthProcEnd()
+        } else {
+          $('#pass-root-status').html(res)
+          adminAuthProcEnd()
+          $('#password-admin').focus()
+        }
+      },
+      error: function (jqXHR, exception) {
+      let msg = ''
+      if (jqXHR.status === 0) {
+          msg = 'Not connect.<br />Verify Network.'
+      } else if (jqXHR.status == 404) {
+          msg = 'Requested page not found. [404]'
+      } else if (jqXHR.status == 500) {
+          msg = 'Internal Server Error [500].'
+      } else if (exception === 'parsererror') {
+          msg = 'Requested JSON parse failed.'
+      } else if (exception === 'timeout') {
+          msg = 'Time out error.'
+      } else if (exception === 'abort') {
+          msg = 'Ajax request aborted.'
+      } else {
+          msg = 'Uncaught Error.<br />' + jqXHR.responseText
+      }
+      $('#pass-root-status').html(msg)
+      adminAuthProcEnd()
+      }
+    })
+
+  }) // end function auth admin
 
 
 

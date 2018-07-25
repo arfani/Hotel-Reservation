@@ -1,5 +1,5 @@
 <!-- pop up with The Modal -->
-  <div class="modal fade" id="mtik-setting-modal">
+  <div class="modal animated  tada" id="mtik-setting-modal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
 

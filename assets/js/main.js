@@ -102,7 +102,9 @@ $(document).ready(function(){
 
       // auth admin first...
       // =====================
+      let main = false
       $('#create-new-user').click(function(){
+        main = true
         $('#signin-modal').modal('hide')
         $('#pass-root-modal').modal({
           backdrop: 'static',
@@ -145,7 +147,7 @@ $(document).ready(function(){
           url: site_url+'login/auth_admin',
           data: {pwd: pwd},
           success: function(res){
-            if (res == 'authenticated') {
+            if (res == 'authenticated' && main) {
               $('#pass-root-status').html(res)
 
               //notif on create new user modal
@@ -167,6 +169,7 @@ $(document).ready(function(){
             } else {
               $('#pass-root-status').html(res)
               adminAuthProcEnd()
+              $('#password-admin').focus()
             }
           },
           error: function (jqXHR, exception) {

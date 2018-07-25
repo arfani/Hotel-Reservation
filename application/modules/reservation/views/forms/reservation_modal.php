@@ -50,7 +50,7 @@
                     Username  : <span id="voucher-username"></span><br />
                     Password  : <span id="voucher-password"></span><br />
                     Uptime  : <span id="voucher-uptime"></span>,
-                    Profile : <span id="voucher-profile"></span><br />
+                    Profile : <span id="voucher-profile"></span><span class="ti-pencil ml-1 finger" id="profile-change"></span><br />
                     DNS Name : <span id="dns-name">192.168.100.1</span>
                   </div>
                   <span class="btn btn-info ml-2" id="change-uname-pwd">
