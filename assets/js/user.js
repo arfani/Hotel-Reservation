@@ -4,6 +4,14 @@
   // user js
   // =================================================
   $('#user-tbl').DataTable()
+  
+  // ======================
+  // Adding user
+  // ======================
+  $('#user-add').click(function(){
+    $('#pass-root-modal').modal('show')
+    $('#pass-root-alert').addClass('d-none')
+  })
 
   // ======================
   // Removing

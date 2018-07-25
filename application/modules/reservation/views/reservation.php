@@ -11,6 +11,7 @@
             $this->load->view('forms/hotel_data');
             $this->load->view('forms/reservation_modal');
             $this->load->view('forms/upc_modal');
+            $this->load->view('forms/special_modal');
              ?>
            </div>
         </form>

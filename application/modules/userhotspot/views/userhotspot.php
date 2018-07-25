@@ -14,7 +14,7 @@
             <th>Profile</th>
             <th>Uptime</th>
             <th>Comment</th>
-            <th>Disabled</th>
+            <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -35,7 +35,7 @@
             <td><?php if(isset($user['profile'])){ echo $user['profile']; }else{ echo ''; }  ?></td>
             <td><?php echo $user['uptime']; ?></td>
             <td><?php if(isset($user['comment'])){ echo $user['comment']; }else{ echo ''; }  ?></td>
-            <td><?php echo $user['disabled']; ?></td>
+            <td><?php echo ($user['disabled'] == 'false' ) ? 'Active' : 'Disabled'; ?></td>
             <td class="text-center">
               <button class="qrcode-show btn btn-primary font-weight-bold text-white" value="<?php echo $user['.id']; ?>" >
                 <span class="ti-pencil">

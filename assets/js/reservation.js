@@ -345,48 +345,43 @@ $(function(){
   })
 
   $('#profile-change').click(function(){
-    $('#pass-root-modal').modal('show')
+    $('#special-modal').modal('show')
   })
 
   // cancel create new user and back to sign in auth...
   // ==================================================
-  $('#pass-root-cancel').click(function(){
-    $('#pass-root-modal').modal('hide')
-    $('#signin-modal').modal({
-      backdrop: 'static',
-      keyboard: false
-    })
+  $('#special-cancel').click(function(){
+    $('#special-modal').modal('hide')
   })
-
 
   // auth admin first...
   // =====================
-  let special = false
   $('#profile-change').click(function(){
-    special = true
-    $('#pass-root-modal').modal({
+    $('#special-modal').modal({
       backdrop: 'static',
       keyboard: false
     })
-    $('#pass-root-alert').addClass('d-none')
+    $('#special-alert').addClass('d-none')
+    $('#special-admin').val('')
   })
+
   // functions properties in auth admin modal
   // =======================================
   function adminAuthProcEnd(){
-    $('#pass-root-alert').removeClass('d-none')
-    $('#loader-img-pass-root').addClass('d-none')
-    $('#password-admin').val('')
+    $('#special-alert').removeClass('d-none')
+    $('#loader-img-special').addClass('d-none')
+    $('#special-admin').val('')
   }
 
   function adminAuthProc(){
-    $('#pass-root-alert').addClass('d-none')
-    $('#loader-img-pass-root').removeClass('d-none')
+    $('#special-alert').addClass('d-none')
+    $('#loader-img-special').removeClass('d-none')
   }
 
   // submit auth admin
   // =================
-  $('#pass-root-submit').click(function(){
-    const pwd = $('#password-admin').val()
+  $('#special-submit').click(function(){
+    const pwd = $('#special-admin').val()
     adminAuthProc()
 
     $.ajax({
@@ -394,18 +389,15 @@ $(function(){
       url: site_url+'login/auth_admin',
       data: {pwd: pwd},
       success: function(res){
-        if (res == 'authenticated' && special) {
-          $('#pass-root-status').html(res)
-
-          $('#pass-root-modal').modal('hide')
-          $('#signup-modal').modal('hide')
+        if (res == 'authenticated') {
+          $('#special-status').html(res)
+          $('#special-modal').modal('hide')
           $('#voucher-profile').text('special')
-
           adminAuthProcEnd()
         } else {
-          $('#pass-root-status').html(res)
+          $('#special-status').html(res)
           adminAuthProcEnd()
-          $('#password-admin').focus()
+          $('#special-admin').focus()
         }
       },
       error: function (jqXHR, exception) {
@@ -425,7 +417,7 @@ $(function(){
       } else {
           msg = 'Uncaught Error.<br />' + jqXHR.responseText
       }
-      $('#pass-root-status').html(msg)
+      $('#special-status').html(msg)
       adminAuthProcEnd()
       }
     })
