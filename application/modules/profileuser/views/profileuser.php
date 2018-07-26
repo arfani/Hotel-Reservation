@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
     <div class="w-100 h-100">
-      <h2 class="text-center font-weight-bold mt-3">List Profile User</h2>
+      <h2 class="text-center font-weight-bold mt-3">Profile User Hotspot</h2>
       <button
       id="profile-add"
       class="form-control btn btn-primary mb-2 mt-2 font-weight-bold"

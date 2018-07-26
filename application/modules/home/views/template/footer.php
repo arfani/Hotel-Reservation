@@ -39,5 +39,9 @@
 <script src="<?php echo base_url('assets/js/walled.js'); ?>"></script>
 <?php } ?>
 
+<?php if ($this->uri->segment(1) == 'guest') { ?>
+<script src="<?php echo base_url('assets/js/guest.js'); ?>"></script>
+<?php } ?>
+
 </body>
 </html>

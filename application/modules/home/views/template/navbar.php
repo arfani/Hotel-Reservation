@@ -46,8 +46,9 @@
         Master Data
       </span>
       <div class="dropdown-menu">
-        <span class="dropdown-item finger" id="user-submenu">User</span>
+        <span class="dropdown-item finger" id="guest-submenu">Guest</span>
         <span class="dropdown-item finger" id="rooms-submenu">Rooms</span>
+        <span class="dropdown-item finger" id="user-submenu">User</span>
       </div>
     </li>
   <?php endif; ?>
@@ -63,12 +64,8 @@
 <div class="ml-auto">
   <ul class="navbar-nav">
 
-    <!-- <form class="form-inline" action="#">
-    <input class="form-control ml-1" type="text" placeholder="Search" id="search">
-  </form> -->
-
   <li class="nav-item">
-    <span class="nav-link finger" role="button" id="user-welcome">
+    <span class="nav-link finger" role="button" data-toggle="tooltip" title="Login name" id="user-welcome">
       <span class="" id="user-profile" >
         Welcome,<br />
         <span class="ti-user">
@@ -79,7 +76,7 @@
 
     <?php if($this->session->userdata('l') == 'operator' || $this->session->userdata('l') == 'administrator'):  ?>
       <li class="nav-item">
-        <span class="nav-link finger" role="button" id="setting-menu"  title="Setting">
+        <span class="nav-link finger" role="button" data-toggle="tooltip" id="setting-menu"  title="Setting">
           <span class="fa fa-cogs font-weight-bold"></span>
         </span>
       </li>
@@ -90,7 +87,6 @@
       class="nav-link finger"
       role="button"
       data-toggle="tooltip"
-      data-placement="bottom"
       id="<?php echo ($this->session->userdata('n')) ? 'log-out' : 'log-in' ?>"
       title="Sign <?php echo ($this->session->userdata('n')) ? 'out' : 'in'; ?>">
       <?php echo ($this->session->userdata('n')) ? 'Log-out' : 'Log-in'; ?>

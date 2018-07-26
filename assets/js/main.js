@@ -460,6 +460,12 @@ $(document).ready(function(){
     location.href = site_url+'walledgarden'
   })
 
+  $('#guest-submenu').click(function(){
+    location.href = site_url+'guest'
+  })
+
+  // End of navbar links
+  // ====================
 
     // LOGIN / LOGOUT
   // ================
@@ -498,9 +504,6 @@ $(document).ready(function(){
     })//end ajax
 
   })//end function
-
-  // End of navbar links
-  // ====================
 
 
 

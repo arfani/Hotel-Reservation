@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
     <div class="w-100 h-100">
-      <h2 class="text-center font-weight-bold mt-3 mb-4">List User Hotspot</h2>
+      <h2 class="text-center font-weight-bold mt-3 mb-4">User Hotspot</h2>
       <div class="table-responsive">
       <table id="user-tbl" class="table table-striped table-bordered">
         <thead>

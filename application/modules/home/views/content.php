@@ -1,4 +1,4 @@
-<div class="bg-white">
+<div class="">
   <!-- Carousel -->
 <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -34,7 +34,7 @@
 
 <!-- Content Home -->
 <div class="content">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-sm-9 offset-sm-3">
         <h1 class="title-right">Welcome to Jazz Senggigi Hotel Mataram</h1>
@@ -48,8 +48,8 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-9">
-          <h2>Our Services</h2>
+      <div class="col-sm-9 mt-3">
+          <h2 class="mt-3">Our Services</h2>
             <ol>
               <li>DJ Bar & Restaurant yang menyajikan menu mulai dari Asian,European & Western Food</li>
               <li>ZZ Pool Bar tempat untuk bersantai dengan menu Cocktail dari Barman Hotel</li>
