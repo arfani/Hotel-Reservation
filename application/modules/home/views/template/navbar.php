@@ -40,20 +40,6 @@
   <?php endif; ?>
 
     <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <span class="nav-link dropdown-toggle finger" id="service" data-toggle="dropdown">
-        Services
-      </span>
-      <div class="dropdown-menu finger">
-        <span class="dropdown-item finger">Restaurant</span>
-        <span class="dropdown-item finger">Rooms</span>
-        <span class="dropdown-item finger">Salon & Spa</span>
-        <span class="dropdown-item finger">Barber Shop</span>
-        <span class="dropdown-item finger">Others</span>
-      </div>
-    </li>
-
-    <!-- Dropdown -->
     <?php if($this->session->userdata('l') == 'administrator'):  ?>
     <li class="nav-item dropdown" id="master-data-container">
       <span class="nav-link dropdown-toggle finger" id="master-data-menu" data-toggle="dropdown">
@@ -64,6 +50,10 @@
         <span class="dropdown-item finger" id="rooms-submenu">Rooms</span>
       </div>
     </li>
+  <?php endif; ?>
+
+  <?php if($this->session->userdata('l') == 'administrator'):  ?>
+    <li class="nav-item"><span class="nav-link finger" id="walled-menu">Walled Garden</span></li>
   <?php endif; ?>
 
     <li class="nav-item"><span class="nav-link finger">About</span></li>
@@ -90,7 +80,7 @@
     <?php if($this->session->userdata('l') == 'operator' || $this->session->userdata('l') == 'administrator'):  ?>
       <li class="nav-item">
         <span class="nav-link finger" role="button" id="setting-menu"  title="Setting">
-          <span class="ti-settings font-weight-bold"></span>
+          <span class="fa fa-cogs font-weight-bold"></span>
         </span>
       </li>
     <?php endif; ?>

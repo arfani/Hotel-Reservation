@@ -289,7 +289,7 @@ $(function(){
                 } else if (jqXHR.status == 404) {
                     msg = 'Requested page not found. [404]'
                 } else if (jqXHR.status == 500) {
-                    msg = 'Username is used!<br />Internal Server Error [500].'
+                    msg = '<b>USERNAME HAS USED! PLEASE, PICK UP ANOTHER ONE!</b><br />Code [500].'
                 } else if (exception === 'parsererror') {
                     msg = 'Requested JSON parse failed.'
                 } else if (exception === 'timeout') {
@@ -299,7 +299,7 @@ $(function(){
                 } else {
                     msg = 'Uncaught Error.<br />' + jqXHR.responseText
                 }
-                  $('#reservation-status').html('<span class="text-danger">'+msg+'</span>')
+                  $('#reservation-status').html('<span class="text-info">'+msg+'</span>')
                   processBtnEnd()
                   $('#frame-qrcode').addClass('d-none')
                   $('#reservation-modal').on('hidden.bs.modal', function(){
@@ -423,7 +423,5 @@ $(function(){
     })
 
   }) // end function auth admin
-
-
 
 }) //END OF FILE

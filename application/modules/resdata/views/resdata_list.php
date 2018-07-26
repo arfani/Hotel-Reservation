@@ -49,10 +49,10 @@
             <td><?php echo $data->uname_voucher; ?></td>
             <td class="text-center text-nowrap">
               <button class="check-out btn btn-primary btn-sm" value="<?php echo $data->id; ?>" data-toggle="tooltip" title="check-out" data-placement="left">
-                <span class="ti-cut"></span>
+                <span class="fa fa-ban"></span>
               </button>
-              <button class="extend btn btn-danger btn-sm" value="<?php echo $data->id; ?>" data-toggle="tooltip" title="Exted" data-placement="left">
-                <span class="ti-plus"></span>
+              <button class="extend btn btn-danger btn-sm" value="<?php echo $data->id; ?>" data-toggle="tooltip" title="Extend" data-placement="left">
+                <span class="fa fa-plus"></span>
               </button>
             </td>
           </tr> <?php } ?>

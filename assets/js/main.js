@@ -326,7 +326,12 @@ $(document).ready(function(){
               url: site_url+"setting/connect",
               data:{hostname: hName, username: uName, password: pwd},
               success:function(res){
-                $('#server-status').html(res)
+                if(res === 'Success connect to '+hName){
+                  $('#server-status').html(res)
+                  $('#dns-name').text(hName)
+                }else{
+                  $('#server-status').html(res)
+                }
                 connectProcessEnd()
               },
               error: function (jqXHR, exception) {
@@ -361,6 +366,7 @@ $(document).ready(function(){
       success: function(res, stt){
         if(stt == 'success'){
           $('#server-status').html('Disconnected!')
+          $('#dns-name').text('MikroTik Server Not Connect')
         }else {
           $('#server-status').html(res)
         }
@@ -450,6 +456,13 @@ $(document).ready(function(){
     location.href = site_url+'profileuser'
   })
 
+  $('#walled-menu').click(function(){
+    location.href = site_url+'walledgarden'
+  })
+
+
+    // LOGIN / LOGOUT
+  // ================
   $('#log-in').on('click', function(){
     $('#signin-modal').modal({
       backdrop: 'static',

@@ -30,14 +30,14 @@
             <td><?php echo $no++; ?></td>
             <td><?php echo $profile['name']; ?></td>
             <td><?php echo $profile['shared-users']; ?></td>
-            <td><?php echo $profile['rate-limit']; ?></td>
+            <td><?php if (isset($profile['rate-limit'])) { echo $profile['rate-limit']; } else { echo '';} ?></td>
             <td class="text-center">
               <button class="profile-edit btn btn-primary font-weight-bold text-white" value="<?php echo $profile['.id']; ?>" >
-                <span class="ti-pencil">
+                <span class="fa fa-pencil">
                 </span>
               </button>
               <button class="btn btn-danger profile-remove" value="<?php echo $profile['.id']; ?>" >
-                <span class="ti-trash"></span>
+                <span class="fa fa-trash"></span>
               </button>
             </td>
           </tr> <?php } ?>

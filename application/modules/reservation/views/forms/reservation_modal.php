@@ -50,10 +50,10 @@
                     Username  : <span id="voucher-username"></span><br />
                     Password  : <span id="voucher-password"></span><br />
                     Uptime  : <span id="voucher-uptime"></span>,
-                    Profile : <span id="voucher-profile"></span><span class="ti-pencil ml-1 finger" id="profile-change"></span><br />
+                    Profile : <span id="voucher-profile"></span><span class="fa fa-pencil ml-1 finger" id="profile-change"></span><br />
                   </div>
                   <span class="btn btn-info ml-2" id="change-uname-pwd">
-                    <span class="ti-pencil"></span>
+                    <span class="fa fa-pencil"></span>
                     Change Username & Password
                   </span>
                 </div>

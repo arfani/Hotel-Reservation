@@ -6,7 +6,7 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">
-            Authentication Administrator
+            Administrator Authentication
             <span class="la-timer dark text-danger float-right ml-4 d-none" id="loader-img-pass-root">
               <div></div>
             </span>
@@ -20,7 +20,7 @@
           <div class="d-flex justify-content-center">
             <div class="form-group">
               <div class="form-inline">
-                <label for="password-admin">Password admin </label>
+                <label for="password-admin">Admin Password</label>
                 <input type="password" class="form-control ml-3" maxlength="16" id="password-admin" required autofocus/>
               </div>
             </div>

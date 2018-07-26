@@ -35,5 +35,9 @@
 <script src="<?php echo base_url('assets/js/userhotspot.js'); ?>"></script>
 <?php } ?>
 
+<?php if ($this->uri->segment(1) == 'walledgarden') { ?>
+<script src="<?php echo base_url('assets/js/walled.js'); ?>"></script>
+<?php } ?>
+
 </body>
 </html>

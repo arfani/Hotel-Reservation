@@ -121,7 +121,6 @@ $(function() {
 			url: site_url + 'profileuser/remove',
 			data: {id: id},
 			success: function(res) {
-				alert('Profile removed.');
 				location.reload()
 			},
 			error: function(jqXHR, exception) {

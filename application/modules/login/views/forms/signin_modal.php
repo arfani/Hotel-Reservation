@@ -5,7 +5,7 @@
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Authentication User <span class="la-timer dark text-danger float-right ml-4 d-none" id="loader-img-login"><div></div></span></h4>
+          <h4 class="modal-title">User Authentication<span class="la-timer dark text-danger float-right ml-4 d-none" id="loader-img-login"><div></div></span></h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
@@ -14,7 +14,7 @@
           <div class="d-flex justify-content-center">
             <div class="form-group">
               <div class="form-inline">
-                <label for="username-emp">Username </label>
+                <label for="username-emp">Username</label>
                 <input type="text" class="form-control ml-3" placeholder="Username user" name="username" id="username-emp" required autofocus/>
               </div>
             </div>
@@ -22,7 +22,7 @@
           <div class="d-flex justify-content-center">
             <div class="form-group">
               <div class="form-inline">
-                <label for="password-emp">Password </label>
+                <label for="password-emp">Password</label>
                 <input type="password" class="form-control ml-3" maxlength="16" placeholder="Password user" id="password-emp" required />
               </div>
             </div>

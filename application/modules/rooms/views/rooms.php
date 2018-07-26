@@ -33,11 +33,11 @@
             <td><?php echo $room->annotation; ?></td>
             <td class="text-center">
               <button class="room-edit btn btn-primary font-weight-bold text-white" value="<?php echo $room->id; ?>" >
-                <span class="ti-pencil">
+                <span class="fa fa-pencil">
                 </span>
               </button>
               <button class="btn btn-danger room-remove" value="<?php echo $room->id; ?>" >
-                <span class="ti-trash"></span>
+                <span class="fa fa-trash"></span>
               </button>
             </td>
           </tr> <?php } ?>

@@ -26,6 +26,9 @@
   <!-- Animate css -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" /> -->
 
+  <!-- Font awesome -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+
   <!-- ================ -->
   <!-- VIA LOCAL -->
   <!-- ================ -->
@@ -41,8 +44,8 @@
   <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/dataTables.bootstrap4.min.js'); ?>"></script>
 
-  <!-- themify-icons -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/css/themify-icons.css'); ?>">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>">
 
   <!-- jQuery QRcode -->
   <script src="<?php echo base_url('assets/js/jquery.qrcode.min.js'); ?>"></script>

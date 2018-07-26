@@ -35,14 +35,14 @@
             <td><?php if(isset($user['profile'])){ echo $user['profile']; }else{ echo ''; }  ?></td>
             <td><?php echo $user['uptime']; ?></td>
             <td><?php if(isset($user['comment'])){ echo $user['comment']; }else{ echo ''; }  ?></td>
-            <td><?php echo ($user['disabled'] == 'false' ) ? 'Active' : 'Disabled'; ?></td>
+            <td><?php echo ($user['disabled'] == 'false' ) ? 'Enabled' : 'Disabled'; ?></td>
             <td class="text-center">
-              <button class="qrcode-show btn btn-primary font-weight-bold text-white" value="<?php echo $user['.id']; ?>" >
-                <span class="ti-pencil">
+              <button class="qrcode-show btn btn-primary btn-sm" value="<?php echo $user['.id']; ?>" >
+                <span class="fa fa-pencil">
                 </span>
               </button>
-              <button class="btn btn-danger user-remove" value="<?php echo $user['.id']; ?>" >
-                <span class="ti-trash"></span>
+              <button class="btn btn-danger btn-sm user-remove" value="<?php echo $user['.id']; ?>" >
+                <span class="fa fa-trash"></span>
               </button>
             </td>
           </tr> <?php } ?>

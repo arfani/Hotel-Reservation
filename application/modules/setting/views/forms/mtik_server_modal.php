@@ -11,20 +11,20 @@
 
         <!-- Modal body -->
         <div class="modal-body">
-          <div class="form-group">
-              <label for="hostname">Hostname </label>
-              <input id="hostname"  maxlength="15" class="form-control" placeholder="192.168.88.1" pattern="\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}" autofocus required />
-          </div>
             <div class="form-group">
-                <label for="username">Username </label>
-                <input class="form-control" placeholder="Mikrotik uname" id="username" required />
+                <label for="hostname" class="text-center w-100">Hostname </label>
+                <input id="hostname"  maxlength="15" class="form-control" placeholder="192.168.88.1" pattern="\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}" autofocus required />
             </div>
-            <div class="form-group">
-                <label for="password">Password </label>
-                <input type="password" class="form-control" placeholder="Mikrotik pwd" id="password" />
+            <div class="form-inline w-100">
+              <label class="w-50" for="username">Username </label>
+              <label class="w-50" for="password">Password </label>
             </div>
-            <div class="form-group">
-              DNS Name : <span id="dns-name">192.168.100.1</span>
+            <div class="form-inline w-100">
+              <input type="text" class="form-control w-50" placeholder="Mikrotik uname" id="username" required />
+              <input type="password" class="form-control w-50" placeholder="Mikrotik pwd" id="password" />
+            </div>
+            <div class="form-group text-center m-2">
+              Server Host : <span id="dns-name"><?php if(isset($this->session->hostname)){ echo $this->session->hostname; } else { echo 'MikroTik Server Not Connect'; } ?></span>
             </div>
 
           <div class="alert alert-success alert-dismissable d-none" id="server-alert">
