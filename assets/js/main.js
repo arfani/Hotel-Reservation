@@ -1,5 +1,15 @@
 $(document).ready(function(){
-    //tooltip
+
+    $('.fa-trash').parent().attr('data-toggle', 'tooltip')
+    $('.fa-trash').parent().attr('title', 'remove')
+    $('.fa-pencil').parent().attr('data-toggle', 'tooltip')
+    $('.fa-pencil').parent().attr('title', 'update')
+    $('.fa-pencil').parent().attr('data-toggle', 'tooltip')
+    $('.fa-pencil').parent().attr('title', 'update')
+    $('.fa-qrcode').parent().attr('data-toggle', 'tooltip')
+    $('.fa-qrcode').parent().attr('title', 'show qrcode')
+
+    //tooltip set
     $('[data-toggle="tooltip"]').tooltip()
 
     // Get current date
@@ -462,6 +472,10 @@ $(document).ready(function(){
 
   $('#guest-submenu').click(function(){
     location.href = site_url+'guest'
+  })
+
+  $('#about-menu').click(function(){
+    location.href = site_url+'home/about'
   })
 
   // End of navbar links

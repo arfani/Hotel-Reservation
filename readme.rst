@@ -22,7 +22,7 @@ jquery.qrcode
 Bootstrap
 dataTables.bootstrap
 popper
-octicon
+font-awesome
 load-awesome
 
 **************************

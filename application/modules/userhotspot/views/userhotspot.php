@@ -22,11 +22,7 @@
         <?php
         $no = 1;
         $ind = 1;
-        foreach ($users as $user) {
-          // echo '<pre>';
-          // print_r($users);
-          // echo '</pre>';
-         ?>
+        foreach ($users as $user) { ?>
           <tr>
             <td><?php echo $no++; ?></td>
             <td><?php if(isset($user['server'])){ echo $user['server']; }else{ echo ''; } ?></td>
@@ -38,7 +34,7 @@
             <td><?php echo ($user['disabled'] == 'false' ) ? 'Enabled' : 'Disabled'; ?></td>
             <td class="text-center">
               <button class="qrcode-show btn btn-primary btn-sm" value="<?php echo $user['.id']; ?>" >
-                <span class="fa fa-pencil">
+                <span class="fa fa-qrcode">
                 </span>
               </button>
               <button class="btn btn-danger btn-sm user-remove" value="<?php echo $user['.id']; ?>" >

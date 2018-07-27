@@ -57,7 +57,7 @@
     <li class="nav-item"><span class="nav-link finger" id="walled-menu">Walled Garden</span></li>
   <?php endif; ?>
 
-    <li class="nav-item"><span class="nav-link finger">About</span></li>
+    <li class="nav-item"><span class="nav-link finger" id="about-menu">About</span></li>
   </ul>
 </div>
 
