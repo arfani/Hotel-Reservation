@@ -7,11 +7,12 @@ $(function() {
 	// ======================
 	$('.user-remove').click(function() {
 		const id = $(this).val()
+		const uname = $(this).closest("tr").find('td:eq(2)').text()
 
 		$.ajax({
 			type: 'post',
 			url: site_url + 'userhotspot/remove',
-			data: {id: id},
+			data: {id: id, uname: uname},
 			success: function(res) {
 				// alert('User removed.')
 				location.reload()

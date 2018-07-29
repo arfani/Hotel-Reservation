@@ -52,4 +52,12 @@
       return ($exist) ? true : false ;
     }
 
+    // get voucher for check duplicate
+    function get_vou($username){
+      $this->db->where('username', $username);
+      $this->db->get('voucher');
+      $exist = $this->db->affected_rows();
+      return ($exist) ? true : false ;
+    }
+
   }

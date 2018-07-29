@@ -24,16 +24,25 @@ class Userhotspot extends CI_Controller {
       $this->load->view('home/home', $data);
     }
 
+    function removeUserInDb($username){
+      $this->db->where('username', $username);
+      $this->db->delete('voucher');
+    }
+
     function remove(){
       $id = $this->input->post('id');
+      $uname = $this->input->post('uname');
       if($this->mtikapi->connect($this->session->hostname,$this->session->username,$this->session->password)){
       $this->mtikapi->write('/ip/hotspot/user/remove', false);
       $this->mtikapi->write('=.id='.$id);
       $this->mtikapi->read();
       $this->mtikapi->disconnect();
+      //also remove in db
+      $this->removeUserInDb($uname);
       } else {
       echo 'disconnect';
       }
     }
+
 
 }

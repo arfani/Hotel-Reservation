@@ -30,7 +30,7 @@
               </div>
               <div class="form-group w-25 ml-3">
                 <label for="digit">Digit</label>
-                <input class="form-control" type="text" id="digit-uname" />
+                <input class="form-control" type="number" id="digit-uname" />
               </div>
               <div class="form-group w-50">
                 <label for="upc-pwd-option">Password</label>
@@ -43,7 +43,7 @@
               </div>
               <div class="form-group w-25 ml-3">
                 <label for="digit">Digit</label>
-                <input class="form-control" type="text" id="digit-pwd" />
+                <input class="form-control" type="number" id="digit-pwd" />
               </div>
             </div>
           </div>

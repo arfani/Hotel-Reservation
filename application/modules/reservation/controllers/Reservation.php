@@ -27,6 +27,7 @@ class Reservation extends CI_Controller {
   function save(){
     $msg = "";
     $is_guest_exist = false;
+    $is_vou_exist = false;
 
     $data_reservation = array(
           'id' => $this->input->post('noBooking'),
@@ -64,6 +65,11 @@ class Reservation extends CI_Controller {
         $is_guest_exist = true;
       }
 
+      $row1 = $this->rem->get_vou($data_voucher['username']);
+      if($row1){
+        $is_vou_exist = true;
+      }
+
       if($this->mtikapi->connect($this->session->hostname, $this->session->username, $this->session->password)){
 
         if(!$is_guest_exist){
@@ -76,6 +82,7 @@ class Reservation extends CI_Controller {
           }
 
         }
+        if(!$is_vou_exist){
             // save voucher data to db
             $saveVou = $this->rem->insert_voucher($data_voucher);
             if($saveVou){
@@ -105,6 +112,9 @@ class Reservation extends CI_Controller {
             }else{
               $msg .= "<strong>Voucher</strong> : Saving data to db failed. <br />";
             }
+          }else{
+            $msg = 'duplicateusername';
+          }
 
       //if not connect
       }else {

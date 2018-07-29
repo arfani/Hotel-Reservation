@@ -9,6 +9,11 @@ $(function(){
   // ========================================================
 
 
+  //get current date
+  const curDate = new Date().toDateInputValue()
+  //put current date to arrival date of reservation form
+  $('#arrival-date').val(curDate)
+
   //call func when load
   arrDepDate()
 
@@ -17,14 +22,9 @@ $(function(){
     arrDepDate()
   })
 
-  function arrDepDate(){
-    //get current date
-    const curDate = new Date().toDateInputValue()
-    //put current date to arrival date of reservation form
-    $('#arrival-date').val(curDate)
+    function arrDepDate(){
     const night = $('#night').val()
     const arrDateE = $('#arrival-date').val()
-
     let depDate = moment(arrDateE).add(night, 'd').toDate()
     const arrY = depDate.getFullYear()
     let arrM = depDate.getMonth()+1
@@ -140,7 +140,6 @@ $(function(){
       $('#guest-id').text('')
       $('#guest-date-from').text('')
       $('#guest-cod').text('')
-
       $('#voucher-username').text('')
       $('#voucher-password').text('')
       $('#voucher-uptime').text('')
@@ -151,22 +150,31 @@ $(function(){
       $('#reservation-modal').modal('hide')
       $('#reservation-reset').trigger('click')
       $('#id-numb').focus()
+      //get current date
+      const curDate = new Date().toDateInputValue()
+      //put current date to arrival date of reservation form
+      $('#arrival-date').val(curDate)
       arrDepDate()
     })
 
     $('#reservation-reset').click(function(){
-      $('#guest-name').text('')
-      $('#guest-id').text('')
-      $('#guest-date-from').text('')
-      $('#guest-cod').text('')
+      // $('#guest-name').text('')
+      // $('#guest-id').text('')
+      // $('#guest-date-from').text('')
+      // $('#guest-cod').text('')
+      // $('#voucher-username').text('')
+      // $('#voucher-password').text('')
+      // $('#voucher-uptime').text('')
+      // $('#voucher-qrcode').text('')
+      // $('#frame-qrcode').addClass('d-none')
+      // $('#reservation-alert').addClass('d-none')
+      // $('#reservation-save').attr('disabled', false)
 
-      $('#voucher-username').text('')
-      $('#voucher-password').text('')
-      $('#voucher-uptime').text('')
-      $('#voucher-qrcode').text('')
-      $('#frame-qrcode').addClass('d-none')
-      $('#reservation-alert').addClass('d-none')
-      $('#reservation-save').attr('disabled', false)
+      // //get current date
+      // const curDate = new Date().toDateInputValue()
+      // //put current date to arrival date of reservation form
+      // $('#arrival-date').val(curDate)
+      // arrDepDate()
     })
 
   } //end func
@@ -175,7 +183,10 @@ $(function(){
   $('#reservation-submit').on('click', function(){
     arrDepDate()
     $('#frame-qrcode').removeClass('d-none')
-    if (isNaN(id.val()) || id.val().length < 1 ){
+    if($('#arrival-date').val() == ''){
+      alert('Please select the arrival date!')
+      $('#arrival-date').focus()
+    }else if (isNaN(id.val()) || id.val().length < 1 ){
       // alert('Id data invalid!')
       // id.focus()
       id.val('0123456789')
@@ -277,7 +288,13 @@ $(function(){
                 $('#reservation-save').attr('disabled', false)
                 $('#reservation-alert').removeClass('d-none')
                 $('#loader-img-reservation').addClass('d-none')
-              }else {
+              }else if(response == 'duplicateusername'){
+                $('#reservation-status').html('<span class="text-info"><b>USERNAME HAS USED! PLEASE, PICK UP ANOTHER ONE!</b></span>')
+                $('#reservation-save').val('Re-Confirm')
+                $('#reservation-save').attr('disabled', false)
+                $('#reservation-alert').removeClass('d-none')
+                $('#loader-img-reservation').addClass('d-none')
+              } else {
                 $('#reservation-status').html('Success!<br />'+response)
                   processBtnEnd()
                 }
@@ -289,7 +306,7 @@ $(function(){
                 } else if (jqXHR.status == 404) {
                     msg = 'Requested page not found. [404]'
                 } else if (jqXHR.status == 500) {
-                    msg = '<b>USERNAME HAS USED! PLEASE, PICK UP ANOTHER ONE!</b><br />Code [500].'
+                    msg = 'Error Code [500].'
                 } else if (exception === 'parsererror') {
                     msg = 'Requested JSON parse failed.'
                 } else if (exception === 'timeout') {

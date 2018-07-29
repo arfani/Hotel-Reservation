@@ -31,7 +31,7 @@
 </div>
 <div class="form-group">
   <label for="address">Address</label>
-  <textarea rows="4" class="form-control" name="address" id="address" placeholder="LOMBOK, MATARAM."></textarea>
+  <textarea rows="4" class="form-control" name="address" id="address" placeholder="MATARAM, LOMBOK."></textarea>
 </div>
 </div>
 </div>

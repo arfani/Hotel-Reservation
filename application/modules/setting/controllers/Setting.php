@@ -58,9 +58,4 @@ function disconnect(){
     print_r($this->session->userdata());
   }
 
-
-      function test(){
-        echo $this->input->post('profile');
-        }
-
 } // END OF FILE
