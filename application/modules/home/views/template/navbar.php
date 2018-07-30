@@ -89,6 +89,7 @@
       data-toggle="tooltip"
       id="<?php echo ($this->session->userdata('n')) ? 'log-out' : 'log-in' ?>"
       title="Sign <?php echo ($this->session->userdata('n')) ? 'out' : 'in'; ?>">
+      <span class="fa <?php echo ($this->session->userdata('n')) ? 'fa-sign-out' : 'fa-sign-in'; ?>"></span>
       <?php echo ($this->session->userdata('n')) ? 'Log-out' : 'Log-in'; ?>
       </span>
     </li>

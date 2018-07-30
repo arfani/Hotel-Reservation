@@ -157,24 +157,19 @@ $(function(){
       arrDepDate()
     })
 
+      // when form reset trigger reservation modal reset
     $('#reservation-reset').click(function(){
-      // $('#guest-name').text('')
-      // $('#guest-id').text('')
-      // $('#guest-date-from').text('')
-      // $('#guest-cod').text('')
-      // $('#voucher-username').text('')
-      // $('#voucher-password').text('')
-      // $('#voucher-uptime').text('')
-      // $('#voucher-qrcode').text('')
-      // $('#frame-qrcode').addClass('d-none')
-      // $('#reservation-alert').addClass('d-none')
-      // $('#reservation-save').attr('disabled', false)
-
-      // //get current date
-      // const curDate = new Date().toDateInputValue()
-      // //put current date to arrival date of reservation form
-      // $('#arrival-date').val(curDate)
-      // arrDepDate()
+      $('#guest-name').text('')
+      $('#guest-id').text('')
+      $('#guest-date-from').text('')
+      $('#guest-cod').text('')
+      $('#voucher-username').text('')
+      $('#voucher-password').text('')
+      $('#voucher-uptime').text('')
+      $('#voucher-qrcode').text('')
+      $('#frame-qrcode').addClass('d-none')
+      $('#reservation-alert').addClass('d-none')
+      $('#reservation-save').attr('disabled', false)
     })
 
   } //end func
