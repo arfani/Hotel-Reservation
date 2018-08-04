@@ -15,7 +15,7 @@
           <tr class="text-wrap">
             <th>No</th>
             <th>No Booking</th>
-            <th>Guest Id</th>
+            <th>KTP/Passport</th>
             <th>Night</th>
             <th>Arrival Date</th>
             <th>Departure Date</th>
@@ -37,7 +37,7 @@
           <tr>
             <td><?php echo $no++; ?></td>
             <td><?php echo $data->id; ?></td>
-            <td class="wrapword" disabled><?php echo $data->guest_id; ?></td>
+            <td class="wrapword"><?php echo $data->guest_id; ?></td>
             <td><?php echo $data->night; ?></td>
             <td><?php echo $data->arrival_date; ?></td>
             <td><?php echo $data->departure_date; ?></td>

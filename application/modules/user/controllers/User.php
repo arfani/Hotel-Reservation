@@ -8,8 +8,8 @@ class User extends CI_Controller {
     }
 
   function index(){
-    isAd();
-    
+    isOp();
+
     $data = array(
       'content' => 'user',
       'users'   => $this->um->get_all()

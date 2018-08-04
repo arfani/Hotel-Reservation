@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-sm-12">
     <div class="rooms w-100 h-100">
-      <h2 class="text-center font-weight-bold mt-3">TABLE GUEST</h2>
+      <h2 class="text-center font-weight-bold mt-3">GUEST TABLE</h2>
       <div class="table-responsive">
       <table id="guest-tbl" class="table table-striped table-bordered">
         <thead>
           <tr>
             <th>No</th>
-            <th>Id</th>
+            <th>KTP/Passport</th>
             <th>Name</th>
             <th>Gender</th>
             <th>Birth</th>
@@ -26,14 +26,14 @@
          ?>
           <tr>
             <td><?php echo $no++; ?></td>
-            <td><?php echo $guest->id; ?></td>
+            <td class="wrapword"><?php echo $guest->id; ?></td>
             <td><?php echo $guest->name; ?></td>
             <td><?php echo $guest->gender; ?></td>
-            <td><?php echo $guest->birth; ?></td>
+            <td class="text-nowrap"><?php echo $guest->birth; ?></td>
             <td><?php echo $guest->phone; ?></td>
             <td><?php echo $guest->email; ?></td>
             <td><?php echo $guest->address; ?></td>
-            <td class="text-center">
+            <td class="text-center text-nowrap">
               <button class="guest-edit btn btn-primary font-weight-bold text-white" value="<?php echo $guest->id; ?>" >
                 <span class="fa fa-pencil">
                 </span>

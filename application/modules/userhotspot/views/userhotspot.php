@@ -9,7 +9,7 @@
           <tr>
             <th>No</th>
             <th>Server</th>
-            <th>Name</th>
+            <th>Username</th>
             <th>Password</th>
             <th>Profile</th>
             <th>Uptime</th>

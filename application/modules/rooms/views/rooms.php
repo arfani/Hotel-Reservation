@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
     <div class="rooms w-100 h-100">
-      <h2 class="text-center font-weight-bold mt-3">TABLE ROOM</h2>
+      <h2 class="text-center font-weight-bold mt-3">ROOM TABLE</h2>
       <button
       id="room-add"
       class="form-control btn btn-primary mb-2 mt-2 font-weight-bold"

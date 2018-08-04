@@ -40,14 +40,16 @@
   <?php endif; ?>
 
     <!-- Dropdown -->
-    <?php if($this->session->userdata('l') == 'administrator'):  ?>
+    <?php if($this->session->userdata('l') == 'administrator' || $this->session->userdata('l') == 'operator'):  ?>
     <li class="nav-item dropdown" id="master-data-container">
       <span class="nav-link dropdown-toggle finger" id="master-data-menu" data-toggle="dropdown">
         Master Data
       </span>
       <div class="dropdown-menu">
+      <?php if($this->session->userdata('l') == 'administrator'):  ?>
         <span class="dropdown-item finger" id="guest-submenu">Guest</span>
         <span class="dropdown-item finger" id="rooms-submenu">Rooms</span>
+      <?php endif; ?>
         <span class="dropdown-item finger" id="user-submenu">User</span>
       </div>
     </li>
