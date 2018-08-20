@@ -4,7 +4,7 @@
   // user js
   // =================================================
   $('#user-tbl').DataTable()
-  
+
   // ======================
   // Adding user
   // ======================
@@ -16,7 +16,7 @@
   // ======================
   // Removing
   // ======================
-  $('.user-remove').click(function() {
+  $('#user-tbl').on('click', '.user-remove', function() {
     const id = $(this).val()
 
     $.ajax({

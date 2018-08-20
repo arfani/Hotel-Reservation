@@ -182,13 +182,11 @@ $(function(){
       alert('Please select the arrival date!')
       $('#arrival-date').focus()
     }else if (isNaN(id.val()) || id.val().length < 1 ){
-      // alert('Id data invalid!')
-      // id.focus()
-      id.val('0123456789')
+      alert('Id data invalid!')
+      id.focus()
     }else if (name.val() === ''){
-      // alert('Name cannot be empty!')
-      // name.focus()
-      name.val('Muhammad Arfani Hidayat')
+      alert('Name cannot be empty!')
+      name.focus()
     }else{
       $('#no-booking').text(Math.floor(Math.random()*10000000001))
       $('#guest-name').text(name.val())
@@ -281,12 +279,14 @@ $(function(){
                 $('#reservation-status').html('<span class="text-danger">Failed!<br />There is no connection to MikroTik Server!</span>')
                 $('#reservation-save').val('Re-Confirm')
                 $('#reservation-save').attr('disabled', false)
+                $('#reservation-save').focus()
                 $('#reservation-alert').removeClass('d-none')
                 $('#loader-img-reservation').addClass('d-none')
               }else if(response == 'duplicateusername'){
                 $('#reservation-status').html('<span class="text-info"><b>USERNAME HAS USED! PLEASE, PICK UP ANOTHER ONE!</b></span>')
                 $('#reservation-save').val('Re-Confirm')
                 $('#reservation-save').attr('disabled', false)
+                $('#reservation-save').focus()
                 $('#reservation-alert').removeClass('d-none')
                 $('#loader-img-reservation').addClass('d-none')
               } else {

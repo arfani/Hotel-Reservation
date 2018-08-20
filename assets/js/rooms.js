@@ -115,7 +115,7 @@ $(function() {
 	// ======================
 	// Removing
 	// ======================
-	$('.room-remove').click(function() {
+	$('#rooms-tbl').on('click', '.room-remove', function() {
 		const id = $(this).val()
 
 		$.ajax({
@@ -157,7 +157,7 @@ $(function() {
 	// ======================
 	// btn update clicked
 	// ===============
-	$('.room-edit').on('click', function() {
+	$('#rooms-tbl').on('click', '.room-edit', function() {
 		$('#room-modal').modal('show')
     $('#room-modal .modal-title').html('<h4> Update room!</h4>')
     // $('#room-reset').hide()

@@ -113,7 +113,7 @@ $(function() {
 	// ======================
 	// Removing
 	// ======================
-	$('.profile-remove').click(function() {
+	$('#profile-tbl').on('click', '.profile-remove', function() {
 		const id = $(this).val()
 
 		$.ajax({
@@ -150,7 +150,7 @@ $(function() {
   // ======================
 	// Updating
 	// ======================
-	$('.profile-edit').on('click', function() {
+	$('#profile-tbl').on('click', '.profile-edit', function() {
 		$('#profile-modal').modal('show')
     $('#profile-modal .modal-title').html('<h4> Update profile!</h4>')
 

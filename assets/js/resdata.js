@@ -7,7 +7,7 @@ $(function(){
   })
 
   let extId=''
-  $('.extend').click(function(){
+  $('#resdata-tbl').on('click', '.extend', function(){
     extId = $(this).val()
     $('#extend-modal').modal({
       backdrop: 'static',
@@ -19,7 +19,7 @@ $(function(){
   // =========
   // Check-out
   // =========
-  $('.check-out').click(function(){
+  $('#resdata-tbl').on('click', '.check-out', function(){
     // debugger
     const id = $(this).val()
     $.ajax({

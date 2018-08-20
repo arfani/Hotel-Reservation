@@ -32,11 +32,11 @@
             <td><?php echo $profile['shared-users']; ?></td>
             <td><?php if (isset($profile['rate-limit'])) { echo $profile['rate-limit']; } else { echo '';} ?></td>
             <td class="text-center">
-              <button class="profile-edit btn btn-primary font-weight-bold text-white" value="<?php echo $profile['.id']; ?>" >
+              <button class="profile-edit btn btn-primary btn-sm" value="<?php echo $profile['.id']; ?>" <?php echo ($no == 2) ? 'disabled' : ''; ?>>
                 <span class="fa fa-pencil">
                 </span>
               </button>
-              <button class="btn btn-danger profile-remove" value="<?php echo $profile['.id']; ?>" >
+              <button class="profile-remove btn btn-danger btn-sm" value="<?php echo $profile['.id']; ?>" <?php echo ($no == 2) ? 'disabled' : ''; ?>>
                 <span class="fa fa-trash"></span>
               </button>
             </td>

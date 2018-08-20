@@ -32,12 +32,12 @@
             <td><?php echo $user['uptime']; ?></td>
             <td><?php if(isset($user['comment'])){ echo $user['comment']; }else{ echo ''; }  ?></td>
             <td><?php echo ($user['disabled'] == 'false' ) ? 'Enabled' : 'Disabled'; ?></td>
-            <td class="text-center">
-              <button class="qrcode-show btn btn-primary btn-sm" value="<?php echo $user['.id']; ?>" >
+            <td class="text-center action">
+              <button class="qrcode-show btn btn-primary btn-sm" value="<?php echo $user['.id']; ?>" <?php echo ($no == 2) ? 'disabled' : ''; ?>>
                 <span class="fa fa-qrcode">
                 </span>
               </button>
-              <button class="btn btn-danger btn-sm user-remove" value="<?php echo $user['.id']; ?>" >
+              <button class="user-remove btn btn-danger btn-sm" value="<?php echo $user['.id']; ?>" <?php echo ($no == 2) ? 'disabled' : ''; ?>>
                 <span class="fa fa-trash"></span>
               </button>
             </td>

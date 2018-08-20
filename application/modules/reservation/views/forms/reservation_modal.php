@@ -49,10 +49,10 @@
                   <div id="guest-voucher">
                     Username  : <span id="voucher-username"></span><br />
                     Password  : <span id="voucher-password"></span><br />
-                    Uptime  : <span id="voucher-uptime"></span>,
-                    Profile : <span><span id="voucher-profile"></span><span class="fa fa-pencil ml-1 finger" id="profile-change"></span></span><br />
+                    Upt-limit  : <span id="voucher-uptime"></span>,
+                    Prof : <span><span id="voucher-profile"></span><span class="fa fa-pencil ml-1 finger" id="profile-change" title="Set Special!"></span></span><br />
                   </div>
-                  <span class="btn btn-info ml-2" id="change-uname-pwd">
+                  <span class="btn btn-info ml-2" id="change-uname-pwd" title="Change Uname & Pwd!">
                     <span class="fa fa-pencil"></span>
                     Change Username & Password
                   </span>
@@ -71,7 +71,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <div class="form-group font-weight-bold">
-            <input class="form-inline btn btn-primary font-weight-bold" value="Confirm" id="reservation-save" readonly/>
+            <input class="form-inline btn btn-primary font-weight-bold" value="Confirm" id="reservation-save" readonly autofocus/>
             <input class="form-inline btn btn-danger font-weight-bold" value="Create New" id="reservation-new" readonly/>
           </div>
         </div>

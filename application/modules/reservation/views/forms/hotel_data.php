@@ -31,8 +31,8 @@
 			<label for="child" class="w-50" style="justify-content: left">Child</label>
 		</div>
 		<div class="form-inline">
-			<input type="number" class="w-50 form-control" name="adult" value="1" id="adult" />
-			<input type="number" class="w-50 form-control" name="child" value="0" id="child" />
+			<input type="number" class="w-50 form-control" name="adult" min=1 value="1" id="adult" />
+			<input type="number" class="w-50 form-control" name="child" min=0 value="0" id="child" />
 		</div>
 
 		<!-- buttons -->

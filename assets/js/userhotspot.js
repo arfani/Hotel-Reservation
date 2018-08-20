@@ -5,7 +5,7 @@ $(function() {
 	// ======================
 	// Removing
 	// ======================
-	$('.user-remove').click(function() {
+	$('#user-tbl').on('click', '.user-remove', function() {
 		const id = $(this).val()
 		const uname = $(this).closest("tr").find('td:eq(2)').text()
 
@@ -42,13 +42,10 @@ $(function() {
   // ======================
 	// Showing
 	// ======================
-	$('.qrcode-show').on('click', function() {
+	$('#user-tbl').on('click', '.qrcode-show', function() {
 			const dnsName = $('#dns-name').text()
 			uname = $(this).closest("tr").find('td:eq(2)').text()
 			pwd = $(this).closest("tr").find('td:eq(3)').text()
-
-			$('#qrcode-modal').modal('show')
-	    $('#qrcode-modal .modal-title').html('<h4>Just scan your code!</h4>')
 
 			$('#qrcode-uname').text(uname)
 			$('#qrcode-pwd').text(pwd)
@@ -58,11 +55,18 @@ $(function() {
 				text: 'http://'+dnsName+'/login?username='+uname+'&password='+pwd
 			})
 
+			$('#qrcode-modal').modal('show')
+			$('#qrcode-modal .modal-title').html('<h4>Just scan your code!</h4>')
+
 			$('#qrcode-modal').on('hidden.bs.modal', function(){
 				$('#qrcode-uname').text('')
 				$('#qrcode-pwd').text('')
 				$('#qrcode').text('')
 			})
     })
+
+		$('#qrcode-close').click(function(){
+			$('#qrcode-modal').modal('hide')
+		})
 
 }) //end file

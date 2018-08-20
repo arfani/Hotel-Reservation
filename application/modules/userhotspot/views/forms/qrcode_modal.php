@@ -19,13 +19,13 @@
               <span class="mr-3">Username :<span id="qrcode-uname"></span></span>
               <span>Password :<span id="qrcode-pwd"></span></span>
             </div>
-            <div class="" id="qrcode"></div>
+            <div id="qrcode"></div>
             </div>
       </div> <!-- End of Modal Body -->
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <input type="button" class="btn btn-danger w-100" value="Close" id="qrcode-close" />
+          <input type="button" class="btn btn-danger w-100" value="Close" id="qrcode-close" autofocus/>
         </div>
 
       </div>

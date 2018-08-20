@@ -1,16 +1,193 @@
 $(document).ready(function(){
 
-    $('.fa-trash').parent().attr('data-toggle', 'tooltip')
-    $('.fa-trash').parent().attr('title', 'remove')
-    $('.fa-pencil').parent().attr('data-toggle', 'tooltip')
-    $('.fa-pencil').parent().attr('title', 'update')
-    $('.fa-pencil').parent().attr('data-toggle', 'tooltip')
-    $('.fa-pencil').parent().attr('title', 'update')
-    $('.fa-qrcode').parent().attr('data-toggle', 'tooltip')
-    $('.fa-qrcode').parent().attr('title', 'show qrcode')
+    // add tooltip attr to icon
+    // ==========================
+    $('.fa-trash, .fa-pencil, .fa-qrcode, .fa-ban, .fa-plus')
+    .parent().attr({
+      'data-toggle': 'tooltip',
+    })
 
+    $('.fa-pencil#profile-change').attr('data-toggle', 'tooltip')
+
+    // ==========================
     //tooltip set
     $('[data-toggle="tooltip"]').tooltip()
+
+    // Login when enter pressed
+    // ==========================
+    $('#signin-modal').bind('keypress', function(e){
+      const reset = $('#login-reset')
+      const login = $('#login-submit')
+
+      if(!reset.is(':focus')){
+      if(e.keyCode == 13){
+        login.trigger('click')
+      }
+    }else {
+      if(e.keyCode == 13){
+        reset.trigger('click')
+      }
+    }
+    })
+
+    $('#pass-root-modal').bind('keypress', function(e){
+      const cancel = $('#pass-root-cancel')
+      const login = $('#pass-root-submit')
+
+      if(!cancel.is(':focus')){
+        if(e.keyCode == 13){
+          login.trigger('click')
+        }
+      }else {
+        if(e.keyCode == 13){
+          cancel.trigger('click')
+        }
+      }
+    })
+
+    $('#signup-modal').bind('keypress', function(e){
+      const reset = $('#signup-reset')
+      const login = $('#signup-submit')
+
+      if(!reset.is(':focus')){
+      if(e.keyCode == 13){
+        login.trigger('click')
+      }
+    }else {
+      if(e.keyCode == 13){
+        reset.trigger('click')
+      }
+    }
+    })
+
+    $('#mtik-setting-modal').bind('keypress', function(e){
+      const reset = $('#mtik-reset')
+      const connect = $('#mtik-connect')
+      const disconnect = $('#mtik-disconnect')
+
+      if(!reset.is(':focus') && !disconnect.is(':focus')){
+        if(e.keyCode == 13){
+          connect.trigger('click')
+        }
+      }else if ( !disconnect.is(':focus')) {
+        if(e.keyCode == 13){
+          reset.trigger('click')
+        }
+      }else if ( !reset.is(':focus')) {
+        if(e.keyCode == 13){
+          disconnect.trigger('click')
+        }
+      }
+    })
+
+    $('#walled-modal').bind('keypress', function(e){
+      const reset = $('#walled-reset')
+      const save = $('#walled-submit')
+
+      if(!reset.is(':focus')){
+      if(e.keyCode == 13){
+        save.trigger('click')
+      }
+    }else {
+      if(e.keyCode == 13){
+        reset.trigger('click')
+      }
+    }
+    })
+
+    $('#room-modal').bind('keypress', function(e){
+      const reset = $('#room-reset')
+      const save = $('#room-submit')
+
+      if(!reset.is(':focus') && !save.is(':disabled')){
+      if(e.keyCode == 13){
+        save.trigger('click')
+      }
+    }else if(reset.is(':focus') && !reset.is(':disabled')) {
+      if(e.keyCode == 13){
+        reset.trigger('click')
+      }
+    }
+    })
+
+    $('#user-pwd-update-modal').bind('keypress', function(e){
+      const reset = $('#pwd-update-reset')
+      const save = $('#pwd-update-submit')
+
+      if(!reset.is(':focus') && !save.is(':disabled')){
+      if(e.keyCode == 13){
+        save.trigger('click')
+      }
+    }else if(reset.is(':focus') && !reset.is(':disabled')) {
+      if(e.keyCode == 13){
+        reset.trigger('click')
+      }
+    }
+    })
+
+    $('#profile-modal').bind('keypress', function(e){
+      const reset = $('#profile-reset')
+      const save = $('#profile-submit')
+
+      if(!reset.is(':focus') && !save.is(':disabled')){
+      if(e.keyCode == 13){
+        save.trigger('click')
+      }
+    }else if(reset.is(':focus') && !reset.is(':disabled')) {
+      if(e.keyCode == 13){
+        reset.trigger('click')
+      }
+    }
+    })
+
+    $('#reservation-modal').bind('keypress', function(e){
+      const confirm = $('#reservation-save')
+      const createNew = $('#reservation-new')
+
+      if(!createNew.is(':focus') && !confirm.is(':disabled')){
+      if(e.keyCode == 13){
+        confirm.trigger('click')
+      }
+    }else if(createNew.is(':focus') && !createNew.is(':disabled')) {
+      if(e.keyCode == 13){
+        createNew.trigger('click')
+      }
+    }
+    })
+
+    $('#extend-modal').bind('keypress', function(e){
+      const done = $('#ext-done')
+
+      if(e.keyCode == 13){
+        done.trigger('click')
+      }
+    })
+
+    $('#upc-modal').bind('keypress', function(e){
+      const done = $('#upc-done')
+
+      if(e.keyCode == 13){
+        done.trigger('click')
+      }
+    })
+
+    $('#special-modal').bind('keypress', function(e){
+      const cancel = $('#special-cancel')
+      const login = $('#special-submit')
+
+      if(!cancel.is(':focus')){
+        if(e.keyCode == 13){
+          login.trigger('click')
+        }
+      }else {
+        if(e.keyCode == 13){
+          cancel.trigger('click')
+        }
+      }
+    })
+
+    // End keypress managed
+    // =================================================
 
     // Get current date
     Date.prototype.toDateInputValue = (function() {
@@ -238,7 +415,6 @@ $(document).ready(function(){
       // submit create user
       // ==================
       $('#signup-submit').click(function(){
-        createUserProc()
 
         const name = $('#new-name').val()
         const uname = $('#new-username').val()
@@ -255,6 +431,7 @@ $(document).ready(function(){
           $('#new-password').focus()
           whenEmpty()
         }else {
+          createUserProc()
           $.ajax({
             type: 'post',
             url: site_url+'login/create_user',
@@ -413,7 +590,7 @@ $(document).ready(function(){
   // Reset button mtik-Server
   // =========================
   $('#mtik-reset').click(function(){
-    $('#hostname').val('')
+    $('#hostname').val('').focus()
     $('#username').val('')
     $('#password').val('')
     $('#server-alert').removeClass('d-block')

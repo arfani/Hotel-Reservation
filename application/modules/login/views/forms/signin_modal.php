@@ -42,7 +42,7 @@
                   <input class="btn btn-danger" value="Reset" id="login-reset" readonly /><br />
                 </div>
                 <div class="col-sm-12">
-                  <div class="octicon octicon-person finger w-100 p-3 font-weight-bold text-center" id="create-new-user"> <u>Create a new user</u></div>
+                  <div class="fa fa-user-plus w-100 p-3 font-weight-bold text-center"> <u class="finger"id="create-new-user">Create a new user</u></div>
                 </div>
                 </div>
               </div>

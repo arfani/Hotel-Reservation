@@ -108,7 +108,7 @@ $(function() {
 	// ======================
 	// Removing
 	// ======================
-	$('.walled-remove').click(function() {
+	$('#walled-tbl').on('click', '.walled-remove', function() {
 		const id = $(this).val()
 
 		$.ajax({
@@ -145,7 +145,7 @@ $(function() {
   // ======================
 	// Updating
 	// ======================
-	$('.walled-update').on('click', function() {
+	$('#walled-tbl').on('click', '.walled-update', function() {
 		$('#walled-modal').modal('show')
     $('#walled-modal .modal-title').html('<h4> Update walled garden!</h4>')
 

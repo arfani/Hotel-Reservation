@@ -96,7 +96,7 @@ $(function() {
 	// ======================
 	// Removing
 	// ======================
-	$('.guest-remove').click(function() {
+	$('#guest-tbl').on('click', '.guest-remove', function() {
 		const id = $(this).val()
 
 		$.ajax({
@@ -138,7 +138,7 @@ $(function() {
 	// ======================
 	// btn update clicked
 	// ===============
-	$('.guest-edit').on('click', function() {
+	$('#guest-tbl').on('click', '.guest-edit', function() {
 		$('#guest-modal').modal('show')
 		$('#guest-modal .modal-title').html('<h4> Update guest!</h4>')
 		// $('#room-reset').hide()

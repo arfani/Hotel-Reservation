@@ -48,10 +48,10 @@
             <td><?php echo $data->status; ?></td>
             <td><?php echo $data->uname_voucher; ?></td>
             <td class="text-center text-nowrap">
-              <button class="check-out btn btn-primary btn-sm" value="<?php echo $data->id; ?>" data-toggle="tooltip" title="check-out" data-placement="left">
+              <button class="check-out btn btn-primary btn-sm" value="<?php echo $data->id; ?>" title="check-out" data-placement="left">
                 <span class="fa fa-ban"></span>
               </button>
-              <button class="extend btn btn-danger btn-sm" value="<?php echo $data->id; ?>" data-toggle="tooltip" title="Extend" data-placement="left">
+              <button class="extend btn btn-danger btn-sm" value="<?php echo $data->id; ?>" title="Extend" data-placement="left">
                 <span class="fa fa-plus"></span>
               </button>
             </td>
