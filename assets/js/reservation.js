@@ -204,6 +204,8 @@ $(function(){
       $('#guest-room-numb').text(roomNumb.val())
       $('#guest-adult').text(adult.val())
       $('#guest-child').text(child.val())
+
+      $('#reservation-save').val('Confirm')
       // ===========
       if($('#guest-name').text().indexOf(' ') == -1){
         $('#guest-name').text($('#guest-name').text()+' ')
