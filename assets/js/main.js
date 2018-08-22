@@ -515,7 +515,7 @@ $(document).ready(function(){
               success:function(res){
                 if(res === 'Success connect to '+hName){
                   $('#server-status').html(res)
-                  $('#dns-name').text(hName)
+                  // $('#dns-name').text(hName) //salah broh ga pake interface yang ini
                 }else{
                   $('#server-status').html(res)
                 }

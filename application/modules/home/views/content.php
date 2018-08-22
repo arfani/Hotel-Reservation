@@ -12,13 +12,13 @@
 <!-- The slideshow -->
 <div class="carousel-inner">
   <div class="carousel-item active">
-    <img src="<?php echo base_url(); ?>assets/img/slide_1.png" alt="Los Angeles" width="1100" height="500">
+    <img src="<?php echo base_url(); ?>assets/img/slide_1.jpg" alt="Los Angeles" width="1100" height="500">
   </div>
   <div class="carousel-item">
-    <img src="<?php echo base_url(); ?>assets/img/slide_2.png" alt="Chicago" width="1100" height="500">
+    <img src="<?php echo base_url(); ?>assets/img/slide_2.jpg" alt="Chicago" width="1100" height="500">
   </div>
   <div class="carousel-item">
-    <img src="<?php echo base_url(); ?>assets/img/slide_3.png" alt="New York" width="1100" height="500">
+    <img src="<?php echo base_url(); ?>assets/img/slide_3.jpg" alt="New York" width="1100" height="500">
   </div>
 </div>
 

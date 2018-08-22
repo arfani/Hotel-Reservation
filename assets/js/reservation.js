@@ -121,13 +121,13 @@ $(function(){
   const child = $('#child')
 
   function generateVoucher(uName='guest-name', uInd=$('#guest-name').text().indexOf(' '), pwd='guest-id', pInd=6 ){
-    const dnsName = $('#dns-name').text()
     const username = $('#'+uName+'').text().substr(0, uInd)
     const password = $('#'+pwd+'').text().substr(0, pInd)
 
     $('#voucher-username').text(username)
     $('#voucher-password').text(password)
 
+    const dnsName = $('#dns-name').val()
     $('#voucher-qrcode').qrcode({
       width: 200,
       height: 200,

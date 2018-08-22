@@ -24,7 +24,8 @@
               <input type="password" class="form-control w-50" placeholder="Mikrotik pwd" id="password" />
             </div>
             <div class="form-group text-center m-2">
-              Server Host : <span id="dns-name"><?php if(isset($this->session->hostname)){ echo $this->session->hostname; } else { echo 'MikroTik Server Not Connect'; } ?></span>
+              <!-- Server Host : <span id="dns-name"><?php if(isset($this->session->hostname)){ echo $this->session->hostname; } else { echo 'MikroTik Server Not Connect'; } ?></span> -->
+              <div><b>IP Server Hotspot</b></div><center><input class="form-control w-50 text-center" value="192.168.3.2" id="dns-name" /></center>
             </div>
 
           <div class="alert alert-success alert-dismissable d-none" id="server-alert">

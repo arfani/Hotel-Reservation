@@ -43,12 +43,13 @@ $(function() {
 	// Showing
 	// ======================
 	$('#user-tbl').on('click', '.qrcode-show', function() {
-			const dnsName = $('#dns-name').text()
 			uname = $(this).closest("tr").find('td:eq(2)').text()
 			pwd = $(this).closest("tr").find('td:eq(3)').text()
 
 			$('#qrcode-uname').text(uname)
 			$('#qrcode-pwd').text(pwd)
+
+			const dnsName = $('#dns-name').val()
 			$('#qrcode').qrcode({
 				width: 300,
 				height: 300,
