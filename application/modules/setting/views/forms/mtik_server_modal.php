@@ -25,7 +25,7 @@
             </div>
             <div class="form-group text-center m-2">
               <!-- Server Host : <span id="dns-name"><?php if(isset($this->session->hostname)){ echo $this->session->hostname; } else { echo 'MikroTik Server Not Connect'; } ?></span> -->
-              <div><b>IP Server Hotspot</b></div><center><input class="form-control w-50 text-center" value="192.168.3.2" id="dns-name" /></center>
+              <div><b>IP Server Hotspot</b></div><center><input class="form-control w-50 text-center" value="192.168.100.1" id="dns-name" /></center>
             </div>
 
           <div class="alert alert-success alert-dismissable d-none" id="server-alert">
@@ -37,7 +37,7 @@
               <!-- Modal footer -->
               <div class="modal-footer">
                 <input class="btn btn-primary w-25" value="Connect" id="mtik-connect" readonly />
-                <input class="btn btn-danger w-25" value="disconnect" id="mtik-disconnect" readonly />
+                <input class="btn btn-danger w-25" value="Disconnect" id="mtik-disconnect" readonly />
                 <input class="btn btn-dark w-25" value="Reset" id="mtik-reset" readonly />
               </div>
             <!-- </form> -->
