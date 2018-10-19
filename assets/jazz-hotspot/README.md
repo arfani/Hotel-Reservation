@@ -1,0 +1,2 @@
+# hotspot
+Template Hotspot MikroTik
