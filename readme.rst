@@ -23,7 +23,7 @@ Libraries Used
 **************************
 Programmer
 **************************
-- Nama    : Muhammad Arfani Hidayat, A.Md. Kom.
+- Nama    : Muhammad Arfani Hidayat
 - NIM     : 1610550015
 - Jurusan : S1 Teknik Informatika
 - Kampus  : STMIK Bumi Gora Mataram
