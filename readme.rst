@@ -1,7 +1,7 @@
 ######################################
-Jazz Senggigi Hotel Reservation System
+Hotel Reservation System
 ######################################
-Aplikasi Reservasi Hotel ini digunakan untuk membantu proses reservasi di Jazz Senggigi Hotel yang memanfaatkan MikroTik API untuk berkomunikasi dengan jaringan Mikrotik yang sudah ada di Jazz Senggigi Hotel.
+Aplikasi Reservasi Hotel ini digunakan untuk membantu proses reservasi hotel yang memanfaatkan MikroTik API agar dapat berkomunikasi dengan jaringan Mikrotik untuk membuat voucher hotspot secara otomatis.
 
 *******************
 Programming Languages
@@ -30,5 +30,5 @@ Programmer
 - Email   : Arfanihidayat@gmail.com
 
 ************************
-Thanks for your supports
+Thanks for your support
 ************************
